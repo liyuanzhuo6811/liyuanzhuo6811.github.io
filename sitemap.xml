@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://liyuanzhuo6811.github.io/8-1-sdsc2024/</loc>
+    
+    <lastmod>2024-08-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://liyuanzhuo6811.github.io/diversity/theme/index.html</loc>
+    
+    <lastmod>2024-08-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://liyuanzhuo6811.github.io/diversity/blog/index.html</loc>
+    
+    <lastmod>2024-08-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>http://liyuanzhuo6811.github.io/</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>http://liyuanzhuo6811.github.io/tags/%E6%B8%B8%E5%AF%84/</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+</urlset>
