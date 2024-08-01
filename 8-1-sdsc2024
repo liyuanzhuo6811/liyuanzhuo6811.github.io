@@ -1,74 +1,158 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="zh-cn">
 <head>
-    <meta charset="utf-8">
-    
-    <title>sdsc2024 | Li Yuanzhuo&#39;s Blog</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/favicon/favicon.ico">
-    
+<!--Description-->
+
+
+
+    <meta name="description" content="一个菜鸡/蒟蒻"/>
+
+
+<!--Author-->
+
+    <meta name="author" content="Li Yuanzhuo"/>
+
+
+<!--Open Graph Title-->
+
+    <meta property="og:title" content="sdsc2024"/>
+
+
+<!--Open Graph Description-->
+
+    <meta property="og:description" content="一个菜鸡/蒟蒻"/>
+
+
+<!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Li Yuanzhuo&#39;s Blog"/>
+
+<!--Type page-->
+
+    <meta property="og:type" content="article"/>
+
+
+<!--Page Cover-->
+
+
+    <meta property="og:image" content="http://liyuanzhuo6811.github.io/img/home-bg.jpg"/>
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+
+
+
+
+    <meta name="twitter:image" content="http://liyuanzhuo6811.github.io/img/home-bg.jpg"/>
+
+
+<!-- Title -->
+
+<title>sdsc2024 | Li Yuanzhuo&#39;s Blog</title>
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+<!-- Custom CSS -->
+
 <link rel="stylesheet" href="/css/main.css">
 
-    
-<link rel="stylesheet" href="/css/tagplugins.css">
 
-    
-<link rel="stylesheet" href="/css/highlight.css">
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css" />
+<link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css" />
+<link href="//fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
 
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Gallery -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/featherlight@1.4.0/src/featherlight.css" integrity="sha256-30DV/STftlyQ6v8yaOWlabammvCYtRJERLj/m0b3zno=" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/lightgallery@1.6.11/dist/css/lightgallery.min.css">
+
+<!-- favicon -->
+
+<link rel="icon" href="/img/favicon.png"/>
+
+
+
+    <!-- Google Analytics -->
     
 
 
-    <!-- rss -->
-    
-    
-      <link rel="alternate" href="/atom.xml" title="Li Yuanzhuo&#39;s Blog" type="application/atom+xml" />
-    
 <meta name="generator" content="Hexo 7.3.0"></head>
+<!-- Head tag -->
 
 <body>
-  <div class="blog-header">
-   <a id="menu-nav-icon"><img src="/image/menu.png"/></a>
-   <div class="nav-container">
-     <nav id="main-nav">
-       
-         <a class="main-nav-link" href="/">Home</a>
-       
-         <a class="main-nav-link" href="/archives">Archives</a>
-       
-     </nav>
-   </div>
-   <!--
-   <div id="search-form-wrap">
-     <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liyuanzhuo6811.github.io"></form>
-   </div>
- -->
-    <h1 class="blog-title">Li Yuanzhuo&#39;s Blog</h1>
-    <p class="lead blog-description">此生无悔入OI，来世继续修电脑</p>
-</div>
 
-  <div id='main-part'>
-      <div class="main">
-<div class="blog-post">
-    <!-- Title -->
-    <h1 class="blog-post-title">
-        <a href="/8-1-sdsc2024">
-            Sdsc2024
-        </a>
-    </h1>
-    <!-- Date and Author -->
-    <p class="blog-post-meta">
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top bg-transparent position-absolute w-100 p-0" id="nav">
+    <div class="container pl-0 pr-0">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand text-white p-1 pl-3" href="/">Li Yuanzhuo's Blog</a>
+        </div>
+        <div class="navbar-nav float-right">
+            <button class="btn btn-link search-btn navbar-item" data-toggle="modal" data-target="#searchModal">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 text-center">
+                <div class="post-heading text-white">
+                    <h1>sdsc2024</h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                
+                    <span class="meta d-inline-block">
+    
+    
+    <!-- Date -->
+    
+        <span class="post-meta-split">&nbsp;|&nbsp;</span>
+        <i class="far fa-calendar-check fa-fw"></i>
         2024-08-01
-        
-    </p>
+    
+    <!-- word count and read count -->
+    
 
     
 
-    <!-- Content -->
-    <h1 id="SDSC2024-游记"><a href="#SDSC2024-游记" class="headerlink" title="SDSC2024 游记"></a>SDSC2024 游记</h1><p>怀着激动的心情，我报名了SDSC2024。</p>
+    
+</span>  
+                
+                <h1 id="SDSC2024-游记"><a href="#SDSC2024-游记" class="headerlink" title="SDSC2024 游记"></a>SDSC2024 游记</h1><p>怀着激动的心情，我报名了SDSC2024。</p>
 <h2 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h2><p>报道日，我12点就到了宿舍（要求是3点到），然后就对着空无一人的房间发呆，等了半天才等到了Taoran_01来，然后就是好多人都来了。</p>
 <p>简单了解了一下，宿舍共6人，2个新高一，2个新初三，2个新初二，全部是SDFZ学生。其中lalaji老师不在这住，只是来这里报道，往后他也只是在这里午休。于是我们就把离空调最近的上铺给了他（反正他也用不到），剩下的人各自选了一张床。</p>
 <h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>第一天打模拟赛，四道题目三道是原·题，只有T1是原创的（模板）题。结果就只做出来了那个最小生成树的模板，然后后面就一直在打暴力。</p>
@@ -85,89 +169,220 @@
 <p>下午讲树上DP，听懂了大部分。</p>
 <h2 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h2><p>好吧，这场比赛真的是让人感到神清气爽。不是因为题目简单，而是因为老师修改的题面。第四题的题目：<br>$$原始人（whatcanisay）$$<br>啊？？？这是什么玩意？题目背景上直接放一张图片，虽然我也不知道是什么意思，但是我知道这大概不是NOIP系列模拟赛应该出现的东西。然后下午评测出来第一题全是0分，出题人检查std后得出结论：std没加多测。</p>
 <p>好好好。下午讲DP优化，从单调队列开始，晋升到斜率优化，四边形不等式优化，@￥%&amp;@#￥*%&amp;@#￥优化，反正前面都能听懂，后面到底是什么东西啊？！于是就找了几个小题练习了一下，根本就没听后面的东西（反正听不懂）。</p>
-<p>由于当天课程结束比较早，而我们又不愿意这么早离开机房，于是当天我们的表情包就翻了一番（主要是因为老师（其实也是高三刚毕业的学生）带动的）。以下是一些精选表情包（主要是聊天记录的截屏）：<br><img src="/qiyi.png" alt="起义"><img src="/laoda.gif" alt="牢大"><img src="/shaboyi.png" alt="老师骂人现场"><img src="/chuiziliandao.png" alt="言论自由"></p>
+<p>由于当天课程结束比较早，而我们又不愿意这么早离开机房，于是当天我们的表情包就翻了一番（主要是因为老师（其实也是高三刚毕业的学生）带动的）。以下是一些精选表情包（主要是聊天记录的截屏）：<br><div class="img-item" data-src="/qiyi.png" data-sub-html=".caption"><img src="/qiyi.png" alt="起义"><div class="img-caption d-block text-center"><span class="center-caption text-muted border-bottom">起义</span></div></div><div class="img-item" data-src="/laoda.gif" data-sub-html=".caption"><img src="/laoda.gif" alt="牢大"><div class="img-caption d-block text-center"><span class="center-caption text-muted border-bottom">牢大</span></div></div><div class="img-item" data-src="/shaboyi.png" data-sub-html=".caption"><img src="/shaboyi.png" alt="老师骂人现场"><div class="img-caption d-block text-center"><span class="center-caption text-muted border-bottom">老师骂人现场</span></div></div><div class="img-item" data-src="/chuiziliandao.png" data-sub-html=".caption"><img src="/chuiziliandao.png" alt="言论自由"><div class="img-caption d-block text-center"><span class="center-caption text-muted border-bottom">言论自由</span></div></div></p>
 <h3 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h3>
+            </div>
 
-    <!-- Social share choices -->
+            <!-- Post information -->
+            
+            
+
+            
+                <!-- Comments -->
+                
+
+                
+
+            
+
+        </div>
+    </div>
+</article> 
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    <style>
+        #toc-content .toc-link::before {
+            background-color: transparent;
+            max-height: 25px;
+        }
+
+        #toc-content .toc-link.is-active-link::before {
+            background-color: #404040;
+        }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <div class="ui-toc dropup scrollspy-body pull-right" style="right: 3%;">
+        <button type="button" class="toc-btn btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+            <i class="fas fa-list"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right p-2"  aria-labelledby="tocLabel">
+            <div class="toc-widget">
+                <div id="toc-content" class="text-truncate">
+                </div>
+            </div>
+            <div class="toc-menu pt-3 pl-4">
+                <a class="expand-toggle d-block py-1" href="#"><span class="expand-text">Expand all</span><span class="close-text" style="display: none;">Collapse all</span></a>
+                <a class="back-to-top d-block py-1" href="#">Back to top</a>
+                <a class="go-to-bottom d-block py-1" href="#">Go to bottom</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '#toc-content',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: 'article',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+    </script>
+
+
     
-  <div id="social-share">
-    <a data-url="http://liyuanzhuo6811.github.io/8-1-sdsc2024" target="_blank" rel="noopener" href="https://plus.google.com/share?url=" class="googleplus"><img src="/image/googleplusicon.png" alt=""/></a>
-    <a data-url="http://liyuanzhuo6811.github.io/8-1-sdsc2024" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=" class="twitter"><img src="/image/twittericon.png" alt=""/></a>
-    <a data-url="http://liyuanzhuo6811.github.io/8-1-sdsc2024" target="_blank" rel="noopener" href="http://pinterest.com/pin/create/button/?url=" class="pinterest"><img src="/image/pinteresticon.png" alt=""/></a>
-    <a data-url="http://liyuanzhuo6811.github.io/8-1-sdsc2024" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=" class="facebook"><img src="/image/facebookicon.png" alt=""/></a>
-  </div>
 
 
-
-
-
-<!--
-
-
-https://www.facebook.com/sharer/sharer.php?u=http://liyuanzhuo6811.github.io/8-1-sdsc2024
-http://liyuanzhuo6811.github.io/8-1-sdsc2024
--->
-
-
-
+    <!-- Footer -->
     <hr />
 
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 text-center">
+                <ul class="list-inline">
+                    
 
-    <!-- Tags and Categories links -->
-    
+                    
 
-    
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <ul class="copyright footer-menu list-inline">
+                    
+                    
+                        <li class="list-inline-item">
+                            
+                            
+                            <a href="/">
+                                
+                                    Home
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/archives">
+                                
+                                    Archives
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/tags">
+                                
+                                    Tags
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/categories">
+                                
+                                    Categories
+                                
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            
+                                <span class="copyright-split">&nbsp;|&nbsp;</span>
+                            
+                            
+                            <a href="/about">
+                                
+                                    About
+                                
+                            </a>
+                        </li>
+                    
+                </ul>
+                <p class="copyright footer-author">
+                    &copy; -2024 
+                    <a rel="external" class="copyright-link" href="" target="_blank">Li Yuanzhuo</a><br/>
+                    Powered by <a rel="external" class="copyright-link" href="https://hexo.io/" target="_blank">Hexo</a>  
+                    <span class="copyright-split">&nbsp;|&nbsp;&nbsp;</span>
+                    Theme <a rel="external" class="copyright-link" href="https://github.com/luswdev/hexo-theme-clean.git" target="_blank">Clean</a>
+                    
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
-    <!-- Comment using disqus -->
-    
+    <!-- After footer scripts -->
+    <!-- jQuery -->
+<script src="//cdn.jsdelivr.net/npm/jquery@2.1.4/dist/jquery.min.js"></script>
 
-</div>
-</div>
+<!-- For drop down -->
+<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
-
-  </div>
-  <!-- Footer -->
-  <div id="footer">
-  <div id="footer-social">
-    
-    
-    
-    
-    
-    
-</div>
-
-  <p id="footer-info">
-    &copy; 2024 Li Yuanzhuo<br>
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -
-    Theme <a href="https://github.com/Suolawangzai/hexo-theme-nebula" target="_blank">nebula</a>
-  </p>
-
-  <div id="busuanzi">
-    <span id="busuanzi_container_site_pv">
-      &hearts;
-    Total visits: <span id="busuanzi_value_site_pv"></span>
-    </span>
-  </div>
-  <!--
-  <div id="footer-info">
-    &copy; 2024 Li Yuanzhuo<br>
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-  </div>
--->
-</div>
-
-  <!-- After footer scripts -->
-  <!-- Disqus Comments -->
+<!-- Bootstrap -->
+<script src="//cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<!-- Gallery -->
+<script src="//cdn.jsdelivr.net/npm/lightgallery@1.6.11/dist/js/lightgallery-all.min.js"></script>
+<!-- Busuanzi -->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Search script -->
+
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        searchFunc( '/search.xml' , 'searchInput', 'searchResult');
+    });
+</script>
+
+
 
 <script src="/js/main.js"></script>
 
 
-</body>
 
+    <!-- Search Modal -->
+    <!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content overflow-auto">
+            <div class="modal-header">
+                <input type="text" class="form-control" placeholder="Searching Keywords..." id="searchInput">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="searchResult">
+                    <div class="search-empty text-center text-muted p-5">
+                        <i class="far fa-meh"></i>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+</body>
 </html>
