@@ -11,6 +11,24 @@
   </url>
   
   <url>
+    <loc>http://liyuanzhuo6811.github.io/8-1-sdsc2024/</loc>
+    
+    <lastmod>2024-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://liyuanzhuo6811.github.io/8-3-tarjan-and-connection/</loc>
+    
+    <lastmod>2024-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://liyuanzhuo6811.github.io/8-3-rmq-compare/</loc>
     
     <lastmod>2024-08-03</lastmod>
@@ -23,15 +41,6 @@
     <loc>http://liyuanzhuo6811.github.io/links/index.html</loc>
     
     <lastmod>2024-08-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://liyuanzhuo6811.github.io/8-1-sdsc2024/</loc>
-    
-    <lastmod>2024-08-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -58,7 +67,7 @@
 
   <url>
     <loc>http://liyuanzhuo6811.github.io/</loc>
-    <lastmod>2024-08-03</lastmod>
+    <lastmod>2024-08-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -66,14 +75,14 @@
   
   <url>
     <loc>http://liyuanzhuo6811.github.io/tags/%E6%B8%B8%E5%AF%84/</loc>
-    <lastmod>2024-08-03</lastmod>
+    <lastmod>2024-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://liyuanzhuo6811.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-08-03</lastmod>
+    <lastmod>2024-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
