@@ -1,0 +1,8 @@
+@font-face {
+  font-family: Microsoft;
+  font-display: swap;
+  src: url('/font/CascadiaCode.ttf') format("truetype");  
+}
+body {
+  font-family: Microsoft
+}
