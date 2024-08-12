@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://liyuanzhuo6811.github.io/8-12-youhua-dp/</loc>
+    
+    <lastmod>2024-08-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://liyuanzhuo6811.github.io/8-3-tarjan-and-connection/</loc>
     
     <lastmod>2024-08-11</lastmod>
