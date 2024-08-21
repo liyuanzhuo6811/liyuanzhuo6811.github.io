@@ -1,7 +1,7 @@
-https://snowflavour.cn/8-20-test/
-https://snowflavour.cn/8-15-zhuangya-dp/
-https://snowflavour.cn/8-12-youhua-dp/
-https://snowflavour.cn/8-5-qujian-k-xiaozhi/
-https://snowflavour.cn/8-3-tarjan-and-connection/
-https://snowflavour.cn/8-3-rmq-compare/
-https://snowflavour.cn/8-1-sdsc2024/
+http://snowflavour.cn/8-20-test/
+http://snowflavour.cn/8-15-zhuangya-dp/
+http://snowflavour.cn/8-12-youhua-dp/
+http://snowflavour.cn/8-5-qujian-k-xiaozhi/
+http://snowflavour.cn/8-3-tarjan-and-connection/
+http://snowflavour.cn/8-3-rmq-compare/
+http://snowflavour.cn/8-1-sdsc2024/
