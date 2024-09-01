@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://snowflavour.cn/8-15-zhuangya-dp/</loc>
+    
+    <lastmod>2024-09-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://snowflavour.cn/9-1-dp-fangchengs/</loc>
+    
+    <lastmod>2024-09-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://snowflavour.cn/about/index.html</loc>
     
     <lastmod>2024-08-23</lastmod>
@@ -32,15 +50,6 @@
     <loc>http://snowflavour.cn/8-20-test/</loc>
     
     <lastmod>2024-08-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://snowflavour.cn/8-15-zhuangya-dp/</loc>
-    
-    <lastmod>2024-08-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -121,7 +130,7 @@
 
   <url>
     <loc>http://snowflavour.cn/</loc>
-    <lastmod>2024-08-23</lastmod>
+    <lastmod>2024-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -129,21 +138,21 @@
   
   <url>
     <loc>http://snowflavour.cn/tags/%E6%B8%B8%E5%AF%84/</loc>
-    <lastmod>2024-08-23</lastmod>
+    <lastmod>2024-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://snowflavour.cn/tags/%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2024-08-23</lastmod>
+    <lastmod>2024-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://snowflavour.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-08-23</lastmod>
+    <lastmod>2024-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
