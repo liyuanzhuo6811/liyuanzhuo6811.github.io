@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://snowflavour.cn/10-18-Gauss%E2%80%93Jordan-elimination/</loc>
+    
+    <lastmod>2024-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://snowflavour.cn/10-18-solution-abc281g/</loc>
     
     <lastmod>2024-10-18</lastmod>
@@ -148,7 +157,7 @@
 
   <url>
     <loc>http://snowflavour.cn/</loc>
-    <lastmod>2024-10-18</lastmod>
+    <lastmod>2024-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -156,28 +165,28 @@
   
   <url>
     <loc>http://snowflavour.cn/tags/%E6%B8%B8%E5%AF%84/</loc>
-    <lastmod>2024-10-18</lastmod>
+    <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://snowflavour.cn/tags/%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2024-10-18</lastmod>
+    <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://snowflavour.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-10-18</lastmod>
+    <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://snowflavour.cn/tags/%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2024-10-18</lastmod>
+    <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
