@@ -1,0 +1,13 @@
+@font-face {
+  font-family: Microsoft;
+  font-display: swap;
+  src: url('/font/CascadiaCode.ttf') format("truetype");  
+}
+@font-face {
+  font-family: PingFang;
+  font-display: swap;
+  src: url('/font/Pingfang.ttf') format("truetype");  
+}
+body {
+  font-family: PingFang
+}
