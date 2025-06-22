@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Li Yuanzhuo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Part 0. 引子 Tarjan，是图的连通性的一类算法们。没错，这个算法如果你到洛谷上面查的话，会有5个模板题。他们分别是：点双连通分量，边双连通分量，缩点（强连通分量），割点，割边。 没错，就是这么多。他们的基本思路都一样，就是一个 dfn 和一个 low。如果让一个学过Tarjan的人评价一下这个算法的话，那就是四个字，又臭又长！ 不过虽然他的代码很长也很难理解，但是他的作用是巨大的，很多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tarjan与图的连通性">
+<meta property="og:url" content="http://snowflavour.cn/8-3-tarjan-and-connection/index.html">
+<meta property="og:site_name" content="Li Yuanzhuo&#39;s Blog">
+<meta property="og:description" content="Part 0. 引子 Tarjan，是图的连通性的一类算法们。没错，这个算法如果你到洛谷上面查的话，会有5个模板题。他们分别是：点双连通分量，边双连通分量，缩点（强连通分量），割点，割边。 没错，就是这么多。他们的基本思路都一样，就是一个 dfn 和一个 low。如果让一个学过Tarjan的人评价一下这个算法的话，那就是四个字，又臭又长！ 不过虽然他的代码很长也很难理解，但是他的作用是巨大的，很多">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-03T09:07:25.000Z">
+<meta property="article:modified_time" content="2025-06-21T09:46:57.080Z">
+<meta property="article:author" content="Li Yuanzhuo">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="图论">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Tarjan与图的连通性 - Li Yuanzhuo&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"snowflavour.cn","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":false,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SnowFlavour&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://s21.ax1x.com/2024/08/04/pkvFMkQ.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Tarjan与图的连通性"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-03 17:07" pubdate>
+          2024年8月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Tarjan与图的连通性</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="part-0-引子">Part 0. 引子</h1>
+<p>Tarjan，是图的连通性的一类算法<strong>们</strong>。没错，这个算法如果你到洛谷上面查的话，会有5个模板题。他们分别是：点双连通分量，边双连通分量，缩点（强连通分量），割点，割边。</p>
+<p>没错，就是这么多。他们的基本思路都一样，就是一个 <code>dfn</code> 和一个 <code>low</code>。如果让一个学过Tarjan的人评价一下这个算法的话，那就是四个字，又臭又长！</p>
+<p>不过虽然他的代码很长也很难理解，但是他的作用是巨大的，很多图论相关的题目都可以用Tarjan进行化简，让他变成可做题。</p>
+<h1 id="part-1-dfn与low-tarjan的核心思想">Part 1. DFN与LOW——Tarjan的核心思想</h1>
+<p>DFN是DFS序，也就是说，对于一棵树，我们在进行DFS的时候，DFN就是搜索到当前节点的时间戳。那么，在一个图中呢？</p>
+<p>如果我们的图是存在环的，那么我们的一个显然思路就是一个 <code>vis</code> 数组标记是否已经到达过。虽然这样有些时候会发生问题，平时我们不这么干，但是对于 Tarjan，他是有用的。</p>
+<p>请想象一下，我们对一个图（不管是有向还是无向），跑一遍 DFS，如果 <code>vis</code> 过了就跳过，否则 DFS这个点，这样最终会形成什么样的数据结构？树！没错，这个方式跑出来的树，叫做 DFS 生成树。这样，在树上就有四种边：</p>
+<ul>
+<li>树边：作为 DFS 生成树的一条边</li>
+<li>返祖边：不经过父亲，直接回到祖先的边</li>
+<li>横叉边：不经过父亲，到达不在同一子树上的边（在无向图中并不存在，因为如果有这样的边，那么在两个端点中 <code>dfn</code> 较小的那个一定会DFS到他）</li>
+<li>前向边：指向子树的边（在无向图中，这就是返祖边）</li>
+</ul>
+<p>定义一个 <code>low</code> 数组，用于记录某一个节点<strong>不经过父节点</strong>能够到达的DFN最小的在同一棵子树上的节点。显然，这里只有返祖边是有用的，其他的边都不行。这里，定义一个节点是可以到达它本身的，也就是说， <code>low[i]</code> 最小就应该是 <code>dfn[i]</code>。</p>
+<p>它有什么用呢？如果他能够不经过父节点而到达比父节点DFN更小的节点，就证明他爹没封死他的所有路，还是有一些小道可以通向世界的。（雾</p>
+<p>大体就是这个意思。所以说，这个 <code>low</code>，就是Tarjan解决图的连通性问题的一个重要工具。</p>
+<h1 id="part-2-tarjan-核心代码">Part 2. Tarjan 核心代码</h1>
+<p>Tarjan的核心代码就是 Tarjan 的递归部分。</p>
+<p>下面是核心代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>{</span><br><span class="line">    low[x]=dfn[x]=++tot;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;e[x].<span class="built_in">size</span>();i++){</span><br><span class="line">        <span class="type">int</span> v=e[x][i];</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v])<span class="built_in">tarjan</span>(v),low[x]=<span class="built_in">min</span>(low[x],low[v]);</span><br><span class="line">        <span class="keyword">else</span> low[x]=<span class="built_in">min</span>(low[x],dfn[v]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span>(dfn[x]&lt;=low[x]){</span><br><span class="line">        <span class="comment">// 实力不详，遇强则强</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>其中，第一部分为递归部分，也就是进行 DFS，第二部分是处理部分，把 DFS 到的内容进行处理。处理部分的位置并不确定，一些算法是在递归后立刻判断，另一部分是全部DFS完了以后再进行处理。</p>
+<p>接下来，就是各种常用的算法了。</p>
+<h1 id="part-3-割点">Part 3. 割点</h1>
+<h2 id="思路">思路</h2>
+<p>首先，如果一个图能够互相连通，就称作这个图是连通图。如果一个图不是连通图，则其中每一个<strong>极大的</strong>连通子图（也就是说，没有节点与这个子图连通），就称作连通分量。</p>
+<p>一个连通图就是一个连通分量。</p>
+<p>如果去掉某一个节点，使得这个图的连通分量增加，也就是把原来的一个连通分量分割成了几部分，那么这个点就称为割点。</p>
+<p>这里我们以无向图为例，有向图类似。</p>
+<p>首先，我们构造一个 DFS 生成树。接下来，判断根节点是不是割点。很明显，只要他有两个以上的子树，那么他就是割点。</p>
+<p>那么，对于子树中的节点，我们怎么判断呢？这个时候就要用到 <code>dfn</code> 与 <code>low</code> 了。只要某个点不是割点，他的子节点就必然会有一条返祖边可以不经过父亲，直接到达祖先。这是因为，删去他的父节点，这些节点依然可以连向他的祖先，连通性不受影响。</p>
+<p>反过来也成立，只要有一个子节点的 <code>low</code> 小于等于当前节点的 <code>dfn</code> ，就证明这个节点不经过父亲没法到达其他子树以外的节点，也就证明删掉父亲他就与世隔绝了。</p>
+<h2 id="代码-模板题-p3388">代码（模板题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3388">P3388</a>）</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e5</span><span class="number">+10</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;e[N];</span><br><span class="line"><span class="type">int</span> low[N],dfn[N];</span><br><span class="line"><span class="type">int</span> tot,s;</span><br><span class="line"><span class="type">bool</span> iscut[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>{</span><br><span class="line">    low[x]=dfn[x]=++tot;</span><br><span class="line">    <span class="type">int</span> cl=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;e[x].<span class="built_in">size</span>();i++){</span><br><span class="line">        <span class="type">int</span> v=e[x][i];</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v]){</span><br><span class="line">            cl++;</span><br><span class="line">            <span class="built_in">tarjan</span>(v);</span><br><span class="line">            low[x]=<span class="built_in">min</span>(low[x],low[v]);</span><br><span class="line">            <span class="keyword">if</span>(low[v]&gt;=dfn[x]&amp;&amp;x!=s){</span><br><span class="line">                iscut[x]=<span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> low[x]=<span class="built_in">min</span>(low[x],dfn[v]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span>(x==s&amp;&amp;cl&gt;=<span class="number">2</span>)iscut[s]=<span class="number">1</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++){</span><br><span class="line">        <span class="type">int</span> u,v;</span><br><span class="line">        cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        e[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        e[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++){</span><br><span class="line">        <span class="keyword">if</span>(!dfn[i])s=i,<span class="built_in">tarjan</span>(i);</span><br><span class="line">    }</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++){</span><br><span class="line">        <span class="keyword">if</span>(iscut[i])ans++;</span><br><span class="line">    }</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++){</span><br><span class="line">        <span class="keyword">if</span>(iscut[i])cout&lt;&lt;i&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1 id="part-4-割边">Part 4. 割边</h1>
+<h2 id="思路">思路</h2>
+<p>割边和割点几乎就是同一个东西，割边就是去掉一条边之后，连通分量增加。代码也完全相同，所以这里就不详细展示了。</p>
+<h1 id="part-5-点双连通分量">Part 5. 点双连通分量</h1>
+<h2 id="定义">定义</h2>
+<ul>
+<li>点双连通：没有割点，也就是说去掉任意一个点后图依然联通</li>
+<li>点双连通分量：和连通分量类似，没有割点的极大子图</li>
+</ul>
+<h2 id="思路">思路</h2>
+<p>还是 Tarjan。刚才我们是在求割点，那么我们这里思考，一个双连通分量和其他双连通分量必然是一个割点连接。同时，一个点本身是<strong>双连通</strong>的（这里注意，不是双连通分量）。</p>
+<p>如果一个子图是一个点双连通分量，那么在 <code>dfn</code>，<code>low</code> 上会有什么样的表现呢？很显然，如果一个子图是双连通的，那么就有</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>w</mi><mi>i</mi></msub><mo>≤</mo><mi>d</mi><mi>f</mi><msub><mi>n</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">low_i \le dfn_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>如果一个子图是点双连通分量呢？那么这里就能取等了。</p>
+<p>这样我们就有了基本思路，那就是 DFS 以后用这两个数组判断他是不是点双的根节点。问题来了，怎么确定这个分量里面的其他节点呢？</p>
+<p>这里就要用到我们的栈了。我们定义一个栈，用来表示当前搜索到并且还没有被划入连通分量的节点，那么我们每搜索到一个节点就入栈，先进行DFS，然后判断这个节点是不是有刚才的条件，如果是，那么就证明他就是一个点双，这样就把这些元素出栈，一直出栈到他自己为止。</p>
+<p>思路清晰，代码吃人。就算学会了，也得勤加练习才行。</p>
+<h2 id="代码-模板题-p8435">代码（模板题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8435">P8435</a>）</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e6</span><span class="number">+10</span>;</span><br><span class="line">stack&lt;<span class="type">int</span>&gt;s;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;e[N];</span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;as;</span><br><span class="line"><span class="type">bool</span> ins[N];</span><br><span class="line"><span class="type">int</span> dfn[N],low[N];</span><br><span class="line"><span class="type">int</span> n,cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> fa)</span></span>{</span><br><span class="line">    ins[x]=<span class="number">1</span>;</span><br><span class="line">    s.<span class="built_in">push</span>(x);</span><br><span class="line">    dfn[x]=low[x]=++cnt;</span><br><span class="line">    <span class="keyword">if</span>(!e[x].<span class="built_in">size</span>()&amp;&amp;fa==<span class="number">0</span>)as.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;{x});</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;e[x].<span class="built_in">size</span>();i++){</span><br><span class="line">        <span class="type">int</span> v=e[x][i];</span><br><span class="line">        <span class="keyword">if</span>(v==fa)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v]){</span><br><span class="line">            <span class="built_in">tarjan</span>(v,x);</span><br><span class="line">            low[x]=<span class="built_in">min</span>(low[x],low[v]);</span><br><span class="line">            <span class="keyword">if</span>(dfn[x]&lt;=low[v]){</span><br><span class="line">                vector&lt;<span class="type">int</span>&gt;ans;</span><br><span class="line">                <span class="type">int</span> t;</span><br><span class="line">				<span class="keyword">do</span>{</span><br><span class="line">					t=s.<span class="built_in">top</span>();</span><br><span class="line">                    s.<span class="built_in">pop</span>();</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(t);</span><br><span class="line">				}<span class="keyword">while</span>(t!=v);</span><br><span class="line">                ans.<span class="built_in">push_back</span>(x);</span><br><span class="line">                as.<span class="built_in">push_back</span>(ans);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(ins[v])low[x]=<span class="built_in">min</span>(low[x],dfn[v]);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span>(m--){</span><br><span class="line">        <span class="type">int</span> u,v;</span><br><span class="line">        cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        <span class="keyword">if</span>(u==v)<span class="keyword">continue</span>;</span><br><span class="line">        e[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        e[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++){</span><br><span class="line">        <span class="keyword">if</span>(!dfn[i])<span class="built_in">tarjan</span>(i,<span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">    cout&lt;&lt;as.<span class="built_in">size</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;as.<span class="built_in">size</span>();i++){</span><br><span class="line">        cout&lt;&lt;as[i].<span class="built_in">size</span>()&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;as[i].<span class="built_in">size</span>();j++)cout&lt;&lt;as[i][j]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1 id="part-6-边双连通分量">Part 6. 边双连通分量</h1>
+<h2 id="思路">思路</h2>
+<p>和点双类似，只是把割点变成了割边。</p>
+<p>在求点双的时候，我们是在遍历节点的时候寻找点双的。这是因为一个割点可能是多个点双的公共部分，因而不能直接在循环结束以后再进行检查。</p>
+<p>但是边双的性质更好，每一条割边不会属于任何一个边双，也就意味着每一个连通分量不会有重合部分。证明很简单，如果割边在边双里面，那么删掉他就一定会导致连通分量增加，因此肯定不对。</p>
+<p>那么我们就直接遍历所有节点，遍历完再检查是否有刚才的条件即可。</p>
+<h2 id="代码-模板题-p8436">代码（模板题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8436">P8436</a>）</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e6</span><span class="number">+10</span>;</span><br><span class="line">stack&lt;<span class="type">int</span>&gt;s;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;e[N];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;id[N];</span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;as;</span><br><span class="line"><span class="type">bool</span> ins[N];</span><br><span class="line"><span class="type">int</span> dfn[N],low[N];</span><br><span class="line"><span class="type">int</span> n,cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> fa,<span class="type">int</span> idx)</span></span>{</span><br><span class="line">    ins[x]=<span class="number">1</span>;</span><br><span class="line">    s.<span class="built_in">push</span>(x);</span><br><span class="line">    dfn[x]=low[x]=++cnt;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;e[x].<span class="built_in">size</span>();i++){</span><br><span class="line">        <span class="type">int</span> v=e[x][i];</span><br><span class="line">        <span class="keyword">if</span>(v==fa&amp;&amp;i==idx)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v]){</span><br><span class="line">            <span class="built_in">tarjan</span>(v,x,id[x][i]);</span><br><span class="line">            low[x]=<span class="built_in">min</span>(low[x],low[v]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(ins[v])low[x]=<span class="built_in">min</span>(low[x],dfn[v]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span>(dfn[x]==low[x]){</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt;ans;</span><br><span class="line">        <span class="type">int</span> t=s.<span class="built_in">top</span>();</span><br><span class="line">        <span class="keyword">do</span>{</span><br><span class="line">            t=s.<span class="built_in">top</span>();</span><br><span class="line">            ans.<span class="built_in">push_back</span>(t);</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">        }<span class="keyword">while</span>(t!=x);</span><br><span class="line">        as.<span class="built_in">push_back</span>(ans);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span>(m--){</span><br><span class="line">        <span class="type">int</span> u,v;</span><br><span class="line">        cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        <span class="keyword">if</span>(u==v)<span class="keyword">continue</span>;</span><br><span class="line">        e[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        e[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">        id[u].<span class="built_in">push_back</span>(e[v].<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">        id[v].<span class="built_in">push_back</span>(e[u].<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++){</span><br><span class="line">        <span class="keyword">if</span>(!dfn[i])<span class="built_in">tarjan</span>(i,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">    cout&lt;&lt;as.<span class="built_in">size</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;as.<span class="built_in">size</span>();i++){</span><br><span class="line">        cout&lt;&lt;as[i].<span class="built_in">size</span>()&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;as[i].<span class="built_in">size</span>();j++)cout&lt;&lt;as[i][j]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>注意，这道题是有坑的——这个图可能会有重边。我们思考一下，如果有重边，那么这些边的端点就形成了自环，那么这个子图本身就是一个边双连通子图（不一定是连通分量）。这里对于模板代码进行了一定程度的修改，详见<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/discuss/888539">这篇帖子</a>。当然，用链式前向星会好判断一些，但是我<s>抄</s>翻遍了题解也没找到一个<code>vector</code>，这毕竟对于新手不太友好。</p>
+<h1 id="part-7-有向图的强连通分量与缩点">Part 7. 有向图的强连通分量与缩点</h1>
+<h2 id="定义">定义</h2>
+<p>就是说，在有向图中任意两个点都能互相到达，就是强连通的。其余自行脑补，都一样。</p>
+<h2 id="思路">思路</h2>
+<p>和边双类似，只要找到 <code>dfn[x]=low[x]</code> 的点就能找到强连通分量了。</p>
+<p>注意，有向图的情况会复杂一些，四种边都有，所以在处理的时候牢记只关心树边（向下递归）和返祖边（更新<code>low</code>）即可，其他的边不需要处理，请自行证明其正确性。</p>
+<p>在找到了所有强连通分量以后，我们可以进行缩点。缩点就是把每一个强连通分量看作一个点，这样整个图就变成了DAG图，然后就可以进行拓扑排序或者是方便地进行图上的DP了。</p>
+<p>怎么进行缩点呢？我们只要记下每一个点所在的强连通分量的编号，最后遍历整个图，对于每一条边，我们把端点所对应的SCC连接起来，这样最后就能形成一个新的图，节点编号就是SCC的编号了。</p>
+<h2 id="代码-模板题-p3387">代码（模板题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3387">P3387</a>）</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e5</span><span class="number">+10</span>;</span><br><span class="line"><span class="type">int</span> low[N],dfn[N],tot=<span class="number">0</span>,sc=<span class="number">0</span>,scc[N],s[N],head=<span class="number">0</span>,sz[N],n,m,f[N],a[N],p[N];</span><br><span class="line"><span class="type">bool</span> ins[N];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;e[N];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;G[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span></span>{</span><br><span class="line">    low[x]=dfn[x]=++tot;</span><br><span class="line">    s[++head]=x;</span><br><span class="line">    ins[x]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;e[x].<span class="built_in">size</span>();i++){</span><br><span class="line">        <span class="type">int</span> v=e[x][i];</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v])<span class="built_in">tarjan</span>(v),low[x]=<span class="built_in">min</span>(low[x],low[v]);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(ins[v])low[x]=<span class="built_in">min</span>(low[x],dfn[v]);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span>(dfn[x]&lt;=low[x]){</span><br><span class="line">        sc++;</span><br><span class="line">        <span class="keyword">while</span>(s[head]!=x){</span><br><span class="line">            <span class="type">int</span> v=s[head];</span><br><span class="line">            sz[sc]+=a[v];</span><br><span class="line">            scc[v]=sc;</span><br><span class="line">            ins[v]=<span class="number">0</span>;</span><br><span class="line">            head--;</span><br><span class="line">        }</span><br><span class="line">        sz[sc]+=a[x];scc[x]=sc;</span><br><span class="line">        ins[x]=<span class="number">0</span>;head--;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">top</span><span class="params">()</span></span>{</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt;q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=sc;i++){</span><br><span class="line">        <span class="keyword">if</span>(p[i]==<span class="number">0</span>)q.<span class="built_in">push</span>(i),f[i]=sz[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>()){</span><br><span class="line">        <span class="type">int</span> u=q.<span class="built_in">front</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;G[u].<span class="built_in">size</span>();i++){</span><br><span class="line">            <span class="type">int</span> v=G[u][i];</span><br><span class="line">            f[v]=<span class="built_in">max</span>(f[v],f[u]+sz[v]);</span><br><span class="line">            p[v]--;</span><br><span class="line">            <span class="keyword">if</span>(p[v]==<span class="number">0</span>)q.<span class="built_in">push</span>(v);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++){</span><br><span class="line">        <span class="type">int</span> u,v;</span><br><span class="line">        cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        <span class="keyword">if</span>(u!=v)e[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++){</span><br><span class="line">        <span class="keyword">if</span>(!dfn[i])<span class="built_in">tarjan</span>(i);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;e[i].<span class="built_in">size</span>();j++){</span><br><span class="line">            <span class="type">int</span> v=e[i][j];</span><br><span class="line">            <span class="keyword">if</span>(scc[v]!=scc[i])G[scc[i]].<span class="built_in">push_back</span>(scc[v]),p[scc[v]]++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">top</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)ans=<span class="built_in">max</span>(ans,f[i]);</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1 id="part-8-附注">Part 8. 附注</h1>
+<h2 id="代码部分">代码部分</h2>
+<ol>
+<li>部分代码参考了OI Wiki，另外有一部分是借鉴了题解。在此感谢所有提供代码者。</li>
+<li>很明显，这些代码非常难写。因此，建议在大考开始之前，着重复习一下这个模板，不然到了赛场上就很难调出来了。</li>
+<li>所有代码均在 C++14（GCC 9）环境下调试通过。</li>
+</ol>
+<h2 id="思路部分">思路部分</h2>
+<ol>
+<li>对于图的连通性问题，Tarjan是很通用且高效的算法，但是并不是唯一的算法，另外也有一些诸如差分算法的其他方式，不过主流还是Tarjan，有兴趣学习其他算法可以参考模板题题解或者OI Wiki。</li>
+<li>对于部分内容，本文未对其做出严谨证明。如果希望深刻理解Tarjan，建议对于一些未加以证明或者仅仅进行了粗略的证明的过程进行深入的思考。</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="print-no-link">#学习笔记</a>
+      
+        <a href="/tags/%E5%9B%BE%E8%AE%BA/" class="print-no-link">#图论</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Tarjan与图的连通性</div>
+      <div>http://snowflavour.cn/8-3-tarjan-and-connection/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Li Yuanzhuo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年8月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/8-5-qujian-k-xiaozhi/" title="可持久化线段树-区间第k小问题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">可持久化线段树-区间第k小问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/8-3-rmq-compare/" title="典型RMQ数据结构的对比">
+                        <span class="hidden-mobile">典型RMQ数据结构的对比</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
