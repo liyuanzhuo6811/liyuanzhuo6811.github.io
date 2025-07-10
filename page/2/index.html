@@ -205,13 +205,53 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/10-2-manacher/" target="_self">
+        <a href="/2024-10-18-solution-abc281g/" target="_self">
+          ABC281G 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-10-18-solution-abc281g/" target="_self">
+        <div>
+          ABC281G 题解 首先，我们会注意到显然如果存在长度为 lll 的路径，就一定会有一条长度为 l−1l-1l−1 的路径，因为每一条边的长度都是 111。 因此我们考虑在图上按照最短路径分层分层（其实就是按照 BFS 序分层）。会发现分层以后正好满足动态规划的性质。设 fi,jf_{i,j}fi,j​ 表示在 iii 个节点中，最后一层有 jjj 个节点的方案数，则有如下的等式： fi,j=
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-10-18 21:25" pubdate>
+              2024-10-18
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024-10-2-manacher/" target="_self">
           manacher算法详解
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/10-2-manacher/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-10-2-manacher/" target="_self">
         <div>
           Part 0. 引子 自己接触 OI 已经很长时间了，但是字符串仍然处于门外汉的尴尬境地。 于是，我决定狂补字符串。 Manacher（中文谐音马拉车），是解决最长回文串的一种高效算法。他能够在 Θ(n)\Theta(n)Θ(n) 的时间内解决这个问题，同时代码很简洁。  Part 1. 先聊聊暴力 暴力方式就是所谓的“中心扩展法”。说白了就是枚举每一个字符，然后往左右两边分别扩展，确定以这个字
         </div>
@@ -247,13 +287,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/9-7-tulun-tricks/" target="_self">
+        <a href="/2024-9-7-tulun-tricks/" target="_self">
           9月7日——图论练习题目
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/9-7-tulun-tricks/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-9-7-tulun-tricks/" target="_self">
         <div>
           NOIP2015提高组 信息传递 先读题，这个题目可以转化为一条 nnn 个点，nnn 条边的有向图，然后找到这里面的最小环。 那么我们就直接去找最小环？肯定不行啊。注意到这个题目中，  可能有人可以从若干人那里获取信息，但是每人只会把信息告诉一个人，即自己的信息传递对象  这其实就是说，这个图每个点的出度都是 111。 这个信息怎么用呢？先不急。我们先考虑特殊情况，即这个图是连通图。由于每一条
         </div>
@@ -291,13 +331,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/8-20-test/" target="_self">
+        <a href="/2024-8-20-test/" target="_self">
           8.20模拟测试
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/8-20-test/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-8-20-test/" target="_self">
         <div>
           总述 这场难度差距比较大。T1签到题，可以直接暴力模拟，但是我直接写了个余数，然后是T2，比较简单的数学结论题，其实就是个三角形面积公式。由于搬题人事先没有了解，zzc也没作阻止（也可能是忘了），T3撞了，于是就集体A了。 接下来就是比较难的三个题了。T4其实也是结论题，然后结论题我一窍不通，然后就打了暴力，然后暴力挂了，然后就0分了（悲 T5是个很抽象的题，场上暴力还没写完就结束了（悲*2，这
         </div>
@@ -331,13 +371,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/8-15-zhuangya-dp/" target="_self">
+        <a href="/2024-8-15-zhuangya-dp/" target="_self">
           状压DP
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/8-15-zhuangya-dp/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-8-15-zhuangya-dp/" target="_self">
         <div>
           Part 0. 引子 考虑这样的问题：有一排灯泡（n⩽15n \leqslant 15n⩽15），每一个灯泡可以是开着或者关着的，每次有许多操作方式，每一种会把一部分灯泡变成开着的，一部分变成关着的，初始时灯泡全部开着，问进行多少次操作才能使得这些灯泡全部熄灭？ 显然这是一个DP题。由于 n&lt;=15n&lt;=15n&lt;=15，一个可行的方式是这样做： 1int dp[2][2][2]
         </div>
@@ -373,13 +413,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/8-12-youhua-dp/" target="_self">
+        <a href="/2024-8-12-youhua-dp/" target="_self">
           简单DP优化
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/8-12-youhua-dp/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-8-12-youhua-dp/" target="_self">
         <div>
           Part 0. 引子 很多时候，我们一下想到的DP是 Θ(n2)\Theta(n^2)Θ(n2) 级别的，但是题目的数据范围不允许。这个时候，我们就需要一定的方式来优化DP。 常见的DP优化很多，这里介绍单调队列优化和斜率优化。  Part 1. 单调队列优化 考虑形如下面形式的方程： dp[i]=min⁡i−k≤j≤i{c[j]}+a[i]dp[i]=\min_{i-k \le j \le i
         </div>
@@ -415,13 +455,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/8-5-qujian-k-xiaozhi/" target="_self">
+        <a href="/2024-8-5-qujian-k-xiaozhi/" target="_self">
           可持久化线段树-区间第k小问题
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/8-5-qujian-k-xiaozhi/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-8-5-qujian-k-xiaozhi/" target="_self">
         <div>
           Part 0. 引言 区间第kkk小问题是一个很经典的问题。很明显，区间最值问题应该用线段树解决，但是问题是这里并不是最大值/最小值，而是第kkk个值。这样就意味着，如果我们要对他进行普通线段树的合并，那么就会导致你需要把左右两个区间前kkk个值都找出来，如果 k=nk=nk=n，那么这个问题的合并复杂度就是O(nlog⁡n)O(n\log n)O(nlogn)，再加上本身的查找复杂度，这个复杂
         </div>
@@ -457,13 +497,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/8-3-tarjan-and-connection/" target="_self">
+        <a href="/2024-8-3-tarjan-and-connection/" target="_self">
           Tarjan与图的连通性
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/8-3-tarjan-and-connection/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-8-3-tarjan-and-connection/" target="_self">
         <div>
           Part 0. 引子 Tarjan，是图的连通性的一类算法们。没错，这个算法如果你到洛谷上面查的话，会有5个模板题。他们分别是：点双连通分量，边双连通分量，缩点（强连通分量），割点，割边。 没错，就是这么多。他们的基本思路都一样，就是一个 dfn 和一个 low。如果让一个学过Tarjan的人评价一下这个算法的话，那就是四个字，又臭又长！ 不过虽然他的代码很长也很难理解，但是他的作用是巨大的，很
         </div>
@@ -499,13 +539,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/8-3-rmq-compare/" target="_self">
+        <a href="/2024-8-3-rmq-compare/" target="_self">
           典型RMQ数据结构的对比
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/8-3-rmq-compare/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-8-3-rmq-compare/" target="_self">
         <div>
           Part 1. RMQ的种类 这个不用多说，RMQ是一类非常常见的问题。以下是一些常用的数据结构，以及他们所能胜任的问题（这里只讨论基本情况，不关心可持久化之类的其他问题）：  前缀和：静态区间求和 ST表：静态区间最值（也可以是与最值有关的，比如 gcd⁡\gcdgcd） 树状数组：区间单点修改，区间查询 线段树：通吃  那么，我们有没有想过，为什么这些数据结构就有所区别，能胜任的问题形式也不
         </div>
@@ -541,13 +581,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/8-1-sdsc2024/" target="_self">
+        <a href="/2024-8-1-sdsc2024/" target="_self">
           SDSC2024游记
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/8-1-sdsc2024/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-8-1-sdsc2024/" target="_self">
         <div>
           SDSC2024 游记 怀着激动的心情，我报名了SDSC2024。  Day 0 报道日，我12点就到了宿舍（要求是3点到），然后就对着空无一人的房间发呆，等了半天才等到了Taoran_01来，然后就是好多人都来了。 简单了解了一下，宿舍共6人，2个新高一，2个新初三，2个新初二，全部是SDFZ学生。其中lalaji老师不在这住，只是来这里报道，往后他也只是在这里午休。于是我们就把离空调最近的上
         </div>

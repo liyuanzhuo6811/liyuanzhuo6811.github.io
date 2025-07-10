@@ -205,13 +205,57 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/7-8-persistent-segtree/" target="_self">
+        <a href="/2025-7-10-DP-problems/" target="_self">
+          7.10 动态规划题目
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-7-10-DP-problems/" target="_self">
+        <div>
+          计数类问题  CF1657E Star MST 首先，我们发现条件可以变为：图的最小生成树是以 111 为中心的菊花。根据 Kruskal 的性质，很明显对于 222 个节点 uuu 和 vvv，他们之间的边 u→vu \to vu→v 一定要大于 1→u1 \to u1→u 和 1→v1 \to v1→v。 然而这玩意没法按照 1∼n1 \sim n1∼n 的顺序 DP，因为你会发现如果枚举
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-07-10 14:23" pubdate>
+              2025-07-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#动态规划</a>
+            
+              <a href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/">#练习题</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025-7-8-persistent-segtree/" target="_self">
           可持久化线段树的应用
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/7-8-persistent-segtree/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-7-8-persistent-segtree/" target="_self">
         <div>
           正经的时间  P2839 middle  题意 给你多个询问，每一个询问有一个左端点和右端点的范围，问所有区间的中位数最大值。  题解 首先考虑单次操作。假如某个数能够成为中位数，那么小于这个数全部设置为 −1-1−1，大于他的全都设成 111，则他们的和一定是 000 或者 111。（奇偶性的问题） 那么这玩意就单调了，然后就可以二分了。每一次都把 111 和 −1-1−1 设置好，然后求和。
         </div>
@@ -247,13 +291,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/6-22-cartesian-tree/" target="_self">
+        <a href="/2025-6-22-cartesian-tree/" target="_self">
           笛卡尔树
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/6-22-cartesian-tree/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-6-22-cartesian-tree/" target="_self">
         <div>
           算法 笛卡尔树是一种非常简单的 Treap。这是一种静态的平衡树，不支持修改操作，如果给定的序列是有序的，那么可以直接在 O(n)O(n)O(n) 的时间复杂度内完成建树。一般而言，题目中多半会把元素的下标作为 Treap 的排名权值（即满足二叉树性质的那个维度）。 在这种情况下，建笛卡尔树的方法比较巧妙。首先，我们维护一个“右链”，也就是当前的树的最右侧的元素构成的链。此时如果需要新建一个节点
         </div>
@@ -289,13 +333,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/6-21-FHQ-Treap/" target="_self">
+        <a href="/2025-6-21-FHQ-Treap/" target="_self">
           FHQ-Treap
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/6-21-FHQ-Treap/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-6-21-FHQ-Treap/" target="_self">
         <div>
           Part 1. 一些对比 FHQ Treap 与 Splay：  FHQ Treap 的代码比 Splay 好写得多。 FHQ Treap 只用到了一些分裂与合并，不会很大的影响到整个树的形态，所以这玩意更容易可持久化。 在一些特殊场合（例如 LCT）只能使用 Splay。  FHQ Treap 与 普通 Treap：  FHQ Treap 不用旋转，更好写。 能支持更多功能。（比如帮助 lhc
         </div>
@@ -331,13 +375,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/6-21-LCA/" target="_self">
+        <a href="/2025-6-21-LCA/" target="_self">
           LCA 应用
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/6-21-LCA/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-6-21-LCA/" target="_self">
         <div>
           一种求 LCA 的方法：RMQ\text{RMQ}RMQ 思路：一遍 DFS，求出节点的欧拉序。 然后每一次找出序列上两个点之间 dfn 最小的节点。  Code: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758#include
         </div>
@@ -375,13 +419,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/3-25-euler-totient/" target="_self">
+        <a href="/2025-3-25-euler-totient/" target="_self">
           欧拉函数，欧拉筛法，欧拉定理与扩展欧拉定理
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/3-25-euler-totient/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-3-25-euler-totient/" target="_self">
         <div>
           Part 1. 欧拉函数 欧拉函数 φ(x)\varphi(x)φ(x) 表示 [1,x][1,x][1,x] 之间与 xxx 互质的整数的个数。 也就是这样： φ(x)=∑i=1x[gcd⁡(i,x)=1]\varphi(x) = \sum_{i=1}^x[\gcd(i, x)=1]  φ(x)=i=1∑x​[gcd(i,x)=1] 据此，我们可以得到一些性质：  性质一：欧拉函数是积性函数
         </div>
@@ -419,13 +463,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2-18-Lucas/" target="_self">
+        <a href="/2025-2-18-Lucas/" target="_self">
           Lucas定理
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2-18-Lucas/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-2-18-Lucas/" target="_self">
         <div>
           Part 0. 引子 众所周知： Cmn=n!m!(n−m)!C^n_{m}=\frac{n!}{m!(n-m)!} Cmn​=m!(n−m)!n!​ 现在有个问题：  当 nnn，mmm 比较大的时候，直接用除法会寄掉（因为long long能够存储的数相对于阶乘而言小得可怜），此时一般会让你求出这个组合数对一个数取模的结果。但是除法不能直接取模，怎么办？  这个问题的答案还是比较显然的，我们
         </div>
@@ -452,13 +496,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2-16-shu-lun-fen-kuai/" target="_self">
+        <a href="/2025-2-16-shu-lun-fen-kuai/" target="_self">
           数论分块
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2-16-shu-lun-fen-kuai/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2025-2-16-shu-lun-fen-kuai/" target="_self">
         <div>
           一类问题 有一类问题，要求你求： ∑i=1n⌊ni⌋\sum_{i=1}^n\lfloor \frac{n}{i} \rfloor i=1∑n​⌊in​⌋ 这样的东西。nnn 的范围往往很大（109∼101510^9 \sim 10^{15}109∼1015），要用低于线性的复杂度。  思路 一般而言，这种东西的性质就是：虽然 nnn 很大，但是很多的数都是相同的：    iii 1 2 3 4
         </div>
@@ -496,13 +540,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/12-6-network-flow-max-flow/" target="_self">
+        <a href="/2024-12-6-network-flow-max-flow/" target="_self">
           网络流（一）：最大流
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/12-6-network-flow-max-flow/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-12-6-network-flow-max-flow/" target="_self">
         <div>
           Part 0. 场景 现在有一堆节点，每个节点连着一堆水管，每个水管有流量的限制（也就是说每个管子最多能流过多少水），现在从起点往里面猛灌水，问终点能得到多少水。  Part 1. 概念  弧：就是边 流量：流量 剩余流量：还能留多少水   反向弧 反向弧是一个非常重要的概念，基本上这个概念会应用于所有的算法中。 大抵就是这样：流过来多少水，就能流回去多少水。 也就是说，正反弧加一块肯定是原来的
         </div>
@@ -538,13 +582,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/10-18-Gauss%E2%80%93Jordan-elimination/" target="_self">
+        <a href="/2024-10-18-Gauss%E2%80%93Jordan-elimination/" target="_self">
           高斯消元法
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/10-18-Gauss%E2%80%93Jordan-elimination/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024-10-18-Gauss%E2%80%93Jordan-elimination/" target="_self">
         <div>
           Part 0. 引子 小学，我们学习了一元一次方程。其标准形式如下： ax=bax=b ax=b  当 a≠0a \ne 0a=0 时方程有唯一解。 当 a=0,b≠0a=0,b \ne 0a=0,b=0 时方程无解。 当 a=0,b=0a=0,b=0a=0,b=0 时方程有无穷解。  到了初中，我们又学习了二元一次方程组。其标准形式如下： {a1x+b1y=c1a2x+b2y=c2\lef
         </div>
@@ -569,46 +613,6 @@
               <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
             
               <a href="/tags/%E6%95%B0%E8%AE%BA/">#数论</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/10-18-solution-abc281g/" target="_self">
-          ABC281G 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/10-18-solution-abc281g/" target="_self">
-        <div>
-          ABC281G 题解 首先，我们会注意到显然如果存在长度为 lll 的路径，就一定会有一条长度为 l−1l-1l−1 的路径，因为每一条边的长度都是 111。 因此我们考虑在图上按照最短路径分层分层（其实就是按照 BFS 序分层）。会发现分层以后正好满足动态规划的性质。设 fi,jf_{i,j}fi,j​ 表示在 iii 个节点中，最后一层有 jjj 个节点的方案数，则有如下的等式： fi,j=
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-10-18 21:25" pubdate>
-              2024-10-18
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
             
           </div>
         
