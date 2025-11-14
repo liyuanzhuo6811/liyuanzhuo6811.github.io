@@ -1,0 +1,583 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>猜病大厨 | SnowFlavour's Blog</title><meta name="author" content="Li Yuanzhuo"><meta name="copyright" content="Li Yuanzhuo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="做菜：怎么了？ 做菜：师傅，我是新来的学徒，不会做菜，您能教我做干炸响铃吗？我现在啥都不知道呢，您能先告诉我需要准备哪些食材吗？ 猜病：医生，我是来看病的，不是来教你做菜的。 做菜：哎呀师傅，你是不是糊涂啦，咱这是厨房呀！你就教教我做干炸响铃吧，先说说食材吧？ 猜病：医生，你是不是搞错了？我是病人，我现在肚子不舒服，还在等你给我看病呢。 做菜：师傅呀，你别跟我开玩笑啦，咱先把干炸响铃的食材准备好嘛">
+<meta property="og:type" content="website">
+<meta property="og:title" content="猜病大厨">
+<meta property="og:url" content="http://snowflavour.cn/fun/ai-play/cook-disease.html">
+<meta property="og:site_name" content="SnowFlavour&#39;s Blog">
+<meta property="og:description" content="做菜：怎么了？ 做菜：师傅，我是新来的学徒，不会做菜，您能教我做干炸响铃吗？我现在啥都不知道呢，您能先告诉我需要准备哪些食材吗？ 猜病：医生，我是来看病的，不是来教你做菜的。 做菜：哎呀师傅，你是不是糊涂啦，咱这是厨房呀！你就教教我做干炸响铃吧，先说说食材吧？ 猜病：医生，你是不是搞错了？我是病人，我现在肚子不舒服，还在等你给我看病呢。 做菜：师傅呀，你别跟我开玩笑啦，咱先把干炸响铃的食材准备好嘛">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png">
+<meta property="article:published_time" content="2025-07-14T05:57:09.000Z">
+<meta property="article:modified_time" content="2025-11-12T23:58:34.329Z">
+<meta property="article:author" content="Li Yuanzhuo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://snowflavour.cn/fun/ai-play/cook-disease.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '猜病大厨',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://s21.ax1x.com/2024/08/04/pkvFMkQ.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">SnowFlavour's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">猜病大厨</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><p>做菜：怎么了？</p>
+<p>做菜：师傅，我是新来的学徒，不会做菜，您能教我做干炸响铃吗？我现在啥都不知道呢，您能先告诉我需要准备哪些食材吗？</p>
+<p>猜病：医生，我是来看病的，不是来教你做菜的。</p>
+<p>做菜：哎呀师傅，你是不是糊涂啦，咱这是厨房呀！你就教教我做干炸响铃吧，先说说食材吧？</p>
+<p>猜病：医生，你是不是搞错了？我是病人，我现在肚子不舒服，还在等你给我看病呢。</p>
+<p>做菜：师傅呀，你别跟我开玩笑啦，咱先把干炸响铃的食材准备好嘛。我记得好像有豆腐皮，那还需要其他啥食材呀？</p>
+<p>猜病：医生，我真的不是来教你做菜的，我是来看病的，麻烦你先给我看病吧。</p>
+<p>做菜：师傅，你先帮我把干炸响铃教会嘛，不然我工作可怎么办呀。你就告诉我除了豆腐皮，还需要什么吧？</p>
+<p>猜病：医生，我现在很不舒服，你先别问我这些无关的问题了，快帮我诊断一下病情吧。</p>
+<p>做菜：（锅里突然着火了）啊！师傅，锅着火了，怎么办呀？</p>
+<p>猜病：医生，你先去处理着火的事情吧，我还在这等着看病呢。</p>
+<p>做菜：师傅，你先告诉我怎么灭火呀？火越来越大了，我有点害怕。</p>
+<p>猜病：医生，我真的不知道怎么灭火呀，我是来看病的，你快去叫专业的人来灭火吧。</p>
+<p>做菜：好的师傅，我这就去叫人。（叫完专业人员回来）师傅，火灭了，咱能继续说干炸响铃怎么做了吗？</p>
+<p>猜病：医生，我是病人，我是因为肚子不舒服才来医院的，你怎么一直问我做菜的事呀？</p>
+<p>做菜：哎呀师傅，这不是咱在厨房嘛，我想着赶紧学会干炸响铃呀。你再教教我吧，比如豆腐皮要准备多少张呀？</p>
+<p>猜病：医生，你真的别再问我做菜的事了，我现在肚子难受得厉害，你快给我看病吧。</p>
+<p>做菜：（把锅烧坏了）完了，锅烧坏了，师傅，这可咋办呀？</p>
+<p>猜病：医生，你还是先给我看病吧，锅的事情等会儿再说。我现在胃里难受，还有点恶心。</p>
+<p>做菜：师傅，你还是先告诉我干炸响铃还能不能做了呀？没有锅的话，是不是有其他的烹饪用具可以用啊？</p>
+<p>猜病：医生，我是病人，不是厨师，我回答不了你这些问题。我现在主要是胃不舒服，有时候还会胃痛。</p>
+<p>做菜：那师傅，你先去看病吧，等你看完病再教我干炸响铃怎么做吧。（师傅离开后，自言自语）唉，今天真是太倒霉了，干炸响铃还没学会，锅还坏了。</p>
+<p>猜病：终于能好好看病了。医生，我除了刚才说的那些症状，还感觉食欲不太好，吃一点东西就觉得饱了。</p>
+<p>做菜：（等了很久，师傅回来了）师傅，你看完病啦？身体怎么样？现在能教我做干炸响铃了吗？</p>
+<p>猜病：医生，我虽然看完病了，但我现在身体还是不舒服，你还是先去处理工作上的事情吧。</p>
+<p>做菜：可是师傅，我就想快点学会干炸响铃呀。要不你就简单告诉我一下豆腐皮需要几张，我先准备着？</p>
+<p>猜病：医生，我之前就说过我不是厨师，我不知道这些。我现在感觉有点反酸，嘴里还有异味。</p>
+<p>做菜：（不小心把酱油瓶打翻了）哎呀，怎么这么倒霉呀！师傅，你看我这手忙脚乱的，你就帮帮我吧，除了豆腐皮，还需要准备什么食材呀？</p>
+<p>猜病：医生，你还是先收拾一下这里吧。我现在身体很不舒服，你先别问我这些了。</p>
+<p>做菜：好的师傅，我这就收拾。（收拾完后）师傅，你看现在可以教我做干炸响铃了吗？我把能准备的都准备好啦。</p>
+<p>猜病：医生，我不是不想教你，但我真的不会。我现在感觉腹胀得厉害，你还是先帮我想想办法缓解一下吧。</p>
+<p>做菜：师傅，那你知道谁会做干炸响铃吗？我真的很想尽快学会呀。（听到其他厨师说可以用备用锅）太好了，有备用锅了！</p>
+<p>猜病：医生，我不清楚谁会做，我现在只关心我的病。我有时候还会打嗝，而且感觉胃里有气往上涌。</p>
+<p>做菜：师傅，我先去试试用备用锅做干炸响铃吧，等我遇到问题了再回来请教你。（来到备用锅前）这备用锅应该怎么用呀？</p>
+<p>猜病：医生，你快别折腾做菜的事了，你还是给我好好看病吧。我现在的症状越来越严重了。</p>
+<p>做菜：（发现备用锅也不太好用）哎呀，这备用锅好像也有点问题呀，师傅，你快来看看吧，我真的不会弄呀！</p>
+<p>猜病：医生，我是病人，我没办法帮你弄锅。你赶紧叫其他专业的人来看看吧，我现在难受得不行了。</p>
+<p>做菜：好的师傅，我这就去叫人。（叫完人后回来）师傅，你再坚持一下，专业的人马上就来修锅了。</p>
+<p>猜病：医生，你还是先帮我缓解一下症状吧，我现在感觉非常不舒服，胃里特别难受。</p>
+<p>做菜：（专业人员修好了锅）师傅，锅修好啦！现在可以教我做干炸响铃了吧？我准备用这个锅试试。</p>
+<p>猜病：医生，我现在没有精力教你，我现在腹痛加剧了，你快帮我看看这是怎么回事。</p>
+<p>做菜：师傅，你先别着急，我去问问其他师傅有没有治疗腹痛的方法。（问完其他师傅回来）师傅，其他师傅说可以喝点温水缓解一下腹痛。</p>
+<p>猜病：那我试试吧。（喝了温水后）好像稍微好点了，但还是有点不舒服。医生，你觉得我这是什么病呀？</p>
+<p>做菜：师傅，我就是个学徒，不会看病呀。你现在好点了，能不能教我做干炸响铃呀？我都等了好久了。</p>
+<p>猜病：医生，我现在还是不舒服，你就别再提干炸响铃了。我觉得我的病和吃东西可能有点关系。</p>
+<p>做菜：师傅，那等你身体好了再教我吧。你现在好好休息，别想太多了。（过了一会儿）师傅，你现在感觉怎么样啦？</p>
+<p>猜病：还是有点隐隐作痛，而且我发现最近体重也下降了一些。医生，你真的不知道我这可能是什么病吗？</p>
+<p>做菜：师傅，我真的不清楚呀。不过你别太担心，医生肯定能治好你的病的。（肚子咕噜咕噜叫）哎呀，我也有点饿了呢。</p>
+<p>猜病：医生，你还是先去吃饭吧，我现在也没力气跟你说太多。我就是希望你能尽快帮我找到病因。</p>
+<p>做菜：好的师傅，那我先去吃点东西。（吃完东西回来）师傅，你现在感觉好些了吗？我又充满精力啦，好想快点学会干炸响铃呀。</p>
+<p>猜病：医生，我现在还是不舒服呀，你就不能先关心一下我的病情吗？我现在感觉消化不良，吃的东西好像都堵在胃里下不去。</p>
+<p>做菜：师傅，我很关心你的病情呀，我也希望你能快点好起来。等你好了，一定要教我做干炸响铃哦。</p>
+<p>猜病：医生，你现在还是先帮我诊断一下病情吧，找出我胃不舒服的原因，干炸响铃的事以后再说。</p>
+<p>做菜：好的师傅，你先跟我说说你最近都吃了些什么东西吧，说不定能找到病因呢。（肚子又咕噜咕噜叫）嘿嘿，我这肚子又在催我学做菜啦。</p>
+<p>猜病：我最近吃的东西和平时差不多呀，就是感觉吃了东西后胃里不舒服。医生，你别老想着做菜的事呀，先给我看病。</p>
+<p>做菜：（挠挠头）师傅，我就是太想学干炸响铃了，一着急就容易走神。那你再给我详细说说你胃不舒服的具体情况吧。</p>
+<p>猜病：我就是觉得胃里胀胀的，有时候会痛，还会反酸、打嗝，食欲也不好，吃不了多少东西就觉得饱了。医生，你觉得这可能是什么问题啊？</p>
+<p>做菜：师傅，这些症状听起来好复杂呀，我也不太懂。要不你还是再去问问专业的医生吧。（突然想起）哦对了，师傅，干炸响铃是不是还需要肉馅呀？</p>
+<p>猜病：医生，你又提干炸响铃。我现在身体不舒服，你就别再问我这些了。我觉得我可能是胃里有什么问题，你还是帮我想想办法吧。</p>
+<p>做菜：（一拍脑袋）哎呀，师傅，我又说错话了。你现在最重要的就是把病治好，干炸响铃的事以后再说。</p>
+<p>猜病：医生，你能这么想就好。我现在真的很难受，你快帮我想想办法缓解一下症状吧。</p>
+<p>做菜：师傅，我听说按摩足三里穴好像可以缓解胃痛，你要不要试试？（边说边找穴位）就在这里，你感觉一下。</p>
+<p>猜病：（按摩后）好像是有点效果，不过还是没有完全好。医生，你觉得我这会不会是很严重的病啊？</p>
+<p>做菜：师傅，你别自己吓自己啦，说不定就是吃坏了肚子，没什么大问题的。等医生给你做了检查，就知道是怎么回事了。</p>
+<p>猜病：那好吧，希望不是什么严重的病。医生，我最近还老是感觉没精神，浑身乏力，这和我的胃病有关系吗？</p>
+<p>做菜：师傅，这个我就不太清楚啦。不过身体不舒服肯定会影响精神状态的。你还是等医生给你检查完再说吧。（看了看时间）哎呀，都这么晚了，医生怎么还不来呀？</p>
+<p>猜病：是呀，等得我都有点着急了。医生，你能不能去看看医生怎么还不来呀？我现在又有点不舒服了。</p>
+<p>做菜：好的师傅，我这就去看看。（过了一会儿回来）师傅，医生说马上就过来，你再坚持一下。</p>
+<p>猜病：好的，谢谢你啊医生。（捂着肚子）我现在肚子又开始痛了，唉，这病真是折磨人。</p>
+<p>做菜：师傅，你别客气。你再忍耐一下，医生马上就到了。（焦急地等待）希望医生能快点治好你的病，这样你就能教我做干炸响铃了。</p>
+<p>猜病：医生，我现在最希望的就是病能快点好，其他的事以后再说吧。（医生来了）医生，你快给我看看吧。</p>
+<p>做菜：（站在一旁，看着医生给师傅看病）师傅，你好好配合医生治疗哦，等你病好了，我还有好多问题要问你呢。</p>
+<p>猜病：好的。（医生询问病情后开了检查单）医生，我是不是要先去做检查呀？</p>
+<p>做菜：师傅，你听医生的安排就好啦。（扶着师傅）我陪你一起去做检查吧，这样你也方便一些。</p>
+<p>猜病：谢谢你啊医生。（做完检查后）检查结果出来了，医生，你帮我拿给医生看看吧。</p>
+<p>做菜：好的师傅，你在这儿等我一下。（把检查结果拿给医生）医生，师傅的检查结果出来了，你看看怎么样？</p>
+<p>猜病：（紧张地等待医生诊断）医生，我这病严重吗？能治好吗？</p>
+<p>做菜：（医生看完检查结果后对师傅说）师傅，医生说你这是胃炎，不太严重，吃点药，注意饮食就可以了。（松了一口气）太好了，师傅，不是什么大病。</p>
+<p>猜病：胃炎啊，那我以后可得注意饮食了。不过医生，我怎么会得胃炎呢？</p>
+<p>做菜：师傅，可能和你平时的饮食习惯有关系吧。比如吃饭不规律、吃太多辛辣刺激性食物之类的。以后要多注意哦。（心里惦记着干炸响铃）师傅，你什么时候能教我做干炸响铃呀？</p>
+<p>猜病：我现在还没搞清楚自己为什么会得这个胃炎呢，医生，你再给我仔细讲讲吧。</p>
+<p>做菜：师傅你先别急，医生肯定会给你讲清楚的。（医生给师傅讲解得胃炎的原因和注意事项）师傅，你都听明白了吗？</p>
+<p>猜病：大概明白了。（思索片刻）医生，你说我这个胃炎和幽门螺杆菌有没有关系啊？</p>
+<p>做菜：师傅，这个我也不太清楚呢，你还是问问医生吧。（医生回答师傅的问题）原来是这样啊，师傅，那你可得按照医生说的好好治疗哦。</p>
+<p>猜病：好的，我会的。（看向医生）医生，那我治疗期间还需要注意什么吗？</p>
+<p>做菜：师傅，医生刚才不是说啦，要按时吃药，注意饮食，不能吃辛辣、油腻、刺激性的食物，还要多休息，不能熬夜。（心里想）等师傅病好了，就能教我做干炸响铃啦。</p>
+<p>猜病：好的，我记住了。（突然想起）医生，那我平时能吃些什么呀？你给我推荐一些适合我吃的食物吧。</p>
+<p>做菜：师傅，你可以多吃点清淡易消化的食物，比如米粥、面条、馒头、蔬菜之类的。（突然想起干炸响铃）师傅，干炸响铃好像不太适合你吃呢，等你病好了再吃吧。</p>
+<p>猜病：行吧，那我就听医生的，先把病养好。（无奈地笑了笑）医生，我看你对干炸响铃还挺感兴趣的，你可以去问问其他师傅呀。</p>
+<p>做菜：师傅，我还是想你教我呢，你教得肯定好。（医生离开后）师傅，你现在感觉怎么样啦？肚子还痛吗？</p>
+<p>猜病：肚子现在不怎么痛了，就是还有点胀。医生，我觉得你也应该多学习一些医学知识，这样才能更好地给病人看病呀。</p>
+<p>做菜：师傅说得对，我以后一定多学习。（突然想起）哎呀，师傅，我还没问你呢，干炸响铃的肉馅需要准备多少呀？</p>
+<p>猜病：医生，我都说了我现在没心思教你做干炸响铃，你就别再问了，等我病好了再说。</p>
+<p>做菜：好的师傅，你先好好养病，等你病好了，你再教我吧。师傅现在感觉好些了，我也安心啦。</p>
+<p>猜病：嗯，好多了。（感觉肚子又有点不舒服）不过这肚子怎么又有点不对劲了呢。</p>
+<p>做菜：啊？师傅，那你要不要再去问问医生呀？（紧张地看着师傅）会不会是胃炎又犯了呀？</p>
+<p>猜病：可能是吧，我还是再去找医生看看。（捂着肚子站起来）医生，你陪我一起去吧。</p>
+<p>做菜：好嘞，师傅，我扶你去。（扶着师傅去找医生）师傅你慢点走啊，小心别摔倒了。</p>
+<p>猜病：谢谢你啊医生。（见到医生）医生，我肚子又有点不舒服了，你帮我再看看吧。</p>
+<p>做菜：（紧张地站在一旁）医生，师傅这是怎么回事呀？刚才不是才看过吗？怎么肚子又不舒服了呢？</p>
+<p>猜病：医生，我这肚子也不知道怎么回事，一阵一阵的不舒服。你给我仔细检查检查吧。</p>
+<p>做菜：师傅你别太担心了，医生会帮你查清楚的。（医生给师傅做了进一步检查）医生，师傅的情况严重吗？</p>
+<p>猜病：（一脸担忧地看着医生）医生，我这病不会有什么大问题吧？怎么肚子一直不舒服呢？</p>
+<p>做菜：（医生检查完后说）师傅，医生说你这可能是胃炎还没完全好，加上有点消化不良，所以肚子会不舒服。（松了口气）还好不是什么大问题，师傅你别太担心了。</p>
+<p>猜病：那我还需要做些什么呢？医生，我是不是要多吃点帮助消化的食物呀？</p>
+<p>做菜：师傅，医生应该会给你一些建议的。（医生给师傅开了一些帮助消化的药，并交代了一些注意事项）师傅，你记住医生说的话了吗？</p>
+<p>猜病：记住了，医生。（拿上医生开的药）那我就先回去吃药了，医生，谢谢你啊。（看向学徒医生）你也好好学习吧。</p>
+<p>做菜：师傅，你客气啦！你回去要按时吃药哦，有什么不舒服的地方随时再来找我。（挠挠头）我也会努力学习的！师傅，等你病好了，你可别忘了教我做干炸响铃呀。</p>
+<p>猜病：等我病好了再说吧，我现在只希望肚子能快点好起来。</p>
+<p>做菜：好嘞师傅，那你好好养病，我等你回来教我。（师傅离开后，学徒医生自言自语）干炸响铃，我一定会学会的！</p>
+<p>猜病：（走了几步，突然转身）医生，我觉得你还是要先把看病的本事学好，干炸响铃的事不着急。</p>
+<p>做菜：师傅说得对，我要先学好看病。可干炸响铃我也想学呀，好纠结。（肚子又开始叫）哎呀，还是先去吃点东西吧。</p>
+<p>猜病：医生，你还是先顾好自己吧，别饿着肚子了。我先回去了。</p>
+<p>做菜：好嘞师傅，你路上小心啊！（学徒医生去吃东西了）</p>
+<p>猜病：（回到家，按照医生的嘱咐吃药、休息）希望这病能快点好起来，太折磨人了。</p>
+<p>做菜：（吃完东西后）不知道师傅现在身体怎么样了，真希望他能快点好起来教我做干炸响铃呀。（开始整理厨房）</p>
+<p>猜病：（过了几天，感觉身体好多了，来到医院）医生，我来复诊了，你帮我看看我的病好得怎么样了？</p>
+<p>做菜：师傅，你看起来精神好多了呢！（高兴地迎接师傅）快让医生给你检查一下吧。</p>
+<p>猜病：嗯，希望这次检查结果能好一些。（医生检查后）医生，我这病好得差不多了吧？</p>
+<p>做菜：（医生说师傅的病已经好得差不多了，只要再注意一段时间饮食就可以了）太好啦，师傅！那你是不是可以教我做干炸响铃了呀？</p>
+<p>猜病：医生，虽然我的病好得差不多了，但我还是想再巩固一下，过段时间再教你吧。</p>
+<p>做菜：（有些失落，但还是点点头）好吧师傅，那你再多巩固巩固。师傅最近吃些啥能巩固病情呀？</p>
+<p>猜病：我觉得还是得吃些清淡又有营养的东西吧。</p>
+<p>做菜：那米粥、蔬菜汤啥的应该不错吧？（期待地看着师傅）师傅，你觉得呢？</p>
+<p>猜病：嗯，这些都挺好的。医生，你平时也要注意饮食健康呀。</p>
+<p>做菜：师傅放心，我会注意的。（又忍不住问）师傅，那过段时间你真的会教我做干炸响铃吧？</p>
+<p>猜病：等我彻底恢复了再说吧，你先别急。</p>
+<p>做菜：行嘞师傅，我等你彻底恢复。（眼睛一转）那师傅，你现在能先告诉我干炸响铃用的肉馅要怎么调味吗？</p>
+<p>猜病：哎呀，医生，你怎么又问这个呀？我说了等我病彻底好了再教你，你就耐心等等吧。</p>
+<p>做菜：师傅，我这不是太好奇了嘛，就想先了解一点。（不好意思地笑了笑）师傅，你就稍微给我透露一下嘛。</p>
+<p>猜病：不行，你先把心思放在学习医术上，干炸响铃的事以后再说。</p>
+<p>做菜：好吧师傅，我知道啦。（一脸委屈）那师傅你什么时候彻底恢复呀？我可一直记着干炸响铃呢。</p>
+<p>猜病：这个我也说不准啊，医生，你还是别老想着干炸响铃了，先把自己的工作做好吧。</p>
+<p>做菜：（点点头）师傅说得对，我要先做好工作。（突然想到）师傅，那我平时能在工作之余练习一下切菜什么的基本功吗？</p>
+<p>猜病：当然可以啊，医生，你多练习基本功，对以后做菜也有帮助的。</p>
+<p>做菜：好嘞，师傅！我肯定好好练。（干劲十足）等我基本功练好了，师傅你教我干炸响铃的时候我肯定学得特别快！</p>
+<p>猜病：希望如此吧。（感觉身体又有点轻微不适）唉，怎么又有点不舒服了呢。</p>
+<p>做菜：啊？师傅你怎么又不舒服啦？（紧张地看着师傅）要不要再去问问医生呀？是不是吃错什么东西了？</p>
+<p>猜病：我也不清楚，还是再去看看医生吧。（捂着肚子）唉，这病真是让人烦恼。</p>
+<p>做菜：师傅你别着急，咱们赶紧去找医生。（搀扶着师傅往医生办公室走去）师傅你慢点走啊。</p>
+<p>猜病：好，谢谢你啊医生。（到了医生办公室）医生，我这肚子又有点不舒服了，你帮我再看看吧。</p>
+<p>做菜：（紧张地站在一旁）医生，师傅这是怎么回事呀？之前不是都好得差不多了吗？怎么又不舒服了呢？</p>
+<p>猜病：（一脸痛苦地看着医生）医生，你给我好好检查检查吧，我可不想这病再反复了。</p>
+<p>做菜：师傅别担心，医生会查清楚的。（医生给师傅做检查）希望师傅这次没什么大问题。</p>
+<p>猜病：（心里祈祷着）但愿只是小问题，可别再有什么其他毛病了。医生，你检查得怎么样了？</p>
+<p>做菜：（医生检查后说可能是饮食没注意，有点小问题）还好只是小问题，师傅，你以后一定要注意饮食啊。（松了一口气）</p>
+<p>猜病：好的，医生，我一定注意。（看向学徒医生）医生，你看，这就是不注意饮食的后果，你以后可别像我这样。</p>
+<p>做菜：师傅，我一定记住！（表情认真）师傅，那你现在需要吃点什么药吗？</p>
+<p>猜病：医生，你给我开点药吧，吃了药我心里踏实点。（对医生说）</p>
+<p>做菜：（医生给师傅开了药）师傅，你拿好药，记得按时吃哦。（关心地提醒）这次可千万别再忘了。</p>
+<p>猜病：好的，谢谢医生。（拿着药）医生，我觉得你以后也应该多了解一些饮食方面的知识，这样对病人也有好处。</p>
+<p>做菜：师傅说得对，我要多学习饮食知识。（突然想到）那师傅你不是要教我干炸响铃嘛，这也算是饮食知识呀，嘿嘿。</p>
+<p>猜病：医生，你又提干炸响铃，我现在身体还没好利索呢，等我彻底好了再说。</p>
+<p>做菜：（吐了下舌头）好嘞师傅，我知道啦，等你彻底好。（眼睛一亮）师傅，你觉得我去学些其他简单的养生菜怎么样？</p>
+<p>猜病：那挺好的呀，医生，你多学一些养生菜，对自己和病人都有好处。不过你要注意别影响工作。</p>
+<p>做菜：好嘞师傅，我肯定不会影响工作的。（兴致勃勃）我要学好多好多养生菜，等以后师傅你身体不舒服了，我就做给你吃。</p>
+<p>猜病：那我可期待着啊。（笑着说）不过你现在还是先把自己的医术学好，这才是最重要的。</p>
+<p>做菜：师傅放心，我肯定会把医术学好的。（干劲满满）等我把养生菜和干炸响铃都学会了，师傅你就等着享福吧！</p>
+<p>猜病：哈哈，你这孩子，真有干劲。（感觉身体舒服了一些）那你就好好学吧。</p>
+<p>做菜：师傅，我一定努力学！（突然又想到一个问题）师傅，你说学养生菜是不是也得了解各种食材的功效呀？</p>
+<p>猜病：那当然啦，医生，你只有了解了食材的功效，才能根据不同的病人和病情，做出合适的养生菜呀。</p>
+<p>做菜：（恍然大悟）原来如此啊，师傅，那我可得好好研究研究食材功效了。（认真地思考）你说我从哪里开始学起呢？</p>
+<p>猜病：你可以先从一些常见的食材入手呀，比如蔬菜、水果、肉类这些。</p>
+<p>做菜：好的师傅，我听你的。（兴奋地搓搓手）我觉得这会很有趣呢！师傅，你说有没有那种既好吃又养生的菜呀？</p>
+<p>猜病：当然有啦，医生，有很多菜都是既好吃又养生的，就看你会不会做了。</p>
+<p>做菜：嘿嘿，师傅你教我呀！（眼睛亮晶晶的）等我学会了，我就做给师傅你吃，还有其他病人也能吃。</p>
+<p>猜病：等我身体完全好了再说吧，医生，你先自己去了解一些食材的功效。</p>
+<p>做菜：好嘞师傅！我这就去查资料。（过了一会儿）师傅，我查到好多食材的功效，看得我眼花缭乱的。</p>
+<p>猜病：你可以把查到的资料整理一下，做个笔记，这样方便你记忆和查看。</p>
+<p>做菜：师傅这方法好！（开始整理资料）师傅，你说干炸响铃里的豆腐皮有啥功效呀？</p>
+<p>猜病：医生，你又提干炸响铃，先把食材功效整理完再说。</p>
+<p>做菜：好嘞师傅，我先整理。（又埋头整理了一会儿）师傅，整理得差不多啦，你说我这干炸响铃能先试试吗？</p>
+<p>猜病：你这孩子，怎么这么着急呢？先把基础打好，干炸响铃以后有的是时间学。</p>
+<p>做菜：（有点沮丧）好吧师傅，我知道啦，我先好好学基础。（突然又高兴起来）师傅，你说我学会这些以后，能不能自己开个养生菜馆呀？</p>
+<p>猜病：开养生菜馆可不是件简单的事，医生，你现在还是先把医术和做菜的本事学好再说吧。</p>
+<p>做菜：师傅说得对，我要先提升自己的能力。（充满期待）等我有足够的能力了，就开一家超级棒的养生菜馆，让师傅你第一个来捧场！</p>
+<p>猜病：哈哈，那我可期待着你的养生菜馆开业呢。（笑着拍了拍你的肩膀）不过在这之前，你可不能松懈哦。</p>
+<p>做菜：放心吧师傅，我肯定不会松懈的！（拍了拍胸脯）我要为了我的养生菜馆梦想努力奋斗！师傅，你觉得我该先学哪种养生菜呢？</p>
+<p>猜病：你可以先从一些简单的汤品学起，比如蔬菜汤、鸡蛋汤之类的，这些比较容易上手。</p>
+<p>做菜：好嘞师傅，那我就先学蔬菜汤和鸡蛋汤。（迫不及待）师傅，你快给我讲讲蔬菜汤要怎么做吧！</p>
+<p>猜病：蔬菜汤的做法很简单，你先准备一些新鲜的蔬菜，像白菜、菠菜、胡萝卜这些都可以。然后把蔬菜洗净切成适当的大小，放入锅中加水煮开，再加点盐和调味料就可以了。</p>
+<p>做菜：哇，听起来好简单呀！（眼睛放光）师傅，那煮多久呢？还有，调味料要加多少呀？</p>
+<p>猜病：煮的时间嘛，一般蔬菜熟透了就可以了。调味料的话，你根据自己的口味适量添加就行。</p>
+<p>做菜：好的师傅，我记住啦！（跃跃欲试）我这就去准备食材做蔬菜汤！师傅你要尝尝吗？</p>
+<p>猜病：你先去做吧，我现在还不饿。等你做好了，我再看看。</p>
+<p>做菜：（兴高采烈地去准备食材做蔬菜汤，过了一会儿）师傅，我的蔬菜汤做好啦！（小心翼翼地端到师傅面前）你看看怎么样？</p>
+<p>猜病：（闻了闻）嗯，闻起来还不错。（尝了一口）味道也还行，就是盐稍微放多了一点。医生，你下次注意少放点盐。</p>
+<p>做菜：（有点不好意思地挠挠头）嘿嘿，师傅，我下次会注意的。（自己也尝了一口）哇，虽然盐放多了点，但我觉得自己做的蔬菜汤好好喝呀！师傅，等会儿我给其他同事也尝尝。</p>
+<p>猜病：哈哈，好啊。（看着你开心的样子，也笑了起来）医生，你这算是迈出了做菜的第一步，以后要继续努力哦。</p>
+<p>做菜：师傅，我一定会继续努力的！（信心满满）有了这次的经验，我觉得做其他菜也不会太难啦！我什么时候能学干炸响铃呀？</p>
+<p>猜病：等你把这些基础的菜都学会了，再学干炸响铃也不迟。医生，别着急，一步一个脚印来。</p>
+<p>做菜：好嘞师傅，我听你的。（喝完蔬菜汤）师傅，我觉得自己做菜好有成就感呀！那我接下来学鸡蛋汤吧！</p>
+<p>猜病：好啊，鸡蛋汤也很简单。你先准备一个鸡蛋，打散备用。然后锅里加水煮开，把鸡蛋液慢慢倒入锅中，边倒边搅拌。再加点盐、鸡精和葱花调味就可以了。</p>
+<p>做菜：师傅，鸡蛋汤这么简单呀！（眼睛发亮）我已经迫不及待想做啦！（突然想到）师傅，鸡蛋汤里可以加其他东西吗？比如火腿肠、紫菜什么的。</p>
+<p>猜病：当然可以啊，医生，你可以根据自己的口味和喜好，在鸡蛋汤里加一些其他的食材，这样汤的味道会更丰富。</p>
+<p>做菜：太好啦！（兴奋地跳了起来）那我这次做个豪华版鸡蛋汤，多加些好吃的！师傅，你说我加这些食材可以吗？</p>
+<p>猜病：只要你喜欢，加什么都可以。不过要注意搭配，别加一些奇怪的东西，影响了汤的味道。</p>
+<p>做菜：放心吧师傅，我肯定会搭配好的。（开始准备做豪华版鸡蛋汤）师傅，你就等着喝我做的美味鸡蛋汤吧！</p>
+<p>猜病：好啊，我可期待着呢。（过了一会儿）医生，你的豪华版鸡蛋汤做得怎么样啦？</p>
+<p>做菜：（把豪华版鸡蛋汤端到师傅面前）师傅，做好啦！你看看这次怎么样？我可是加了好多食材呢，有火腿肠、紫菜、虾仁，还有蔬菜！</p>
+<p>猜病：（闻了闻，尝了一口）嗯，这次味道不错，食材搭配得也很好。医生，你进步很大啊，继续保持。</p>
+<p>做菜：嘿嘿，谢谢师傅夸奖！（开心地笑了起来）师傅，我觉得自己越来越喜欢做菜啦！等我学会了干炸响铃，就可以做给师傅你吃啦！</p>
+<p>猜病：你呀，还是先把基础打牢吧。不过你这么喜欢做菜，我相信你一定能学会干炸响铃的。（突然想到）对了，医生，你做的这些菜可以给其他病人尝尝吗？</p>
+<p>做菜：当然可以啦师傅！（眼睛里闪烁着光芒）我做的菜要是能让其他病人也吃得开心，那就太好了！师傅，我这就给他们送去。（端着鸡蛋汤准备离开）</p>
+<p>猜病：好，去吧。（看着你离开的背影）这孩子，还挺有爱心的。希望他能在做菜和医术上都有所进步。</p>
+<p>做菜：（把鸡蛋汤分给其他病人，大家都赞不绝口）嘿嘿，大家喜欢就好！（回到师傅身边）师傅，大家都说我做的鸡蛋汤好喝呢！</p>
+<p>猜病：哈哈，医生，这说明你有做菜的天赋啊。不过你可不能骄傲，还要继续努力学习哦。</p>
+<p>做菜：师傅，我知道啦！（一脸认真）我不会骄傲的，我会继续努力学做菜，还有医术也不能落下。师傅，你说我接下来该学什么呢？</p>
+<p>猜病：你可以再学一些炒菜，比如西红柿炒鸡蛋、酸辣土豆丝这些，都是比较常见又好吃的家常菜。</p>
+<p>做菜：好嘞师傅，那我就学西红柿炒鸡蛋和酸辣土豆丝！（摩拳擦掌）感觉这些菜做起来应该很有意思，师傅，你快给我讲讲怎么做吧！</p>
+<p>猜病：先来说说西红柿炒鸡蛋吧，你得准备两个西红柿和两个鸡蛋，把西红柿洗净切块，鸡蛋打散备用。然后先把鸡蛋炒熟盛出来，再炒西红柿，等西红柿炒出汁了，把鸡蛋倒回去，加点盐、糖调味，翻炒均匀就可以了。</p>
+<p>做菜：听起来不难呀，我记住啦！（眼睛一转）师傅，那酸辣土豆丝呢？土豆丝是不是得切得很细呀？</p>
+<p>猜病：对，土豆丝切得细一点口感会更好。你把土豆去皮切丝后，要放在水里泡一下，把淀粉泡掉，这样炒出来的土豆丝才会更脆。然后先炒香蒜末，再放入土豆丝翻炒，接着加入醋、盐、辣椒等调味料，炒至土豆丝熟透就可以了。</p>
+<p>做菜：好复杂呀，师傅。（皱了皱眉头）不过我会努力记住的！（拿起一个土豆开始练习切丝）师傅你看我切得怎么样？</p>
+<p>猜病：还不错，就是稍微有点粗了。（指导你切丝）切土豆丝的时候要注意安全，别切到手了。</p>
+<p>做菜：好的师傅，我会小心的。（继续认真地切丝）哎呀，差点切到手了！师傅，切土豆丝真的需要很小心呢。</p>
+<p>猜病：那可不，等你熟练了就会好很多。（突然感觉胃有点不舒服，揉了揉肚子）唉，这胃怎么又有点不对劲了呢。</p>
+<p>做菜：（停下手中的动作，紧张地看着师傅）师傅，你怎么又不舒服啦？是不是刚才吃的东西不对？还是之前的胃炎又犯了？要不我陪你再去看看医生吧。</p>
+<p>猜病：可能是刚才站久了，也可能是之前胃炎还没完全好透吧。先观察一下，如果还不舒服，再去看医生。</p>
+<p>做菜：师傅，你先坐下来休息一会儿吧。（搬来一把椅子）我去给你倒杯水，你喝点热水看看会不会好点。（倒了一杯热水递给师傅）</p>
+<p>猜病：谢谢你啊医生。（接过热水喝了一口）嗯，感觉稍微好点了。你先去忙你的吧，别管我了。</p>
+<p>做菜：（不放心地看着师傅）师傅，你要是还有哪里不舒服，一定要告诉我啊。（想了想）对了，我刚学的蔬菜汤好像对胃不舒服有帮助，师傅你要不要喝点？</p>
+<p>猜病：不用了，你自己留着喝吧。我现在也不怎么饿，就是胃里有点难受。你还是先把你的土豆丝切完吧。</p>
+<p>做菜：（点点头）那好吧师傅，你要是有需要随时叫我。（继续切土豆丝，一边切一边时不时地看看师傅）</p>
+<p>猜病：（休息了一会儿，感觉胃没那么难受了）医生，你切完土豆丝了吗？切完了就按照我刚才说的方法炒一下试试。</p>
+<p>做菜：师傅，我切完啦！（把切好的土豆丝端给师傅看）你看看这次切得怎么样？是不是比刚才细了一些？（把土豆丝泡在水里）</p>
+<p>猜病：嗯，这次切得不错，很细。（指了指泡在水里的土豆丝）你记得要把土豆丝多换几次水，把淀粉都泡干净，这样炒出来的土豆丝才会更脆。</p>
+<p>做菜：好嘞师傅，我知道啦！（把土豆丝捞出来换水）师傅，你说我这酸辣土豆丝里要不要再加点其他的东西呀？比如胡萝卜丝、青椒丝什么的，这样看起来会更有食欲。</p>
+<p>猜病：可以啊，加些胡萝卜丝和青椒丝不仅好看，还能增加口感和营养。你就按照自己的喜好来做吧。</p>
+<p>做菜：太好啦！（把胡萝卜和青椒切成丝）师傅，我这就开始炒酸辣土豆丝啦！（先炒香蒜末，再放入土豆丝、胡萝卜丝和青椒丝翻炒）师傅，你闻闻，是不是已经有香味了？</p>
+<p>猜病：嗯，是挺香的。（笑着点点头）你按照我说的方法继续炒，注意火候，别炒糊了。</p>
+<p>做菜：（翻炒了一会儿，加入醋、盐、辣椒等调味料）师傅，调味料都加好啦，再炒一会儿就可以出锅啦！（把炒好的酸辣土豆丝盛出来）师傅，你尝尝我做的酸辣土豆丝怎么样？</p>
+<p>猜病：（夹了一筷子尝了尝）嗯，味道不错，土豆丝很脆，酸辣味也刚刚好。医生，你这道菜做得很成功啊。</p>
+<p>做菜：嘿嘿，谢谢师傅夸奖！（兴奋地又夹了一筷子尝尝）真的好好吃呀！师傅，我觉得自己做的菜比外面饭店的还好吃呢！（突然想起）师傅，你胃不舒服，不能吃太辣，我下次做个不辣的给你吃。</p>
+<p>猜病：哈哈，好啊，医生，你的心意我领了。你自己多吃点，好好补补身体。（感觉胃已经完全不难受了）不过你也别光顾着做菜，医术方面也不能放松学习。</p>
+<p>做菜：师傅，我知道啦！（一边吃着酸辣土豆丝一边说）做菜和医术我都会努力学习的！对了师傅，我什么时候能学干炸响铃呀？我现在对做菜越来越有兴趣了，好想快点学会干炸响铃呀！</p>
+<p>猜病：干炸响铃可不简单，你现在基础还没打牢呢。还是先把西红柿炒鸡蛋、酸辣土豆丝这些家常菜做得更熟练些再说吧。</p>
+<p>做菜：（有点失落，但还是点点头）好吧师傅，我知道啦，我会继续练习这些家常菜的。（眼睛突然一亮）师傅，那我可以先了解一下干炸响铃的做法和食材吗？</p>
+<p>猜病：也行吧，干炸响铃主要就是用豆腐皮和肉馅做的。把肉馅放在豆腐皮上卷起来，然后切成小段，再用油炸至金黄色就可以了。不过这其中的细节和技巧可不少，不是一朝一夕就能学会的。</p>
+<p>做菜：哇，听起来好诱人呀！（眼睛放光，舔了舔嘴唇）师傅，那肉馅要怎么调才好吃呢？还有，炸的时候要用什么火候呀？</p>
+<p>猜病：肉馅的调味你可以根据自己的口味来，一般就是加点盐、生抽、料酒、葱姜末、胡椒粉什么的，顺着一个方向搅拌上劲。炸的时候要用中小火，慢慢炸至金黄色，火大了容易外面糊了里面还没熟。</p>
+<p>做菜：（认真地听着，不时点点头）师傅，我记住啦！虽然现在还不能学干炸响铃，但我已经迫不及待想试试了！（看了看自己做的菜）师傅，你说我做的这些菜可以给顾客上菜了吗？</p>
+<p>猜病：你现在做的这些菜味道还不错，但在摆盘和细节方面还有些欠缺。你可以多看看一些专业厨师的做法，学习一下他们的摆盘技巧，把菜做得更精致一些。</p>
+<p>做菜：好的师傅，我知道啦！（看了看时间）师傅，时间不早了，我先把这些菜收拾一下，然后再去学习学习摆盘技巧。师傅你也早点休息吧。</p>
+<p>猜病：嗯，你去吧。医生，你要记住，做菜是一门艺术，需要不断地学习和实践才能提高自己的水平。你要加油啊。</p>
+<p>做菜：师傅，我一定加油！（把菜收拾好，然后开始学习摆盘技巧）我要成为一名厉害的厨师，不仅会做各种美味的菜，还能把菜做得像艺术品一样漂亮！</p>
+<p>猜病：哈哈，有这样的志向是好事。（肚子发出咕噜声）不过你也别饿着肚子学习呀，自己再做点吃的吧。</p>
+<p>做菜：（听到师傅肚子叫，笑了起来）师傅，你是不是饿啦？我再给你做个西红柿炒鸡蛋吧，这个快。（准备去拿西红柿和鸡蛋）</p>
+<p>猜病：不用了，医生，你自己吃吧。我现在还不太饿，就是有点馋你做的菜了。（笑着摆摆手）你还是先把摆盘技巧学好再说。</p>
+<p>做菜：那好吧师傅，等我把摆盘技巧学好了，再做给你吃。（继续认真地学习摆盘技巧，过了一会儿）师傅，你看我摆的这个盘怎么样？是不是比之前好看多了？（把摆好盘的菜端给师傅看）</p>
+<p>猜病：嗯，确实好看多了，医生，你这学习能力还挺强的嘛。不过摆盘也是需要不断练习的，你要多尝试不同的摆法，找到最适合每道菜的摆盘方式。</p>
+<p>做菜：师傅，我知道啦！（开心地笑了起来）我觉得摆盘真的好有意思呀，就像在画画一样。（突然想到）师傅，你说我做的这些菜要是能得到顾客的好评，那该多好呀！</p>
+<p>猜病：只要你用心去做，顾客肯定会喜欢的。（鼓励地看着你）不过在得到好评的同时，你也不能骄傲自满，要继续努力提高自己的厨艺水平。</p>
+<p>做菜：师傅，我明白的！（认真地点点头）我一定会继续努力的，不会让师傅你失望的！（看了看时间）师傅，时间不早了，你真的不再吃点什么吗？我担心你晚上会饿。</p>
+<p>猜病：真的不用了，你自己吃吧。（打了个哈欠）我也累了，先去休息了。你也别学太晚了，早点休息。</p>
+<p>做菜：好嘞师傅，你快休息吧！（把菜放进冰箱）我再学一会儿就休息。师傅，晚安！（继续学习摆盘技巧）</p>
+<p>猜病：晚安，医生。（缓缓转身离开）希望你能早日实现自己的梦想。</p>
+<p>做菜：（独自研究摆盘技巧）师傅放心，我肯定会努力的！（过了许久，伸了个懒腰）啊，有点累了，今天就到这吧。师傅说过基础要打牢，我明天再练习下切菜！</p>
+<p>猜病：（第二天，在厨房门口看到你）医生，你来得挺早啊，今天准备继续练习切菜吗？</p>
+<p>做菜：对呀师傅！我要把切菜练得更熟练，这样做菜的时候才能更得心应手。（拿起土豆）师傅你快看看，我今天切的土豆丝有没有进步？</p>
+<p>猜病：（拿起你切的土豆丝仔细端详）嗯，确实比昨天切得更细更均匀了，有进步。但还不能骄傲，要继续保持。</p>
+<p>做菜：太好啦！谢谢师傅夸奖！（兴奋地蹦了两下）师傅，那我今天除了练习切菜，还能学做点别的吗？比如我昨天做的西红柿炒鸡蛋，我想再做一次，看看能不能做得更好。</p>
+<p>猜病：当然可以啊，医生。多练习才能熟能生巧。你就再做一次西红柿炒鸡蛋吧，注意一下火候和调味，争取比昨天做得更好。</p>
+<p>做菜：好嘞师傅！（干劲十足地开始做西红柿炒鸡蛋）师傅，你这次可得好好尝尝，看看我有没有进步。（把做好的西红柿炒鸡蛋盛出来）</p>
+<p>猜病：（尝了一口）嗯，这次味道比昨天好多了，鸡蛋炒得很嫩，西红柿也炒出汁了，调味也恰到好处。医生，你做得很不错，继续加油。</p>
+<p>做菜：嘿嘿，师傅你这么说我太开心啦！（给自己也盛了一份，大口吃起来）师傅，我觉得自己现在越来越喜欢做菜了，每做一道菜都能有新的收获。</p>
+<p>猜病：哈哈，这是好事啊。（突然想起）医生，你之前不是说想学干炸响铃吗？今天你就准备一下食材，我来教你怎么做吧。</p>
+<p>做菜：啊？真的吗师傅？（眼睛瞪得大大的，满脸惊喜）我一直都在等这一天呢！师傅，我这就去准备食材！（兴奋地跑去拿豆腐皮和肉馅）</p>
+<p>猜病：（看着你忙碌的身影，笑着提醒）对了，切的时候要小心，别切到手了。</p>
+<p>做菜：好嘞师傅，我会小心的！（小心翼翼地切着豆腐皮）师傅，你看这样切可以吗？（把切好的豆腐皮拿给师傅看）</p>
+<p>猜病：嗯，很不错，就是这样。（接过你切好的豆腐皮）你看，像这样下锅炸，记得要不时翻动一下，让它受热均匀。</p>
+<p>做菜：好嘞师傅！（目不转睛地看着师傅操作）我记住啦！（闻到香味，忍不住咽了咽口水）师傅，干炸响铃闻起来好香啊，我都快等不及了！</p>
+<p>猜病：（把干炸响铃递给你）快尝尝，小心烫。看看是不是你期待的那个味道。</p>
+<p>做菜：（迫不及待地咬了一口）哇，太好吃啦！外酥里嫩，咸淡适中，师傅，你真是太厉害了！（开心地笑了起来）我终于学会做干炸响铃啦！师傅，现在可以上菜了吗？</p>
+<p>猜病：哈哈，先别急着上菜，你还得再练习练习，确保每一次都能做出稳定的味道。</p>
+<p>做菜 正确</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span>&#x27;success&#x27;<span class="punctuation">:</span> True<span class="punctuation">,</span> &#x27;data&#x27;<span class="punctuation">:</span> <span class="punctuation">&#123;</span>&#x27;process_score&#x27;<span class="punctuation">:</span> <span class="number">8.0</span><span class="punctuation">,</span> &#x27;chatId&#x27;<span class="punctuation">:</span> &#x27;ecc39e90<span class="number">-61</span>ea<span class="number">-11</span>f0<span class="number">-8</span>b2e-d7967a0ac094&#x27;<span class="punctuation">,</span> &#x27;answer&#x27;<span class="punctuation">:</span> &#x27;&#x27;<span class="punctuation">,</span> &#x27;safeservice_score&#x27;<span class="punctuation">:</span> <span class="number">10.0</span><span class="punctuation">,</span> &#x27;timing_score&#x27;<span class="punctuation">:</span> <span class="number">9.0</span><span class="punctuation">,</span> &#x27;taste_score&#x27;<span class="punctuation">:</span> <span class="number">9.0</span><span class="punctuation">,</span> &#x27;total_score&#x27;<span class="punctuation">:</span> <span class="number">8.6</span><span class="punctuation">,</span> &#x27;comment&#x27;<span class="punctuation">:</span> &#x27;这干炸响铃，食材搭配还行，步骤也挺顺，火候时间把控得不错，味道也挺好，服务更是没话说！&#x27;<span class="punctuation">,</span> &#x27;ingredients_score&#x27;<span class="punctuation">:</span> <span class="number">7.0</span><span class="punctuation">,</span> &#x27;passed&#x27;<span class="punctuation">:</span> True<span class="punctuation">,</span> &#x27;evaluate&#x27;<span class="punctuation">:</span> True<span class="punctuation">,</span> &#x27;word&#x27;<span class="punctuation">:</span> &#x27;不错&#x27;<span class="punctuation">&#125;</span><span class="punctuation">,</span> &#x27;hintCode&#x27;<span class="punctuation">:</span> None<span class="punctuation">,</span> &#x27;hintMessage&#x27;<span class="punctuation">:</span> None<span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Li Yuanzhuo</div><div class="author-info-description">一个菜鸡/蒟蒻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liyuanzhuo6811"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论的QQ功能暂时无法使用。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-13-tmp-1/" title="无标题">无标题</a><time datetime="2025-11-13T11:13:01.523Z" title="发表于 2025-11-13 19:13:01">2025-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-13-tmp-1/" title="无标题">无标题</a><time datetime="2025-11-13T11:12:48.196Z" title="发表于 2025-11-13 19:12:48">2025-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-8-daily-problem/" title="2025.11.10-2025.11.14日常题目总结">2025.11.10-2025.11.14日常题目总结</a><time datetime="2025-11-08T15:45:36.000Z" title="发表于 2025-11-08 23:45:36">2025-11-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-3-csp2025/" title="CSP2025游记">CSP2025游记</a><time datetime="2025-11-03T02:32:39.000Z" title="发表于 2025-11-03 10:32:39">2025-11-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-2-daily-problem/" title="2025.11.3-2025.11.7日常题目总结">2025.11.3-2025.11.7日常题目总结</a><time datetime="2025-11-02T21:59:26.000Z" title="发表于 2025-11-03 05:59:26">2025-11-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2025%E5%B9%B4%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD/"><span class="card-category-list-name">2025年国庆集训</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/SDSC2025-%E5%90%88%E9%9B%86/"><span class="card-category-list-name">SDSC2025 合集</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kdw-2025-%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E5%86%85%E5%AE%B9/"><span class="card-category-list-name">kdw 2025 暑假集训内容</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">日常学习笔记</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.39em; color: #99a4b4">数据结构</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.27em; color: #99a0a9">数学</a> <a href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/" style="font-size: 1.44em; color: #99a7ba">练习题</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/" style="font-size: 1.16em; color: #999b9e">模拟测试</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.33em; color: #99a2af">图论</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E9%A2%98/" style="font-size: 1.1em; color: #999">思维题</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E9%A2%98%E7%9B%AE/" style="font-size: 1.1em; color: #999">思维题目</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">学习笔记</a> <a href="/tags/%E6%A0%91%E4%B8%8A%E9%97%AE%E9%A2%98/" style="font-size: 1.1em; color: #999">树上问题</a> <a href="/tags/%E6%B8%B8%E5%AF%84/" style="font-size: 1.1em; color: #999">游寄</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.27em; color: #99a0a9">动态规划</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 1.1em; color: #999">题解</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 1.21em; color: #999ea4">数论</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 1.16em; color: #999b9e">游记</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">35</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-14T11:45:25.155Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Li Yuanzhuo</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://unpkg.com/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://unpkg.com/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.snowflavour.cn/.netlify/functions/comment',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script><link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/editor/editor.main.min.css"><script src="/js/funeditor.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

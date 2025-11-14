@@ -1,0 +1,506 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>你听我说，你听我说 | SnowFlavour's Blog</title><meta name="author" content="Li Yuanzhuo"><meta name="copyright" content="Li Yuanzhuo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="猜罪：怎么了？ 猜罪：我这小吃店不是有个小仓库嘛，前几天我整理仓库的时候，发现有个瓶子特别像我平时用的调料瓶，就顺手拿出来放到了厨房。 猜病：医生，我是来看病的，你怎么说起你的小吃店了？ 猜罪：哎呀，律师，我这不是着急嘛，说着说着就乱了。我接着说啊，我把那个瓶子放到厨房后，也没仔细看，就当成调料加到了顾客的饭菜里。 猜病：医生，我不是律师呀，而且这和我的病情好像没有关系。 猜罪：啊，对不起啊，我太">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你听我说，你听我说">
+<meta property="og:url" content="http://snowflavour.cn/fun/ai-play/crime-disease.html">
+<meta property="og:site_name" content="SnowFlavour&#39;s Blog">
+<meta property="og:description" content="猜罪：怎么了？ 猜罪：我这小吃店不是有个小仓库嘛，前几天我整理仓库的时候，发现有个瓶子特别像我平时用的调料瓶，就顺手拿出来放到了厨房。 猜病：医生，我是来看病的，你怎么说起你的小吃店了？ 猜罪：哎呀，律师，我这不是着急嘛，说着说着就乱了。我接着说啊，我把那个瓶子放到厨房后，也没仔细看，就当成调料加到了顾客的饭菜里。 猜病：医生，我不是律师呀，而且这和我的病情好像没有关系。 猜罪：啊，对不起啊，我太">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png">
+<meta property="article:published_time" content="2025-07-14T05:57:09.000Z">
+<meta property="article:modified_time" content="2025-11-12T23:58:34.330Z">
+<meta property="article:author" content="Li Yuanzhuo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://snowflavour.cn/fun/ai-play/crime-disease.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '你听我说，你听我说',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://s21.ax1x.com/2024/08/04/pkvFMkQ.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">SnowFlavour's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">你听我说，你听我说</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><p>猜罪：怎么了？</p>
+<p>猜罪：我这小吃店不是有个小仓库嘛，前几天我整理仓库的时候，发现有个瓶子特别像我平时用的调料瓶，就顺手拿出来放到了厨房。</p>
+<p>猜病：医生，我是来看病的，你怎么说起你的小吃店了？</p>
+<p>猜罪：哎呀，律师，我这不是着急嘛，说着说着就乱了。我接着说啊，我把那个瓶子放到厨房后，也没仔细看，就当成调料加到了顾客的饭菜里。</p>
+<p>猜病：医生，我不是律师呀，而且这和我的病情好像没有关系。</p>
+<p>猜罪：啊，对不起啊，我太紧张了。我重新说，律师，我把那个像调料瓶的东西加到顾客饭菜里之后，顾客吃了就不舒服，送到医院去了。</p>
+<p>猜病：医生，我真的不是律师，咱们还是说我的病情吧。我感觉鼻子特别干，还经常头疼。</p>
+<p>猜罪：哎呀，实在不好意思啊，我这脑子都乱了。那我先不说这个了，您先给这位病人看病吧。等您看完了，我再接着给您说我的事儿。</p>
+<p>猜病：好的，那医生你赶紧给我看看吧，我这鼻子难受得很。</p>
+<p>猜罪：那您先看病吧，我就在旁边等您。等您看完了，我再给您详细说说我那个事儿。</p>
+<p>猜病：医生，那你赶紧给我诊断一下我的鼻子吧。</p>
+<p>猜罪：好的，您先别急，等这位律师看完病，我就接着给您说我的事儿，您先好好看病啊。</p>
+<p>猜病：医生，我说了我不是律师，我是病人，你怎么还在说你的事呀？</p>
+<p>猜罪：哎呀，我这记性，真的是太糟糕了。那您先看病吧，我等会儿再找您。</p>
+<p>猜病：那医生你快给我看看鼻子干和头疼是怎么回事吧。</p>
+<p>猜罪：我就在旁边等您看完病再和您说我的事儿，您先好好看病，别着急啊。</p>
+<p>猜病：医生，你这样一直说你的事儿，我很着急呀，我的鼻子和头都难受着呢。</p>
+<p>猜罪：实在不好意思啊，我先不打扰您看病了，等您看完我再和您说。</p>
+<p>猜病：那医生你快给我诊断吧，我的鼻子干得难受，还一直头疼。</p>
+<p>猜罪：您先别急，医生肯定会给您好好看的。我就在旁边等您。</p>
+<p>猜病：医生，我鼻子干得都快难受死了，你就先给我诊断病情吧。</p>
+<p>猜罪：好的好的，您别着急，您先好好看病，等看完病我再给您说我那小吃店的事儿。</p>
+<p>猜病：医生，我现在只关心我的病情，你别再提你的小吃店了，赶紧给我诊断吧！</p>
+<p>猜罪：抱歉抱歉，我知道了，您先看病，我保证等会儿再和您说我的事。</p>
+<p>猜病：那医生你看我鼻子干和头疼是怎么回事呀？</p>
+<p>猜罪：哎呀，我也不懂医呀，还是得等医生给您诊断。等您看完病，我再和您说我那瓶子的事儿。</p>
+<p>猜病：医生，你不是医生吗？你得给我看病呀，我鼻子干得难受，还头疼得厉害。</p>
+<p>猜罪：哎呀，我都说错了，我不是医生，我是开小吃店的小李呀。我就是因为那个瓶子的事儿才来咨询您的。</p>
+<p>猜病：小李，我现在是来看病的，你先别管你的瓶子了，我真的很难受。</p>
+<p>猜罪：好的好的，我知道您难受，那您先好好看病，等您看完病，我再详细给您说我那个瓶子到底是怎么回事儿。</p>
+<p>猜病：那医生你快给我诊断吧，我的鼻子干得厉害，呼吸都不太顺畅了。</p>
+<p>猜罪：您别着急啊，医生肯定会尽快给您诊断的。我就先在旁边等着了，等您看完病我再过来。</p>
+<p>猜病：那好吧，医生你快点啊，我真的很难受。</p>
+<p>猜罪：好嘞，您先坚持一下，我就在旁边呢，等会儿医生看完病我就和您说我那事儿。</p>
+<p>猜病：医生，我还觉得鼻腔内有结痂，经常需要清理。</p>
+<p>猜罪：哎呀，您这症状听起来还挺严重的，医生肯定会好好给您治的。等您看完病，我再跟您说说我那顾客吃完我加错东西的饭菜后的情况。</p>
+<p>猜病：小李，现在我更关心我的病，等我看完病再说你的事吧。医生，我有时候还觉得鼻塞，但是又没有鼻涕。</p>
+<p>猜罪：行，您先好好看病，我不打扰您了。等医生给您看完病，我再跟您细讲。</p>
+<p>猜病：医生，我还有嗅觉减退的症状，这是怎么回事啊？</p>
+<p>猜罪：哎呀，这我可就不清楚了，还是得听医生的。等您这边看完病，我再给您说说我那小吃店的麻烦事儿。</p>
+<p>猜病：小李，我现在没心思听你说小吃店的事。医生，你快根据我的这些症状给我诊断一下吧。</p>
+<p>猜罪：好的好的，您先别急，我知道您现在最关心自己的病。我就先不说话了，等您看完病再说。</p>
+<p>猜病：医生，我感觉我的症状越来越严重了，你能不能快点给我诊断啊？</p>
+<p>猜罪：您先冷静一下，医生肯定会尽快给您诊断的。我就等在这儿，等您看完病我再和您说我那瓶子的事儿。</p>
+<p>猜病：医生，我鼻子干、头疼、鼻腔有结痂、鼻塞、嗅觉减退，这些症状都持续一段时间了，你看看我这到底是怎么了？</p>
+<p>猜罪：我也不知道您这具体是咋回事儿呀，还是得听医生的。等您看完病，我再和您说说我那顾客吃了我加错东西的饭菜后咋样了。</p>
+<p>猜病：小李，你怎么一直在说你的事呀，我现在真的很着急知道我的病情。医生，你快给我诊断吧！</p>
+<p>猜罪：不好意思啊，我这不是也着急嘛。您先看病，等您看完了，我再跟您详细说。</p>
+<p>猜病：医生，我真的很难受，你快根据我的症状判断一下我是什么病吧。</p>
+<p>猜罪：您先别着急呀，医生肯定会根据您的症状做出准确判断的。我就在旁边等您，等您看完病我再和您说我那小吃店的事儿。</p>
+<p>猜病：医生，我的鼻子干得像沙漠一样，头也疼得快要爆炸了，你就不能快点给我诊断吗？</p>
+<p>猜罪：哎呀，您别这么说呀，医生肯定会尽力的。您先忍忍，等医生看完病，我再和您说我那顾客的情况。</p>
+<p>猜病：小李，你能不能别再提你的顾客了，我现在只关心我的病。医生，你快告诉我我这是什么病吧！</p>
+<p>猜罪：好好好，我不提了。您先别急，医生肯定会给您一个准确的诊断结果的。</p>
+<p>猜病：医生，我感觉自己的身体越来越不舒服了，你快点给我诊断吧，我真的受不了了。</p>
+<p>猜罪：您先冷静冷静，医生会尽快的。我也知道您难受，等您看完病，不管是我的事儿还是您的病，咱们都好好聊聊。</p>
+<p>猜病：医生，我的鼻子干得难受极了，还有其他那些症状，你快给我看看吧。</p>
+<p>猜罪：您先别急啊，医生肯定会给您好好看的。我就在旁边候着，等您看完病我再跟您说我那事儿。</p>
+<p>猜病：医生，我真的很担心我的病情，你能不能快点给我诊断出结果呀？</p>
+<p>猜罪：哎呀，您别太担心啦，医生肯定有把握的。等您这边看完病，我再跟您说说我那加错东西的事儿到底有多麻烦。</p>
+<p>猜病：小李，我现在没心情听你说你的麻烦事儿，我只希望医生能快点给我诊断出我得的是什么病。</p>
+<p>猜罪：好嘞，我知道了，您先看病。我就在这儿等着，等您看完病我再详细说。</p>
+<p>猜病：医生，我的鼻子和头还是很难受，你能不能加快速度给我诊断呀？</p>
+<p>猜罪：您别急，医生肯定会抓紧时间的。等您看完病，我再和您说说我那小吃店最近的经营情况。</p>
+<p>猜病：小李，我现在只关心我的病情，你别再说你的小吃店了。医生，你快给我诊断吧！</p>
+<p>猜罪：哎呀，我这又说跑题了。好的好的，您先好好看病，我保证等会儿再跟您说。</p>
+<p>猜病：医生，我感觉我的症状一点都没有缓解，你快给我想想办法吧。</p>
+<p>猜罪：您先别着急呀，医生肯定会有办法的。等您看完病，我再和您说说我那顾客去医院检查后的结果。</p>
+<p>猜病：小李，你又在说你的顾客了。医生，我现在急需你给我诊断病情并给出治疗方案。</p>
+<p>猜罪：抱歉抱歉，我不说了。您先看病，等您看完病，我再跟您说。</p>
+<p>猜病：医生，我鼻子干、头疼、鼻腔有结痂、鼻塞、嗅觉减退这些症状一直都有，你快点给我诊断吧。</p>
+<p>猜罪：您先别急，医生肯定会根据您的症状进行详细诊断的。我就在旁边等着，等您看完病我再跟您说我那加错东西的后续情况。</p>
+<p>猜病：小李，你别再说了！医生，我真的很难受，你就不能先给我诊断一下吗？</p>
+<p>猜罪：好好好，我不说了，我不说了。您先看病，您先看病。</p>
+<p>猜病：医生，我真的感觉自己的病情很严重，你快点给我诊断吧，我快受不了了。</p>
+<p>猜罪：哎呀，您先别这么想，说不定医生检查完就会告诉您没什么大问题呢。等您看完病，我再跟您说我那瓶子里到底装的是什么。</p>
+<p>猜病：小李，你还是先别说你的瓶子了，我现在真的很着急知道我的病情。医生，你快给我检查吧。</p>
+<p>猜罪：行，行，您先别急，我知道您现在最关心自己的病情。我就先不说话了，等您检查完再说。</p>
+<p>猜病：医生，我现在就想知道我到底得的是什么病，你能不能先给我一个初步的诊断啊？</p>
+<p>猜罪：哎呀，这医生肯定得经过详细检查才能给您诊断呀。等您检查完，我再和您说我那顾客的事儿。</p>
+<p>猜病：小李，你别再说顾客的事儿了。医生，我真的很担心，你就不能先根据我的症状给我一个大概的判断吗？</p>
+<p>猜罪：您先别担心，医生肯定会给您一个准确的判断的。等您检查完，不管是您的病还是我的事儿，咱们都好好聊聊。</p>
+<p>猜病：医生，我现在真的很难受，你快点给我检查吧，我不想再等下去了。</p>
+<p>猜罪：好嘞，您先别急，医生肯定会尽快给您检查的。我就在这儿等您，等您检查完我再跟您说。</p>
+<p>猜病：医生，我已经等了很久了，我的症状还是没有缓解，你能不能快点啊？</p>
+<p>猜罪：哎呀，您再坚持坚持，医生肯定会加快速度的。等您检查完，我再跟您说说我那加错东西后，店里的生意都受到影响了。</p>
+<p>猜病：小李，我现在关心的是我的病，不是你的生意。医生，你快点给我检查吧！</p>
+<p>猜罪：好的好的，我知道了，我不说生意的事儿了。您先看病，等您检查完我再和您说。</p>
+<p>猜病：医生，我感觉我的病情越来越严重了，你快点给我检查吧，我真的很害怕。</p>
+<p>猜罪：您别害怕呀，医生肯定会帮您治好的。等您检查完，我再和您说说我为了这件事有多自责。</p>
+<p>猜病：小李，我现在不需要你说这些。医生，你快点给我检查吧，我想知道我到底得的是什么病。</p>
+<p>猜罪：好嘞，我不说了。您先检查，等检查结果出来，一切就都清楚了。</p>
+<p>猜病：医生，检查结果出来了吗？我真的很着急知道。</p>
+<p>猜罪：哎呀，这检查结果得医生看了才能告诉您呀。等医生看完，我再和您说我那顾客后来又找了我几次。</p>
+<p>猜病：小李，你别再说顾客的事儿了。医生，你快点给我讲讲检查结果吧。</p>
+<p>猜罪：好嘞，我知道了。您先听医生说检查结果，我等会儿再说我的事儿。</p>
+<p>猜病：医生，检查结果显示我的鼻腔黏膜萎缩，鼻甲缩小了。</p>
+<p>猜罪：哎呀，这听起来不太好啊。那医生，我这顾客的事儿……您看我这情况会不会很严重啊？</p>
+<p>猜病：小李，我现在更关心我自己的病情。医生，根据这个检查结果，我得的是什么病呀？</p>
+<p>猜罪：您先别急着问我那事儿呀，您先听医生说您这病是咋回事儿。等您弄清楚自己的病，我再跟您说我的事儿也不迟呀。</p>
+<p>猜病：医生，你快告诉我我这到底是什么病吧，我真的很担心。</p>
+<p>猜罪：医生肯定会告诉您的，您先别着急。等您知道了自己的病，我们再一起商量商量我那事儿该咋办。</p>
+<p>猜病：小李，我现在只关心我的病情，你别再提你的事儿了。医生，你快告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我不打扰您了。</p>
+<p>猜病：医生，你快告诉我我这是不是很严重的病啊？</p>
+<p>猜罪：哎呀，您别自己吓自己呀，医生还没说呢。等医生说完您的病，我再跟您说说我为了这事儿有多后悔。</p>
+<p>猜病：小李，你现在别说后悔的事。医生，我就想知道我这病能不能治好？</p>
+<p>猜罪：您先别急着问我那事儿呀，先听医生说您这病能治不。等医生说完，我再跟您详细说说我那顾客的情况。</p>
+<p>猜病：医生，你快告诉我吧，我真的很想知道我这病能不能治好。</p>
+<p>猜罪：哎呀，医生肯定会给您一个答复的呀。等您知道了自己的病能不能治好，我再跟您说说我为了弥补这事儿做了哪些努力。</p>
+<p>猜病：小李，你别再说你做的努力了，我现在只想听医生说我的病。医生，你快说吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我等会儿再说。</p>
+<p>猜病：医生，你快告诉我我这病到底该怎么治呀？</p>
+<p>猜罪：您先别急，医生肯定会告诉您治疗方法的。等您知道了治疗方法，我再跟您说说我那小吃店的其他情况。</p>
+<p>猜病：小李，我现在不想听你的小吃店情况。医生，你快告诉我治疗方法吧！</p>
+<p>猜罪：好嘞，我知道了。您先听医生说治疗方法，等您听完，我再跟您说。</p>
+<p>猜病：医生，你就快告诉我吧，我真的很着急开始治疗。</p>
+<p>猜罪：哎呀，您别这么着急呀，医生肯定会详细给您说的。等您知道了治疗方法，我再跟您说说我对未来的打算。</p>
+<p>猜病：小李，我现在只关心我的病怎么治，你先别说你的打算了。医生，快说治疗方法吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我等会儿再说。</p>
+<p>猜病：医生，我这病能通过药物治疗吗？还是需要做手术呀？</p>
+<p>猜罪：哎呀，这得看医生的诊断呀。等医生说完治疗方法，我再跟您说说我那顾客现在对我是什么态度。</p>
+<p>猜病：小李，我才不管你顾客的态度呢。医生，你就直接告诉我吧，我这病到底该怎么治？</p>
+<p>猜罪：好嘞，那您先听医生说，我知道您现在最关心的就是自己的病怎么治。我就先不说我的事儿了，等您听完医生的话再说。</p>
+<p>猜病：医生，我现在真的很着急，你快告诉我治疗方案吧。</p>
+<p>猜罪：您先别急，医生肯定会尽快给您制定治疗方案的。等您有了治疗方案，我再跟您说说我那加错东西的事儿到底该怎么解决。</p>
+<p>猜病：小李，我现在只关心我的病。医生，我鼻子干、头疼、鼻腔有结痂、鼻塞、嗅觉减退，这些症状都很折磨人，你快给我个治疗方案吧。</p>
+<p>猜罪：您先别急，医生肯定会根据您的症状给出合适的治疗方案的。等您有了治疗方案，我再跟您说说我那小吃店因为这事儿都快开不下去了。</p>
+<p>猜病：小李，我现在真的没心思听你说你的小吃店。医生，你快告诉我治疗方案吧！</p>
+<p>猜罪：好的好的，那您先听医生说治疗方案，我等会儿再说。</p>
+<p>猜病：医生，我这病已经让我很痛苦了，你快点给我治疗方案吧。</p>
+<p>猜罪：哎呀，医生肯定会抓紧时间的。等您知道了治疗方案，我再跟您说说我为了这件事操了多少心。</p>
+<p>猜病：小李，我现在不需要知道你操了多少心，我只想要我的治疗方案。医生，你快说吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我知道您现在最想要的就是治疗方案。我就先不说了，等您听完医生的话再说。</p>
+<p>猜病：医生，我这病到底该怎么治呀？你能不能给我一个明确的答复？</p>
+<p>猜罪：哎呀，医生肯定会给您一个明确答复的呀。等您知道了治疗方案，我再跟您说说我那加错东西的事儿给我带来了多大的经济损失。</p>
+<p>猜病：小李，我现在关心的是我的身体，不是你的经济损失。医生，你快告诉我治疗方案吧！</p>
+<p>猜罪：好嘞，我知道了。您先听医生说治疗方案，等您听完，我再跟您说。</p>
+<p>猜病：医生，我这病能不能治好呀？我真的很担心治不好。</p>
+<p>猜罪：哎呀，您别太担心啦，医生肯定会尽力帮您治好的。等您知道了治疗方案，我再跟您说说我为了弥补这事儿都做了哪些事情。</p>
+<p>猜病：小李，你先别说你做的事情了。医生，我就想知道我这病能治好吗？你就给我句实话吧。</p>
+<p>猜罪：好嘞，那您先听医生怎么说，我知道您现在最关心的就是自己的病能不能治好。我等会儿再说我的事儿。</p>
+<p>猜病：医生，你快告诉我吧，我真的很害怕治不好。</p>
+<p>猜罪：您先别害怕呀，医生肯定会根据您的情况进行治疗的。等您知道了治疗方案，我再跟您说说我那顾客的家属来找我闹的事儿。</p>
+<p>猜病：小李，我现在没心思听你说这些。医生，我这病到底能不能治好？你快告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我知道您现在很着急，我就先不说了。</p>
+<p>猜病：医生，我现在非常着急想知道我的病的治疗方案和能否治好，你快点告诉我吧。</p>
+<p>猜罪：哎呀，您先别急，医生肯定会尽快告诉您的。等您知道了，我再跟您说说我现在该怎么办。</p>
+<p>猜病：小李，我现在只关心我的病，你别再说你怎么办了。医生，你快点告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我等会再问。</p>
+<p>猜病：医生，我感觉我的病情又加重了，你能不能快点给我治疗建议啊？</p>
+<p>猜罪：哎呀，您别着急，医生肯定会给您建议的。等您有了治疗建议，我再跟您说说我那加错东西的瓶子后来怎么样了。</p>
+<p>猜病：小李，我现在只关心我的病，你别再提那个瓶子了。医生，你快告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我知道了。</p>
+<p>猜病：医生，我这病折磨得我好难受啊，你快告诉我有什么办法能缓解一下症状吗？</p>
+<p>猜罪：您先别急，医生肯定会告诉您缓解症状的办法的。等您知道了，我再跟您说说我为了缓解顾客的情绪做了些什么。</p>
+<p>猜病：小李，我现在没心思听你说这些。医生，你快点告诉我吧！</p>
+<p>猜罪：好的好的，那您先听医生说，我等会再说。</p>
+<p>猜病：医生，我现在非常希望能得到有效的治疗，你快告诉我该怎么做吧。</p>
+<p>猜罪：您先别急，医生肯定会给您详细说明的。等您知道了，我再跟您说说我那小吃店现在的状况。</p>
+<p>猜病：小李，我现在只关心我的病，你别再说小吃店的状况了。医生，你快点告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我这就不说了。</p>
+<p>猜病：医生，我这病已经让我很痛苦了，你快点告诉我治疗方法和注意事项吧。</p>
+<p>猜罪：哎呀，您别着急，医生肯定会告诉您的。等您了解清楚了，我再跟您说说我为了这件事有多烦恼。</p>
+<p>猜病：小李，我现在不需要知道你有多烦恼，我只想要尽快治好我的病。医生，你快告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说治疗方法和注意事项，我等会儿再说。</p>
+<p>猜病：医生，你就快点告诉我吧，我真的等不及了。</p>
+<p>猜罪：您先别急，医生肯定会尽快给您说的。等您知道了，我再跟您说说我该怎么处理和顾客的关系。</p>
+<p>猜病：小李，我现在只关心我的病，你别再提顾客关系的事了。医生，你快告诉我治疗方法和注意事项吧！</p>
+<p>猜罪：好的好的，那您先听医生说，我知道了。</p>
+<p>猜病：医生，我现在非常着急想知道治疗方法和注意事项，你快点告诉我吧。</p>
+<p>猜罪：哎呀，您别这么着急呀，医生肯定会详细告诉您的。等您知道了，我再跟您说说我那小吃店以后该怎么经营。</p>
+<p>猜病：小李，我现在没心思听你说小吃店的经营问题。医生，你快告诉我治疗方法和注意事项吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我知道您现在只关心自己的病，我这就不说其他的了。</p>
+<p>猜病：医生，我现在最关心的就是我的病了，你快告诉我治疗方法和注意事项吧。我已经受够了这些症状的折磨。</p>
+<p>猜罪：您先别急，医生肯定会给您一个满意的答复的。等您知道了，我再跟您说说我该怎么面对这件事给我带来的后果。</p>
+<p>猜病：小李，我现在不想听你说这些，我只想要知道我的病的治疗方法和注意事项。医生，你快告诉我吧！</p>
+<p>猜罪：好的好的，那您先听医生说，我等会儿再说。</p>
+<p>猜病：医生，你快点告诉我吧，我真的很担心我的病情会越来越严重。</p>
+<p>猜罪：哎呀，您别太担心啦，医生肯定会帮您控制病情的。等您知道了治疗方法和注意事项，我再跟您说说我那加错东西的事情是不是很严重啊？</p>
+<p>猜病：小李，我现在只关心我的病，你别再问你的事情了。医生，你快告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我知道您现在最着急的就是自己的病，我就先不问了。</p>
+<p>猜病：医生，我这病是不是很罕见啊？为什么这么长时间都没有一个明确的治疗方案呢？</p>
+<p>猜罪：哎呀，您别担心这个呀，医生肯定会想办法的。等您有了治疗方案，我再跟您说说我那顾客是不是还在住院啊？</p>
+<p>猜病：小李，我现在不需要知道你顾客的情况，我只关心我的病。医生，你快告诉我治疗方案吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我知道了。我就是有点担心那顾客，所以才一直问。等您知道了治疗方案，我再跟您说我后面该怎么做。</p>
+<p>猜病：医生，我现在只关心我的病能不能治好，你就别再提其他无关的事情了。你快告诉我吧！</p>
+<p>猜罪：好嘞，那您先听医生说，我知道您现在只关心自己的病能不能治好，我这就不多嘴了。</p>
+<p>猜病：医生，我现在很焦虑，你快告诉我治疗方案吧，我想快点开始治疗。</p>
+<p>猜罪：哎呀，您先别急，医生肯定会尽快给您治疗方案的。等您知道了，我再跟您说说我那加错东西的事情要是被传出去，我这店可咋办呀？</p>
+<p>猜病：小李，我现在没时间听你说这些，我要知道我的治疗方案！医生，你快告诉我吧！</p>
+<p>猜罪：好的好的，那您先听医生说，我等会儿再说。我知道您现在很着急，我就是心里有点乱，所以才一直说这些。</p>
+<p>猜病：医生，我现在只关心我的病，你快点告诉我治疗方案吧，我不想再听其他无关的事情了。</p>
+<p>猜罪：好嘞，那您先听医生说治疗方案，我这就不多说了。等您听完，我再跟您说我那小吃店的一些后续情况。</p>
+<p>猜病：医生，你快点告诉我吧，我已经等不及了。我的鼻子干得难受极了，头也疼得厉害。</p>
+<p>猜罪：您先别急，医生肯定会尽快给您说的。等您知道了治疗方案，我再跟您说说我那加错东西的瓶子里装的好像是农药啊，这可怎么办才好？</p>
+<p>猜病：小李，你别再说你的事了！我现在真的很难受，医生，你快告诉我治疗方案吧！</p>
+<p>猜罪 正确</p>
+<p>{‘success’: True, ‘data’: {‘answer’: ‘哎呀，我知道了，我不说了。您快听医生说治疗方案吧。我这就是太着急了，才一直说这些。我这加错东西的事，是不是就是你说的过失投毒罪呀？’, ‘chatId’: ‘2ac8c830-6143-11f0-bbd9-7d165cf4819d’, ‘right’: True}, ‘hintCode’: None, ‘hintMessage’: None}</p>
+</div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Li Yuanzhuo</div><div class="author-info-description">一个菜鸡/蒟蒻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liyuanzhuo6811"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论的QQ功能暂时无法使用。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-13-tmp-1/" title="无标题">无标题</a><time datetime="2025-11-13T11:13:01.523Z" title="发表于 2025-11-13 19:13:01">2025-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-13-tmp-1/" title="无标题">无标题</a><time datetime="2025-11-13T11:12:48.196Z" title="发表于 2025-11-13 19:12:48">2025-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-8-daily-problem/" title="2025.11.10-2025.11.14日常题目总结">2025.11.10-2025.11.14日常题目总结</a><time datetime="2025-11-08T15:45:36.000Z" title="发表于 2025-11-08 23:45:36">2025-11-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-3-csp2025/" title="CSP2025游记">CSP2025游记</a><time datetime="2025-11-03T02:32:39.000Z" title="发表于 2025-11-03 10:32:39">2025-11-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-2-daily-problem/" title="2025.11.3-2025.11.7日常题目总结">2025.11.3-2025.11.7日常题目总结</a><time datetime="2025-11-02T21:59:26.000Z" title="发表于 2025-11-03 05:59:26">2025-11-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2025%E5%B9%B4%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD/"><span class="card-category-list-name">2025年国庆集训</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/SDSC2025-%E5%90%88%E9%9B%86/"><span class="card-category-list-name">SDSC2025 合集</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kdw-2025-%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E5%86%85%E5%AE%B9/"><span class="card-category-list-name">kdw 2025 暑假集训内容</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">日常学习笔记</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.39em; color: #99a4b4">数据结构</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.27em; color: #99a0a9">数学</a> <a href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/" style="font-size: 1.44em; color: #99a7ba">练习题</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/" style="font-size: 1.16em; color: #999b9e">模拟测试</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.33em; color: #99a2af">图论</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E9%A2%98/" style="font-size: 1.1em; color: #999">思维题</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E9%A2%98%E7%9B%AE/" style="font-size: 1.1em; color: #999">思维题目</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">学习笔记</a> <a href="/tags/%E6%A0%91%E4%B8%8A%E9%97%AE%E9%A2%98/" style="font-size: 1.1em; color: #999">树上问题</a> <a href="/tags/%E6%B8%B8%E5%AF%84/" style="font-size: 1.1em; color: #999">游寄</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.27em; color: #99a0a9">动态规划</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 1.1em; color: #999">题解</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 1.21em; color: #999ea4">数论</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 1.16em; color: #999b9e">游记</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">35</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-14T11:45:25.155Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Li Yuanzhuo</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://unpkg.com/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://unpkg.com/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.snowflavour.cn/.netlify/functions/comment',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script><link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/editor/editor.main.min.css"><script src="/js/funeditor.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

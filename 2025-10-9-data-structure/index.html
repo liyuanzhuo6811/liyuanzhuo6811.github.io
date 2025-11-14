@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>10.3数据结构 | SnowFlavour's Blog</title><meta name="author" content="Li Yuanzhuo"><meta name="copyright" content="Li Yuanzhuo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="优先队列 &#x2F; 堆  [蓝桥杯 2021 省 AB2] 负载均衡 考虑使用动态开点线段树 发现我们应当用一个结构维护每个计算机正在运行的任务。显然我们应当把每个任务按照结束时间排序，这样我们才好判断哪些任务已经完成。显然可以给每个计算机开一个优先队列维护。  跳舞机 肯定是 DP。状态也很好设，就假设前 iii 分钟的最大收益是 fif_ifi​，转移大概是这个样子的： fi&#x3D;max⁡j≤i−kf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10.3数据结构">
+<meta property="og:url" content="http://snowflavour.cn/2025-10-9-data-structure/index.html">
+<meta property="og:site_name" content="SnowFlavour&#39;s Blog">
+<meta property="og:description" content="优先队列 &#x2F; 堆  [蓝桥杯 2021 省 AB2] 负载均衡 考虑使用动态开点线段树 发现我们应当用一个结构维护每个计算机正在运行的任务。显然我们应当把每个任务按照结束时间排序，这样我们才好判断哪些任务已经完成。显然可以给每个计算机开一个优先队列维护。  跳舞机 肯定是 DP。状态也很好设，就假设前 iii 分钟的最大收益是 fif_ifi​，转移大概是这个样子的： fi&#x3D;max⁡j≤i−kf">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png">
+<meta property="article:published_time" content="2025-10-09T10:52:43.000Z">
+<meta property="article:modified_time" content="2025-11-12T23:58:34.313Z">
+<meta property="article:author" content="Li Yuanzhuo">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="练习题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "10.3数据结构",
+  "url": "http://snowflavour.cn/2025-10-9-data-structure/",
+  "image": "https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png",
+  "datePublished": "2025-10-09T10:52:43.000Z",
+  "dateModified": "2025-11-12T23:58:34.313Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Li Yuanzhuo",
+      "url": "http://snowflavour.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://snowflavour.cn/2025-10-9-data-structure/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '10.3数据结构',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://s21.ax1x.com/2024/08/04/pkvFMkQ.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">SnowFlavour's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">10.3数据结构</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">10.3数据结构</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-09T10:52:43.000Z" title="发表于 2025-10-09 18:52:43">2025-10-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-12T23:58:34.313Z" title="更新于 2025-11-13 07:58:34">2025-11-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2025%E5%B9%B4%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD/">2025年国庆集训</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025-10-9-data-structure/#post-comment"><span class="waline-comment-count" data-path="/2025-10-9-data-structure/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="优先队列-堆"><a class="markdownIt-Anchor" href="#优先队列-堆"></a> 优先队列 / 堆</h1>
+<h2 id="蓝桥杯-2021-省-ab2-负载均衡"><a class="markdownIt-Anchor" href="#蓝桥杯-2021-省-ab2-负载均衡"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8755">[蓝桥杯 2021 省 AB2] 负载均衡</a></h2>
+<p><s>考虑使用动态开点线段树</s></p>
+<p>发现我们应当用一个结构维护每个计算机正在运行的任务。显然我们应当把每个任务按照结束时间排序，这样我们才好判断哪些任务已经完成。显然可以给每个计算机开一个优先队列维护。</p>
+<h2 id="跳舞机"><a class="markdownIt-Anchor" href="#跳舞机"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12247">跳舞机</a></h2>
+<p>肯定是 DP。状态也很好设，就假设前 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 分钟的最大收益是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，转移大概是这个样子的：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow><mi>j</mi><mo>≤</mo><mi>i</mi><mo>−</mo><mi>k</mi></mrow></munder><msub><mi>f</mi><mi>j</mi></msub><mo>+</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow><msub><mi>l</mi><mi>j</mi></msub><mo>+</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><msub><mi>r</mi><mi>j</mi></msub></mrow></munder><msub><mi>w</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">f_i = \max_{j \le i - k} f_j + \max_{l_j + k - 1 \le i \le r_j} w_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.5827em;vertical-align:-0.8882em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-2.3479em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">≤</span><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">max</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8882em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.38em;vertical-align:-0.9494em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-2.3479em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0197em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mrel mtight">≤</span><span class="mord mathnormal mtight">i</span><span class="mrel mtight">≤</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0278em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">max</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9494em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span>
+<p>前面就是个前缀 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>max</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\max</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mop">max</span></span></span></span>，关键是后面。我们考虑在扫描的时候，把所有加入的玩家都弄到一个优先队列里面，按照 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span> 排序。这样的话，我们就得到了一些候选的玩家，每次查询的时候查询堆顶元素，如果它已经离开则弹出。重复这个过程即可得到当前的最优值。这个时候堆里面可能还有不合法的，但是由于它的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span> 较小，所以对答案并不造成影响。</p>
+<h2 id="noi2010-超级钢琴"><a class="markdownIt-Anchor" href="#noi2010-超级钢琴"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2048">[NOI2010] 超级钢琴</a></h2>
+<p><a href="https://snowflavour.cn/2025-7-11-fun-problems/#%E8%B6%85%E7%BA%A7%E9%92%A2%E7%90%B4">这里</a>其实已经记过一遍了，不过感觉挺有意思就再复习一下。</p>
+<p>这玩意显然是化成前缀和，那么区间最值就直接 ST 表。问题是如果一个最值被拿出来了，那么它就不能再在这里面了。</p>
+<p>一个想法是改成线段树，虽然好像取出最大值，把最值位置赋值成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> 再给他放回去也行，但是这样就破坏了其他位置。举个例子，如果是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>2</mn><mo separator="true">,</mo><mn>5</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[2,5]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span><span class="mclose">]</span></span></span></span> 被选出来了，你标记了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> 这个位置，那么 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>3</mn><mo separator="true">,</mo><mn>5</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[3,5]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5</span><span class="mclose">]</span></span></span></span> 就没法选了。</p>
+<p>因此我们应当考虑的是修改这个区间的信息，而删除这个位置就相当于直接把原来的查询区间裂开变成两个，于是就用优先队列维护这个东西即可。</p>
+<h1 id="并查集"><a class="markdownIt-Anchor" href="#并查集"></a> 并查集</h1>
+<p>为啥小波选的题全是 MST 啊……</p>
+<h2 id="蓝桥杯-2024-省-python-b-缴纳过路费"><a class="markdownIt-Anchor" href="#蓝桥杯-2024-省-python-b-缴纳过路费"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11005">[蓝桥杯 2024 省 Python B] 缴纳过路费</a></h2>
+<p>笑点解析：把最大值看成求和想了半天点分治。</p>
+<p>考虑 Kruskal 的生成过程，每次合并两个连通块的时候，这条边一定是两个连通块之间的点的路径上的最大值。</p>
+<p>那这不完了。直接把两个连通块乘起来不就完了。</p>
+<h2 id="sdcpc-2023-not-another-path-query-problem"><a class="markdownIt-Anchor" href="#sdcpc-2023-not-another-path-query-problem"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9565">[SDCPC 2023] Not Another Path Query Problem</a></h2>
+<p>哎呀好熟悉的题目……SDCPC2025之前VP的时候做到过。</p>
+<p>感觉思路挺妙的。考虑如果一个路径上与起来的结果大于某个数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span>，则一定这些权值的前 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 位相同并且大于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 的前 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 位。注意到可以枚举 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>，也就是说对于所有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 的第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 位是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> 的情况，前 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 位都等于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 并且第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 位为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 的边搞一个并查集，就做完了。</p>
+<h2 id="ontak2015-bajtocja"><a class="markdownIt-Anchor" href="#ontak2015-bajtocja"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8026">[ONTAK2015] Bajtocja</a></h2>
+<p>这题好神。我们考虑两个点连通的话，他们应当在并查集上有相同的祖先。而如果所有的图上都联通，那么每张图对应的并查集上都有相同的祖先。那么考虑这些祖先构成了一个字符串，字符串哈希统计即可。</p>
+<p>然而如果路径压缩，合并比较困难。因为我们的路径压缩是在查询祖先的时候才更新的，因此不好说我们合并的时候的复杂度。而按秩合并对于这道题而言非常合适，因为合并不会超过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\log n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span></span></span></span> 次，因此我们直接合并的时候暴力更新字符串复杂度就是对的了。</p>
+<h1 id="树状数组线段树"><a class="markdownIt-Anchor" href="#树状数组线段树"></a> 树状数组/线段树</h1>
+<h2 id="红色的幻想乡"><a class="markdownIt-Anchor" href="#红色的幻想乡"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3801">红色的幻想乡</a></h2>
+<p>感觉还是挺简单的，我们发现其实一行/一列被搞两次相当于没搞，而一个点被红雾覆盖就是说行和列有且仅有一个被覆盖。那么我们就对行列分别维护树状数组搞就可以了。</p>
+<h2 id="aya-round-1-h-破碎的历史"><a class="markdownIt-Anchor" href="#aya-round-1-h-破碎的历史"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8473">[Aya Round 1 H] 破碎的历史</a></h2>
+<p>发现那个所有的线段实际上屁用没有，我们只保留最大的线段即可。然后所有的位置能被覆盖也就比较简单了，我们可以用类似于扫描线的标记永久化，或者因为不问具体数量，可以直接用维护区间加、最小值的线段树搞。</p>
+<h2 id="由乃与大母神原型和偶像崇拜"><a class="markdownIt-Anchor" href="#由乃与大母神原型和偶像崇拜"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3792">由乃与大母神原型和偶像崇拜</a></h2>
+<p><s>看题目猜出题入</s>。</p>
+<p>乱搞题。这个题有许多方法可以草过去，但是有些已经被 Hack 了。</p>
+<p>考虑如果一段区间是一个排列，那么它的区间和一定是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{n(n - 1)}2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 再加上一个什么常数。然后你发现这个玩意完全没用，因为这个太好卡了。</p>
+<p>但是这个时候我们发现其实只要给每个节点随机赋值就可以水过去了。是的这题做完了。</p>
+<p>其实这个题的另一个思路是求区间的平方和、立方和等，但是这个做法很容易卡，讨论区有一个非常详细的 Hack 思路。</p>
+<h1 id="trie"><a class="markdownIt-Anchor" href="#trie"></a> Trie</h1>
+<p>这个时候已经掉线了，所以就光听了最后一个题。</p>
+<h2 id="ynoi2010-fusion-tree"><a class="markdownIt-Anchor" href="#ynoi2010-fusion-tree"></a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6018">[Ynoi2010] Fusion tree</a></h2>
+<p><s>显然本题要用融合树</s>。</p>
+<p>一般一个题如果和异或有关就可以考虑一下字典树。我们发现，这个问题的关键突破口是“所有距离为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 的点”，因为两个操作都和这个东西有关，而这个东西实际上只包括父亲和所有儿子。</p>
+<p>父亲是唯一的，不难维护；儿子需要维护的东西就比较多了，考虑建一颗 Trie。由于要维护全局 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>，考虑一个经典的 Trick，按照低位到高位建 01Trie。</p>
+<blockquote>
+<p>实际上，高位到低位还是反过来，在于我们维护的东西的优先级是怎样的：由于大部分题目实际上都要维护一个最大值，那么高位就一定比低位优先。而这个题要求加一，这个操作需要从低到高逐位考虑，因此这个问题就适合用低到高的01Trie。</p>
+</blockquote>
+<p>每次加一操作会反转根节点的左右儿子，同时这个根节点的右儿子会继续下传，因此递归执行即可。</p>
+<p>还有一个 Trick 关于全局异或和。考虑对每个节点做这个子树的异或和，然后合并的时候记录一个位置的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 子树被走了多少次，如果它被走了奇数次那么这一个位置也是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，而这个操作与高低位实际上无关，因此这个问题就做完了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://snowflavour.cn">Li Yuanzhuo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://snowflavour.cn/2025-10-9-data-structure/">http://snowflavour.cn/2025-10-9-data-structure/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://snowflavour.cn" target="_blank">SnowFlavour's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><a class="post-meta__tags" href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/">练习题</a></div><div class="post-share"><div class="social-share" data-image="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025-10-20-graph/" title="10.4图论"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">10.4图论</div></div><div class="info-2"><div class="info-item-1"> 图的存储与遍历 故事要从一道黄题说起。  [NOIP2020] 排水系统 …… 故事结束了。  [CSP-S 2020] 函数调用 这个题感觉似乎理解了，又似乎没理解。 实际上最重要的步骤就是一个：考虑后面的乘法可以摊到前面的加法中，也就是说相当于前面的乘法被进行了多次。那么我们给每个节点打个标记，记录这个节点总共贡献的乘法次数。 然而统计答案依然不好做，因此我们需要把这个东西下传到每一个具体的加函数。我们发现可以对于遍历到的每一个节点更新一遍，具体而言，遍历到一个后继的时候，这个节点的倍数应该加上当前节点的倍数。  最小生成树 和 kdw 暑假讲的东西有一些重复。  [BJWC2010] 严格次小生成树 首先肯定是求出最小生成树。结论是次小生成树一定是最小生成树改一条边得到的。那么我们遍历每一条边，记录这条边套成的环中的最大值和严格次大值，如果这条边的边权和最大值相等就删掉严格次大值，否则删掉最大值，然后就做完了。  Jumping Around 肯定可以建图，但图的量级是 O(n2)O(n^2)O(n2) 的，神仙来了也做不了。这种东西可以考虑用 Boruvka 做。 那么...</div></div></div></a><a class="pagination-related" href="/2025-9-20-noip2018-preliminary-t7/" title="NOIP2018初赛T7"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">NOIP2018初赛T7</div></div><div class="info-2"><div class="info-item-1">积分是不会的。 我们考虑有限的情况，即将一个线段均匀分成 n−1n - 1n−1 段，这样就会有 nnn 个点（包括两个端点）。 然后枚举线段的长度，取平均值就是期望了。（这里为了方便，我没有枚举实际长度，而是枚举了端点之间的线段数量，因此在分母位置还要多一个 n−1n - 1n−1） E(n)=2∑i=0n−1i(n−i)(n−1)n2E(n) = \frac{2\sum_{i=0}^{n - 1}i(n - i)}{(n - 1)n^2}E(n)=(n−1)n22∑i=0n−1​i(n−i)​ 分子可以展开： ∑i=0n−1i(n−i)=∑i=0n−1ni−i2=∑i=0n−1ni−∑i=0n−1i2=n2(n−1)2−n(n−1)(2n−1)6 \begin{aligned} \sum_{i=0}^{n - 1}i(n - i) &amp;= \sum_{i=0}^{n - 1}ni - i^2 \\ &amp;= \sum_{i=0}^{n - 1}ni - \sum_{i=0}^{n - 1}i^2 \\ &amp;= \frac{n^2(n - 1)}2 - \fra...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024-8-3-rmq-compare/" title="典型RMQ数据结构的对比"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-03</div><div class="info-item-2">典型RMQ数据结构的对比</div></div><div class="info-2"><div class="info-item-1"> Part 1. RMQ的种类 这个不用多说，RMQ是一类非常常见的问题。以下是一些常用的数据结构，以及他们所能胜任的问题（这里只讨论基本情况，不关心可持久化之类的其他问题）：  前缀和：静态区间求和 ST表：静态区间最值（也可以是与最值有关的，比如 gcd⁡\gcdgcd） 树状数组：区间单点修改，区间查询 线段树：通吃  那么，我们有没有想过，为什么这些数据结构就有所区别，能胜任的问题形式也不同呢？  Part 2. 静态 RMQ 的区别 其实，RMQ的区别就是这个数据结构存储信息的区别。区别在那里呢？我们先要明白一个问题，那就是 RMQ 相关的数据结构肯定是通过某种预处理，使得在最终处理实际问题的时候，能够压缩复杂度。 两种典型的RMQ问题就是最值问题和加和问题，两种问题在暴力的复杂度下，都是 O(n)O(n)O(n) 的单次查询。 接下来，我们从静态入手，来看看这两种问题的简便求解策略：   对于加和问题，我们可以利用前缀和，利用“一大块减去一小块就是剩下的”的思路，把从前往后的和求出来，这样在最终进行计算的时候，我们就只关心最前面和最后面的值。   对于最值问题，我们会...</div></div></div></a><a class="pagination-related" href="/2024-8-5-qujian-k-xiaozhi/" title="可持久化线段树-区间第k小问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-05</div><div class="info-item-2">可持久化线段树-区间第k小问题</div></div><div class="info-2"><div class="info-item-1"> Part 0. 引言 区间第kkk小问题是一个很经典的问题。很明显，区间最值问题应该用线段树解决，但是问题是这里并不是最大值/最小值，而是第kkk个值。这样就意味着，如果我们要对他进行普通线段树的合并，那么就会导致你需要把左右两个区间前kkk个值都找出来，如果 k=nk=nk=n，那么这个问题的合并复杂度就是O(nlog⁡n)O(n\log n)O(nlogn)，再加上本身的查找复杂度，这个复杂度就变成了O(n2log⁡2n)O(n^2\log^2 n)O(n2log2n)，还不如暴力呢。 那么，这个问题应该如何解决？他和可持久化线段树又有什么关系？  Part 1. 换个思路 如果普通的线段树行不通的话，我们完全可以另行其道。比如说……我们可以先想一个简单的问题：如果现在不是让你求一个区间，而是从1到某个位置的第kkk小值，你会怎么做？ 如果你能想到桶，那么这个问题就好办多了。从1到rrr的区间里，我们给每一个数都做一个桶，这样如果我们要找第 kkk 小值，就只需要在这个桶上面二分。也就是说，如果左区间那一部分有大于等于kkk个数（注意这里用的是桶，所以这里的区间是桶的区间，...</div></div></div></a><a class="pagination-related" href="/2025-6-21-FHQ-Treap/" title="FHQ-Treap"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-21</div><div class="info-item-2">FHQ-Treap</div></div><div class="info-2"><div class="info-item-1"> Part 1. 一些对比 FHQ Treap 与 Splay：  FHQ Treap 的代码比 Splay 好写得多。 FHQ Treap 只用到了一些分裂与合并，不会很大的影响到整个树的形态，所以这玩意更容易可持久化。 在一些特殊场合（例如 LCT）只能使用 Splay。  FHQ Treap 与 普通 Treap：  FHQ Treap 不用旋转，更好写。 能支持更多功能。（比如帮助 lhc0707AKIOI）  这么好的东西我们肯定得学啊！  Part 2. 思想 首先，假设你已经学会了普通 Treap。 接下来我们直接看分裂与合并。  更新 当我们改动一个节点的时候，其 siz 会发生变化，所以我们需要先写个这玩意： 1inline void Update(int x)&#123;siz[x]=siz[ls[x]]+siz[rs[x]]+1;&#125;  分裂 对于一个大致长这个样子的平衡树——  （节点中第一个数字表示值，第二个表示优先级） 现在搞点事情：对这个平衡树按照 xxx 分裂成两棵树。分裂操作就是将一个树分成两个，一个都小于 xxx，一个都大于 xxx。（...</div></div></div></a><a class="pagination-related" href="/2025-6-22-cartesian-tree/" title="笛卡尔树"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-22</div><div class="info-item-2">笛卡尔树</div></div><div class="info-2"><div class="info-item-1"> 算法 笛卡尔树是一种非常简单的 Treap。这是一种静态的平衡树，不支持修改操作，如果给定的序列是有序的，那么可以直接在 O(n)O(n)O(n) 的时间复杂度内完成建树。一般而言，题目中多半会把元素的下标作为 Treap 的排名权值（即满足二叉树性质的那个维度）。 在这种情况下，建笛卡尔树的方法比较巧妙。首先，我们维护一个“右链”，也就是当前的树的最右侧的元素构成的链。此时如果需要新建一个节点，一定会在这条链上。原因很简单，一个二叉查找树的右子树一定比当前节点大，而由于我们是顺序插入的，这个权值一定是最大的。 但是还有堆的性质。也就是说我们应该在这个链上找一个合适位置插入，然后原来这个节点的右子树改为当前节点的左子树。 代码如下： 123456789101112131415161718192021222324252627282930313233#include &lt;iostream&gt;#include &lt;stack&gt;#define IAKIOI for (int i = 1; i &lt;= n; i++) using namespace std;cons...</div></div></div></a><a class="pagination-related" href="/2025-7-8-persistent-segtree/" title="可持久化线段树的应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-08</div><div class="info-item-2">可持久化线段树的应用</div></div><div class="info-2"><div class="info-item-1"> P2839 middle  题意 给你多个询问，每一个询问有一个左端点和右端点的范围，问所有区间的中位数最大值。  题解 首先考虑单次操作。假如某个数能够成为中位数，那么小于这个数全部设置为 −1-1−1，大于他的全都设成 111，则他们的和一定是 000 或者 111。（奇偶性的问题） 那么这玩意就单调了，然后就可以二分了。每一次都把 111 和 −1-1−1 设置好，然后求和。 但是如果是多次的话，直接这样搞就炸了，因为你的每一次 check 都是 O(nlog⁡2n)O(n \log^2n)O(nlog2n) 的，乘起来就炸了。 我们考虑实际上整个序列的 1/−11/-11/−1 表示最多只有 nnn 种情况，那么可以预处理把这 nnn 种情况都建出来，后面的每一次二分就是 O(log⁡n)O(\log n)O(logn) 了。  Rebrending 考虑对于某一个位置 iii，要求前面的点中 ∣aj−ai∣|a_j - a_i|∣aj​−ai​∣ 的最小值。这显然是个前缀的 max⁡\maxmax，但是问题是这玩意可能会变化很多次，而如果对每个位置都这么扫一遍显然会炸...</div></div></div></a><a class="pagination-related" href="/2025-8-29-segtree-merge/" title="线段树合并"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-29</div><div class="info-item-2">线段树合并</div></div><div class="info-2"><div class="info-item-1"> 实现 123456789int Merge(int u, int v, int l, int r) &#123;    if (!u || !v) return u + v;    int p = ++tot;    if (l == r) return sum[p] = sum[u] + sum[v], p;    int mid = (l + r) &gt;&gt; 1;    ls[p] = Merge(ls[u], ls[v], l, mid);    rs[p] = Merge(rs[u], rs[v], mid + 1, r);    return pushup(p), p;&#125; 其中的加可以换成其他合并操作。  复杂度 复杂度证明是线段树合并的核心。当然你也可以不证明直接瞎猜 一次对于满线段树合并的复杂度是严格的 O(nlog⁡n)O(n \log n)O(nlogn) 的。 但是实际上，这样的情况基本不存在。由于动态开点的存在，有些节点根本就没有建。这个时候，我们发现线段树的节点数量基本上和叶子节点是同一个量级的。而要想一通操作跑到叶子，必然需要两个节点...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Li Yuanzhuo</div><div class="author-info-description">一个菜鸡/蒟蒻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liyuanzhuo6811"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论的QQ功能暂时无法使用。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97-%E5%A0%86"><span class="toc-number">1.</span> <span class="toc-text"> 优先队列 &#x2F; 堆</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E6%A1%A5%E6%9D%AF-2021-%E7%9C%81-ab2-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">1.1.</span> <span class="toc-text"> [蓝桥杯 2021 省 AB2] 负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%88%9E%E6%9C%BA"><span class="toc-number">1.2.</span> <span class="toc-text"> 跳舞机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#noi2010-%E8%B6%85%E7%BA%A7%E9%92%A2%E7%90%B4"><span class="toc-number">1.3.</span> <span class="toc-text"> [NOI2010] 超级钢琴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text"> 并查集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-python-b-%E7%BC%B4%E7%BA%B3%E8%BF%87%E8%B7%AF%E8%B4%B9"><span class="toc-number">2.1.</span> <span class="toc-text"> [蓝桥杯 2024 省 Python B] 缴纳过路费</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sdcpc-2023-not-another-path-query-problem"><span class="toc-number">2.2.</span> <span class="toc-text"> [SDCPC 2023] Not Another Path Query Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ontak2015-bajtocja"><span class="toc-number">2.3.</span> <span class="toc-text"> [ONTAK2015] Bajtocja</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-number">3.</span> <span class="toc-text"> 树状数组&#x2F;线段树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A2%E8%89%B2%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1"><span class="toc-number">3.1.</span> <span class="toc-text"> 红色的幻想乡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aya-round-1-h-%E7%A0%B4%E7%A2%8E%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="toc-number">3.2.</span> <span class="toc-text"> [Aya Round 1 H] 破碎的历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B1%E4%B9%83%E4%B8%8E%E5%A4%A7%E6%AF%8D%E7%A5%9E%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%81%B6%E5%83%8F%E5%B4%87%E6%8B%9C"><span class="toc-number">3.3.</span> <span class="toc-text"> 由乃与大母神原型和偶像崇拜</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#trie"><span class="toc-number">4.</span> <span class="toc-text"> Trie</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ynoi2010-fusion-tree"><span class="toc-number">4.1.</span> <span class="toc-text"> [Ynoi2010] Fusion tree</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-13-tmp-1/" title="无标题">无标题</a><time datetime="2025-11-13T11:13:01.523Z" title="发表于 2025-11-13 19:13:01">2025-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-13-tmp-1/" title="无标题">无标题</a><time datetime="2025-11-13T11:12:48.196Z" title="发表于 2025-11-13 19:12:48">2025-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-8-daily-problem/" title="2025.11.10-2025.11.14日常题目总结">2025.11.10-2025.11.14日常题目总结</a><time datetime="2025-11-08T15:45:36.000Z" title="发表于 2025-11-08 23:45:36">2025-11-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-3-csp2025/" title="CSP2025游记">CSP2025游记</a><time datetime="2025-11-03T02:32:39.000Z" title="发表于 2025-11-03 10:32:39">2025-11-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-11-2-daily-problem/" title="2025.11.3-2025.11.7日常题目总结">2025.11.3-2025.11.7日常题目总结</a><time datetime="2025-11-02T21:59:26.000Z" title="发表于 2025-11-03 05:59:26">2025-11-03</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Li Yuanzhuo</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://unpkg.com/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://unpkg.com/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.snowflavour.cn/.netlify/functions/comment',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script><link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/editor/editor.main.min.css"><script src="/js/funeditor.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
