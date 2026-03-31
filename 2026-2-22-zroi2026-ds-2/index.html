@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ZROI2026二轮 数据结构与均摊分析 | SnowFlavour's Blog</title><meta name="author" content="Li Yuanzhuo"><meta name="copyright" content="Li Yuanzhuo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="均摊分析  Little Pony and Lord Tirek 如果某些节点是在同一个时刻被归零的，那么这些位置应当具有某些不错的性质。因此问题可以看作是个区间推平（将区间的归零时间赋值成当前时间），然后使用颜色段均摊分别对每个区间计算。由于查询和操作是同样的区间，这样的复杂度是正确的。 现在的问题是如何对一个相同时间的区间进行推平。这本质上是一个二维数点问题，这个区间内有两种东西：已经达到最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZROI2026二轮 数据结构与均摊分析">
+<meta property="og:url" content="http://snowflavour.cn/2026-2-22-zroi2026-ds-2/index.html">
+<meta property="og:site_name" content="SnowFlavour&#39;s Blog">
+<meta property="og:description" content="均摊分析  Little Pony and Lord Tirek 如果某些节点是在同一个时刻被归零的，那么这些位置应当具有某些不错的性质。因此问题可以看作是个区间推平（将区间的归零时间赋值成当前时间），然后使用颜色段均摊分别对每个区间计算。由于查询和操作是同样的区间，这样的复杂度是正确的。 现在的问题是如何对一个相同时间的区间进行推平。这本质上是一个二维数点问题，这个区间内有两种东西：已经达到最">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png">
+<meta property="article:published_time" content="2026-02-22T09:56:50.000Z">
+<meta property="article:modified_time" content="2026-03-31T11:58:17.091Z">
+<meta property="article:author" content="Li Yuanzhuo">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="练习题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ZROI2026二轮 数据结构与均摊分析",
+  "url": "http://snowflavour.cn/2026-2-22-zroi2026-ds-2/",
+  "image": "https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png",
+  "datePublished": "2026-02-22T09:56:50.000Z",
+  "dateModified": "2026-03-31T11:58:17.091Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Li Yuanzhuo",
+      "url": "http://snowflavour.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://snowflavour.cn/2026-2-22-zroi2026-ds-2/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ZROI2026二轮 数据结构与均摊分析',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://s21.ax1x.com/2024/08/04/pkvFMkQ.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">SnowFlavour's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">ZROI2026二轮 数据结构与均摊分析</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">ZROI2026二轮 数据结构与均摊分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-02-22T09:56:50.000Z" title="发表于 2026-02-22 17:56:50">2026-02-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-31T11:58:17.091Z" title="更新于 2026-03-31 19:58:17">2026-03-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ZROI2026%E7%9C%81%E9%80%89%E4%BA%8C%E8%BD%AE%E8%AF%BE%E7%A8%8B/">ZROI2026省选二轮课程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2026-2-22-zroi2026-ds-2/#post-comment"><span class="waline-comment-count" data-path="/2026-2-22-zroi2026-ds-2/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="均摊分析"><a class="markdownIt-Anchor" href="#均摊分析"></a> 均摊分析</h1>
+<h2 id="little-pony-and-lord-tirek"><a class="markdownIt-Anchor" href="#little-pony-and-lord-tirek"></a> <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/453/E">Little Pony and Lord Tirek</a></h2>
+<p>如果某些节点是在同一个时刻被归零的，那么这些位置应当具有某些不错的性质。因此问题可以看作是个区间推平（将区间的归零时间赋值成当前时间），然后使用颜色段均摊分别对每个区间计算。由于查询和操作是同样的区间，这样的复杂度是正确的。</p>
+<p>现在的问题是如何对一个相同时间的区间进行推平。这本质上是一个二维数点问题，这个区间内有两种东西：已经达到最大值的和仍未达到最大值的，也就是说问题的关键在于转折点，统计序列在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span> 且到达时间小于增长的时间的转折点。这个东西可以主席树做。</p>
+<h2 id="rectangle-painting"><a class="markdownIt-Anchor" href="#rectangle-painting"></a> <a target="_blank" rel="noopener" href="https://codeforces.com/gym/103260/problem/K">Rectangle Painting</a></h2>
+<p>离线怎么做？可以倒过来做。对于一个不可重集合在有删除的情况下求 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>MEX</mtext></mrow><annotation encoding="application/x-tex">\text{MEX}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">MEX</span></span></span></span></span> 是简单的：每一次删除 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> 以后复制 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>:</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">{</mo><mi>m</mi><mo separator="true">,</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">m := \min\{m,x - 1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">{</span><span class="mord mathnormal">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span>。</p>
+<p>这样的话，</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://snowflavour.cn">Li Yuanzhuo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://snowflavour.cn/2026-2-22-zroi2026-ds-2/">http://snowflavour.cn/2026-2-22-zroi2026-ds-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://snowflavour.cn" target="_blank">SnowFlavour's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><a class="post-meta__tags" href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/">练习题</a></div><div class="post-share"><div class="social-share" data-image="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026-2-23-zroi2026-dp-2/" title="ZROI2026二轮 动态规划"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">ZROI2026二轮 动态规划</div></div><div class="info-2"><div class="info-item-1"> 决策单调性  定义 考虑函数 f(i)=min⁡1≤i&lt;i{w(j,i)}f(i) = \min\limits_{1 \le i &lt; i}\{w(j, i)\}f(i)=1≤i&lt;imin​{w(j,i)}，这个函数对应 g(i)=arg min⁡1≤i&lt;i{w(j,i)}g(i) = \argmin\limits_{1 \le i &lt; i}\{w(j, i)\}g(i)=1≤i&lt;iargmin​{w(j,i)}，若 g(i)g(i)g(i) 单调递增，则称 www 满足决策单调性。 一个更强的条件是四边形不等式。若 ∀l1&lt;l2&lt;r1&lt;r2,w(l1,r1)+w(l2,r2)≤w(l1,r2)+w(l2,r1)\forall l_1 &lt; l_2 &lt; r_1 &lt; r_2,w(l_1, r_1) + w(l_2, r_2) \le w(l_1, r_2) + w(l_2, r_1)∀l1​&lt;l2​&lt;r1​&lt;r2​,w(l1​,r1​)+w(l2​,r2​)≤w(l1​,r2​)+w(l2​,r...</div></div></div></a><a class="pagination-related" href="/2026-2-18-USACO-2026/" title="USACO 2026 JAN1部分题目总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">USACO 2026 JAN1部分题目总结</div></div><div class="info-2"><div class="info-item-1">按照主观难度排序。  Bronze  Photoshoot 不难发现由于单调性的存在，每次增大都要么使答案不变，要么使答案变成它所能够影响到的矩形中。由于举行很小，只需要暴力修改所有受影响的矩形，然后检查答案是否变化即可。  Chip Exchange 首先检查初始条件是否合法。不难发现初始的 bbb 可以尽可能多地转换成 aaa。 考虑 AAA 要想增加，可以直接增加 AAA 或者是增加 BBB 然后兑换成 AAA。在后面一种情况下，一定是先将 AAA 弄到 f−1f - 1f−1 再增加最后一波 BBB，此时 BBB 没有剩余（因为肯定是恰好能兑换的时候就结束了），而前面一种情况则是先将 BBB 弄到 cB−1c_B - 1cB​−1 再把 AAA 弄满，此时 AAA 没有剩余。两种情况取个 max⁡\maxmax 即可。  COW Splits 神仙题。这是 Bronze 吗？？ 不难发现奇数肯定无解，偶数肯定有解。 这样，把串劈成两半，右边的一个 COW 的位移一定可以看作左边的等位字符循环位移得到的。那么一定可以把左边表示成 X+YX+YX+Y，右边就是 Y+XY+XY...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025-10-9-data-structure/" title="10.3数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-09</div><div class="info-item-2">10.3数据结构</div></div><div class="info-2"><div class="info-item-1"> 优先队列 / 堆  [蓝桥杯 2021 省 AB2] 负载均衡 考虑使用动态开点线段树 发现我们应当用一个结构维护每个计算机正在运行的任务。显然我们应当把每个任务按照结束时间排序，这样我们才好判断哪些任务已经完成。显然可以给每个计算机开一个优先队列维护。  跳舞机 肯定是 DP。状态也很好设，就假设前 iii 分钟的最大收益是 fif_ifi​，转移大概是这个样子的： fi=max⁡j≤i−kfj+max⁡lj+k−1≤i≤rjwjf_i = \max_{j \le i - k} f_j + \max_{l_j + k - 1 \le i \le r_j} w_jfi​=j≤i−kmax​fj​+lj​+k−1≤i≤rj​max​wj​ 前面就是个前缀 max⁡\maxmax，关键是后面。我们考虑在扫描的时候，把所有加入的玩家都弄到一个优先队列里面，按照 www 排序。这样的话，我们就得到了一些候选的玩家，每次查询的时候查询堆顶元素，如果它已经离开则弹出。重复这个过程即可得到当前的最优值。这个时候堆里面可能还有不合法的，但是由于它的 www 较小，所以对答案并不造成影响。  [...</div></div></div></a><a class="pagination-related" href="/2026-1-6-zroi2026-ds/" title="ZROI2026 数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-07</div><div class="info-item-2">ZROI2026 数据结构</div></div><div class="info-2"><div class="info-item-1"> 楼房重建 单侧递归。 考虑删除操作是非常困难的，因为他会导致原来的序列变长，从而破坏均摊。我们需要支持一个东西能够直接绕过均摊。 具体而言，可以用一个线段树，其节点记录在没有任何遮挡的情况下能看到的楼房数量以及最大值。 我们需要这个线段树能够查询一个函数 fff，f(x)f(x)f(x) 表示在左边最高高度为 xxx 的情况下这个区间内能够看到的楼房数量。考虑如果这个区间的左半边存在一个能够被看到的楼房，则对于右半边的区间根本没有影响。否则左边没有能够看到的楼房，只向右侧递归就可以了。 这样，对于一个节点的一次查询是单 log⁡\loglog 的，再加上一个区间会被分到 log⁡\loglog 个节点上，总共的复杂度是 O(nlog⁡2n)O(n \log^2 n)O(nlog2n) 的。  线段树分治  【模板】线段树分治 / 二分图 热知识：可撤销并查集只能撤销，不能删除…… 线段树分治可以通过改变增删顺序将 O(n)O(n)O(n) 次插入和删除变成 O(nlog⁡n)O(n \log n)O(nlogn) 次插入和撤销。 这个题就是个很好的例子，如果每一次都是撤销操作，...</div></div></div></a><a class="pagination-related" href="/2026-3-31-day1-ds/" title="2026 一轮省集Day1 高级数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-31</div><div class="info-item-2">2026 一轮省集Day1 高级数据结构</div></div><div class="info-2"><div class="info-item-1"> 支配对类 这类问题通常是给定一个结构，要求查询区间上两个位置的某种贡献的最小值或者最大值。如果直接找的话复杂度是 O(n2)O(n^2)O(n2)，但是通常可以找到一种方式，只保留其中的一些点对（通常是 O(nlog⁡n)O(n \log n)O(nlogn)），这样的话整个问题的复杂度就降下来了。保留下来的部分就叫做这些点对的一个支配对。  Souvenirs 这个恐怕是最经典的题目了。 考虑对于一个位置 iii，有多少位置可以和 iii 产生贡献？ 首先 i+1i + 1i+1 一定可以和 iii 产生贡献。 对于 i+2i + 2i+2，先不考虑 ai+2&lt;aia_{i + 2} &lt; a_iai+2​&lt;ai​ 的情况。在前面两个值的中间分开，假如说 ai+2&gt;ai+ai+12a_{i + 2} &gt; \frac{a_i + a_{i + 1}}2ai+2​&gt;2ai​+ai+1​​，就说明这个点应该是和 i+1i + 1i+1 产生贡献是更优的。 反之则会和 iii 产生贡献，这样的话这条分界线就向下移动一半。因此只需要每次找到后面第一个在...</div></div></div></a><a class="pagination-related" href="/2024-8-3-rmq-compare/" title="典型RMQ数据结构的对比"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-03</div><div class="info-item-2">典型RMQ数据结构的对比</div></div><div class="info-2"><div class="info-item-1"> Part 1. RMQ的种类 这个不用多说，RMQ是一类非常常见的问题。以下是一些常用的数据结构，以及他们所能胜任的问题（这里只讨论基本情况，不关心可持久化之类的其他问题）：  前缀和：静态区间求和 ST表：静态区间最值（也可以是与最值有关的，比如 gcd⁡\gcdgcd） 树状数组：区间单点修改，区间查询 线段树：通吃  那么，我们有没有想过，为什么这些数据结构就有所区别，能胜任的问题形式也不同呢？  Part 2. 静态 RMQ 的区别 其实，RMQ的区别就是这个数据结构存储信息的区别。区别在那里呢？我们先要明白一个问题，那就是 RMQ 相关的数据结构肯定是通过某种预处理，使得在最终处理实际问题的时候，能够压缩复杂度。 两种典型的RMQ问题就是最值问题和加和问题，两种问题在暴力的复杂度下，都是 O(n)O(n)O(n) 的单次查询。 接下来，我们从静态入手，来看看这两种问题的简便求解策略：   对于加和问题，我们可以利用前缀和，利用“一大块减去一小块就是剩下的”的思路，把从前往后的和求出来，这样在最终进行计算的时候，我们就只关心最前面和最后面的值。   对于最值问题，我们会...</div></div></div></a><a class="pagination-related" href="/2024-8-5-qujian-k-xiaozhi/" title="可持久化线段树-区间第k小问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-05</div><div class="info-item-2">可持久化线段树-区间第k小问题</div></div><div class="info-2"><div class="info-item-1"> Part 0. 引言 区间第kkk小问题是一个很经典的问题。很明显，区间最值问题应该用线段树解决，但是问题是这里并不是最大值/最小值，而是第kkk个值。这样就意味着，如果我们要对他进行普通线段树的合并，那么就会导致你需要把左右两个区间前kkk个值都找出来，如果 k=nk=nk=n，那么这个问题的合并复杂度就是O(nlog⁡n)O(n\log n)O(nlogn)，再加上本身的查找复杂度，这个复杂度就变成了O(n2log⁡2n)O(n^2\log^2 n)O(n2log2n)，还不如暴力呢。 那么，这个问题应该如何解决？他和可持久化线段树又有什么关系？  Part 1. 换个思路 如果普通的线段树行不通的话，我们完全可以另行其道。比如说……我们可以先想一个简单的问题：如果现在不是让你求一个区间，而是从1到某个位置的第kkk小值，你会怎么做？ 如果你能想到桶，那么这个问题就好办多了。从1到rrr的区间里，我们给每一个数都做一个桶，这样如果我们要找第 kkk 小值，就只需要在这个桶上面二分。也就是说，如果左区间那一部分有大于等于kkk个数（注意这里用的是桶，所以这里的区间是桶的区间，...</div></div></div></a><a class="pagination-related" href="/2025-6-21-FHQ-Treap/" title="FHQ-Treap"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-21</div><div class="info-item-2">FHQ-Treap</div></div><div class="info-2"><div class="info-item-1"> Part 1. 一些对比 FHQ Treap 与 Splay：  FHQ Treap 的代码比 Splay 好写得多。 FHQ Treap 只用到了一些分裂与合并，不会很大的影响到整个树的形态，所以这玩意更容易可持久化。 在一些特殊场合（例如 LCT）只能使用 Splay。  FHQ Treap 与 普通 Treap：  FHQ Treap 不用旋转，更好写。 能支持更多功能。（比如帮助 lhc0707AKIOI）  这么好的东西我们肯定得学啊！  Part 2. 思想 首先，假设你已经学会了普通 Treap。 接下来我们直接看分裂与合并。  更新 当我们改动一个节点的时候，其 siz 会发生变化，所以我们需要先写个这玩意： 1inline void Update(int x)&#123;siz[x]=siz[ls[x]]+siz[rs[x]]+1;&#125;  分裂 对于一个大致长这个样子的平衡树——  （节点中第一个数字表示值，第二个表示优先级） 现在搞点事情：对这个平衡树按照 xxx 分裂成两棵树。分裂操作就是将一个树分成两个，一个都小于 xxx，一个都大于 xxx。（...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Li Yuanzhuo</div><div class="author-info-description">一个菜鸡/蒟蒻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liyuanzhuo6811"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论的QQ功能暂时无法使用。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9D%87%E6%91%8A%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text"> 均摊分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#little-pony-and-lord-tirek"><span class="toc-number">1.1.</span> <span class="toc-text"> Little Pony and Lord Tirek</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rectangle-painting"><span class="toc-number">1.2.</span> <span class="toc-text"> Rectangle Painting</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-3-31-day1-ds/" title="2026 一轮省集Day1 高级数据结构">2026 一轮省集Day1 高级数据结构</a><time datetime="2026-03-31T04:04:31.000Z" title="发表于 2026-03-31 12:04:31">2026-03-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-3-26-sa-suffix-tree-sam/" title="后缀数组、后缀树与后缀自动机">后缀数组、后缀树与后缀自动机</a><time datetime="2026-03-26T00:42:08.000Z" title="发表于 2026-03-26 08:42:08">2026-03-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-3-16-recall-1/" title="回忆录（一） / 莫听穿林打叶声">回忆录（一） / 莫听穿林打叶声</a><time datetime="2026-03-16T22:47:28.000Z" title="发表于 2026-03-17 06:47:28">2026-03-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-2-25-zroi2026-string/" title="ZROI2026二轮 动态规划">ZROI2026二轮 动态规划</a><time datetime="2026-02-25T17:30:25.000Z" title="发表于 2026-02-26 01:30:25">2026-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-2-23-zroi2026-dp-2/" title="ZROI2026二轮 动态规划">ZROI2026二轮 动态规划</a><time datetime="2026-02-23T11:17:45.000Z" title="发表于 2026-02-23 19:17:45">2026-02-23</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 - 2026 By Li Yuanzhuo</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://unpkg.com/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://unpkg.com/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.snowflavour.cn/.netlify/functions/comment',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script><link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/editor/editor.main.min.css"><script src="/js/funeditor.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
