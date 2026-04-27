@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SnowFlavour's Blog - 此生无悔入OI，来世继续修电脑</title><meta name="author" content="Li Yuanzhuo"><meta name="copyright" content="Li Yuanzhuo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个菜鸡&#x2F;蒟蒻">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SnowFlavour&#39;s Blog">
+<meta property="og:url" content="http://snowflavour.cn/index.html">
+<meta property="og:site_name" content="SnowFlavour&#39;s Blog">
+<meta property="og:description" content="一个菜鸡&#x2F;蒟蒻">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png">
+<meta property="article:author" content="Li Yuanzhuo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SnowFlavour's Blog",
+  "url": "http://snowflavour.cn/"
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://snowflavour.cn/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SnowFlavour\'s Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://s21.ax1x.com/2024/08/04/pkvFMkQ.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">SnowFlavour's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">SnowFlavour's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-4-27-sdoi2026r2-contests/" title="SDOI2026 二轮省集模拟赛题目">SDOI2026 二轮省集模拟赛题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-04-27T03:04:19.000Z" title="发表于 2026-04-27 11:04:19">2026-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2026%E4%BA%8C%E8%BD%AE%E7%9C%81%E9%9B%86/">2026二轮省集</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-4-27-sdoi2026r2-contests/#post-comment"><span class="waline-comment-count" data-path="/2026-4-27-sdoi2026r2-contests/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">仍然每个分类按照难度排序。这次应该会整理得比较全。  有意思题  D1T1 最优化题  给定一个内向基环森林，令f表示在每个节点上放一个小球，每次走向自己的出边，在任一时刻小球数量最多的节点的小球数量的最大值。对于每个k求出，最多修改k条边的出点，f的最大值。可以有自环。 n≤105n \le 10^5n≤105。  和 lcn 讨论一万年然后没写出来。 修改一条边可能会导致这些情况：  缩小环。为了让这一步最大，显然会成为自环。 扩大环。由于可以变成自环，这一步是完全没有意义的。 拆出一棵树。和上面一样没用。 合并两棵树。这看起来比较有用，因为如果在一步操作中缩成自环，那么能贡献的树的数量就少了一棵。因此不能确定两种方式哪个更好。 把一棵树挂到别的地方。这个也没用。  因此，实际上只有缩环和合并两种可能的操作。进一步地，不难发现实际上只会缩一次环，后面显然可以把所有的树都放到同一个环上。而这个东西是非常容易计算的，因此实际上只需要考虑对于每个 kkk，将 kkk 棵基环树合并能得到的最大收益。 可以发现，最优的情况应该是找到一棵作为底座，然后把剩下的所有树都放到这一棵上，这容易...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-4-21-binomial-heap/" title="可并堆：二项堆">可并堆：二项堆</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-04-21T02:37:18.000Z" title="发表于 2026-04-21 10:37:18">2026-04-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-4-21-binomial-heap/#post-comment"><span class="waline-comment-count" data-path="/2026-4-21-binomial-heap/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">二项堆是一种有意思的数据结构。它通过维护一些大小为 2k2^k2k 且便于合并的二项树来实现堆的合并。  二项树 二项树的定义如下：  一个单独节点是一棵二项树，记为 B0B_0B0​。  BiB_iBi​ 由两棵 Bi−1B_{i - 1}Bi−1​ 构成。其中一棵 Bi−1B_{i - 1}Bi−1​ 的根节点是另一棵 Bi−1B_{i - 1}Bi−1​ 的根节点的儿子。   下图展示了 B0B_0B0​，B1B_1B1​ 和 B3B_3B3​。  这种结构具有一些非常优秀的性质。   BkB_kBk​ 共有 2k2^k2k 个节点，且树的高度为 k+1k + 1k+1。这可以通过归纳证明。   BkB_kBk​ 中的第 iii 层共有 (ki−1)\binom{k}{i - 1}(i−1k​) 个节点。这也可以通过归纳证明。   同时，由于其定义，两个大小相等的二项树很容易合并：只需要将一棵树挂到另一棵上就可以了。  二项堆 一个二项堆包含很多个二项树，每棵二项树都满足堆的性质，即父亲大于或小于所有的儿子。 由于每棵二项树的大小都是 2k2^k2k，容易想到对堆的元素进行...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-4-3-sdoi2026-r1-contests/" title="SDOI2026 一轮省集模拟赛题目">SDOI2026 一轮省集模拟赛题目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-04-03T02:58:14.000Z" title="发表于 2026-04-03 10:58:14">2026-04-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2026%E4%B8%80%E8%BD%AE%E7%9C%81%E9%9B%86/">2026一轮省集</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-4-3-sdoi2026-r1-contests/#post-comment"><span class="waline-comment-count" data-path="/2026-4-3-sdoi2026-r1-contests/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">仍然每个分类按照难度排序。  有意思题  D2T1 门锁  给定一个由左右括号组成的字符串，每次查询一个区间，记一种括号匹配方案的代价为这种方案下失配的右括号，计算区间内代价最小的括号匹配方案数。 保证数据随机，n≤3×105n \le 3 \times 10^5n≤3×105， q≤5×105q \le 5 \times 10^5q≤5×105。  假如说每个右括号都能匹配该怎么做。这个时候可以考虑从左往右，数第一个右括号左边有多少个左括号，第二个左边有多少个左括号（但是这个时候需要减一，因为第一个右括号用掉了一个），以此类推。 那么这个东西相当于预处理一个 aia_iai​，每次查询区间的 ∏i=lr(ai+x)\prod\limits_{i = l}^r(a_i + x)i=l∏r​(ai​+x)。这个直接做似乎比较困难（是不是可以对序列分块然后每块做 NTT 多点求值，复杂度 O(nqlog⁡n)O(n \sqrt q\log n)O(nq​logn) 之类的？反正过不了就对了）这个时候就需要数据随机的性质了，考虑这个东西相当于在序列上随机游走，所以折线的高度不会很大，因...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-4-2-ioi2026-china-team-homework/" title="IOI 2026 国家集训队作业选做">IOI 2026 国家集训队作业选做</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-04-02T22:11:51.000Z" title="发表于 2026-04-03 06:11:51">2026-04-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">日常学习笔记</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-4-2-ioi2026-china-team-homework/#post-comment"><span class="waline-comment-count" data-path="/2026-4-2-ioi2026-china-team-homework/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">题目在这里  Tricky  Cells Blocking 首先特判，如果起终点不连通的话就肯定是炸了。 这种只能向两个方向移动的问题可以考虑把尽可能向下的路径和尽可能向右的路径求出来，所有的路径都是夹在这中间的。 还是先考虑特殊情况：如果路径相交，那么这个点就是必由之路，堵上以后可以任选。这个情况需要去重。 另外的情况下，不难发现一定是一个点堵在一条路径上，否则一定走这两条中的一条到达。 此时考虑枚举某一条路径上的点，然后计算有多少合法的第二个点。这里合法意味着这是去掉第一个点以后的必由之路。 因此，可以考虑求出堵住第一个点以后，新的最靠边的路径。这需要用到这种图的一个性质：对于每一条对角线 vk:i+j=kv_k:i+j=kvk​:i+j=k，一条路径的第 iii 个点一定在对角线 vi+1v_{i + 1}vi+1​ 上。 首先预处理出哪些点是可以从左上联通到右下的，检查枚举到的这个点所在的对角线。不难发现选择这条对角线上在枚举点右上方的第一个可以联通的点是最优的。证明是显然的。因此只需要找到这个点，然后向两个方向分别找出靠边的路径就可以了。 这样之后，不难发现必由之路就是...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-4-2-day3-counting/" title="2026 一轮省集Day3 组合数学">2026 一轮省集Day3 组合数学</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-04-02T02:44:35.000Z" title="发表于 2026-04-02 10:44:35">2026-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2026%E4%B8%80%E8%BD%AE%E7%9C%81%E9%9B%86/">2026一轮省集</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-4-2-day3-counting/#post-comment"><span class="waline-comment-count" data-path="/2026-4-2-day3-counting/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">策队好帅 今天好像本来要讲串串的来着，结果不知道为啥改成组合数学了。 实际上没听懂几个题，就写几个会的吧。  Counting Is Fun 什么情况下不合法？考虑最多情况下，左右两边都以 aia_iai​ 为删除的端点，那么如果这样把左右两边都干没了当前元素还有的话就炸了。 反之则可以通过向后扩展的方式删掉每一个。 那么现在就变成了数所有不存在 ai&gt;ai−1+ai+1a_i &gt; a_{i - 1} + a_{i + 1}ai​&gt;ai−1​+ai+1​ 的序列个数。当然左右两边可以塞个 000。 于是可以有个 DP 记录当前和上一个位置填了什么，可以 O(n3)O(n^3)O(n3)。但是这个看起来很没前途，因为如果直接 DP 的话好像没有办法避免掉记这两个东西。 那么考虑这种东西能不能容斥。也就是说不记录 i−1i - 1i−1 位置选了什么，记录 fi,jf_{i, j}fi,j​ 表示确定前 iii 个数，其中 [1,i−1][1, i - 1][1,i−1] 的位置都成立的情况数量，然后转移的时候考虑错了什么。 因此考虑搞一个 fi,jf_{i, j}...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-3-31-day1-ds/" title="2026 一轮省集Day1 高级数据结构">2026 一轮省集Day1 高级数据结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-31T04:04:31.000Z" title="发表于 2026-03-31 12:04:31">2026-03-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2026%E4%B8%80%E8%BD%AE%E7%9C%81%E9%9B%86/">2026一轮省集</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-3-31-day1-ds/#post-comment"><span class="waline-comment-count" data-path="/2026-3-31-day1-ds/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 支配对类 这类问题通常是给定一个结构，要求查询区间上两个位置的某种贡献的最小值或者最大值。如果直接找的话复杂度是 O(n2)O(n^2)O(n2)，但是通常可以找到一种方式，只保留其中的一些点对（通常是 O(nlog⁡n)O(n \log n)O(nlogn)），这样的话整个问题的复杂度就降下来了。保留下来的部分就叫做这些点对的一个支配对。  Souvenirs 这个恐怕是最经典的题目了。 考虑对于一个位置 iii，有多少位置可以和 iii 产生贡献？ 首先 i+1i + 1i+1 一定可以和 iii 产生贡献。 对于 i+2i + 2i+2，先不考虑 ai+2&lt;aia_{i + 2} &lt; a_iai+2​&lt;ai​ 的情况。在前面两个值的中间分开，假如说 ai+2&gt;ai+ai+12a_{i + 2} &gt; \frac{a_i + a_{i + 1}}2ai+2​&gt;2ai​+ai+1​​，就说明这个点应该是和 i+1i + 1i+1 产生贡献是更优的。 反之则会和 iii 产生贡献，这样的话这条分界线就向下移动一半。因此只需要每次找到后面第一个在...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-3-26-sa-suffix-tree-sam/" title="后缀数组、后缀树与后缀自动机">后缀数组、后缀树与后缀自动机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-26T00:42:08.000Z" title="发表于 2026-03-26 08:42:08">2026-03-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-3-26-sa-suffix-tree-sam/#post-comment"><span class="waline-comment-count" data-path="/2026-3-26-sa-suffix-tree-sam/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 后缀 设有一个字符串 SSS 长度为 nnn，则一个后缀为 S[i…n]S[i \dots n]S[i…n]。 相比于一个字符串的前缀，后缀显得更棘手一些：在求前缀的时候，只会在末端添加一个字符，字符串的形态相对而言变化比较小，可以用 Trie 之类的东西直接维护每个前缀，字典序之类的也比较显然；而后缀则是每次在前面插入一个字符，一次会把整个字符串平移一位，比较难搞。 但是后缀能够储存的信息是十分丰富的。所有的后缀的所有前缀就是这个字符串的所有子串，因此如果能够找到一种方式，在线性或者是单 log⁡\loglog 复杂度内维护所有的后缀，就可以快速的实现很多操作和查询。 首先一个 Naive 的想法是把所有的后缀插到一个 Trie 里面。这样确实能够达到目的，但是时间空间都比较爆炸。 另一个不那么 Naive 的想法是对所有的后缀进行排序。直接暴力显然还是不行。  后缀数组 后缀数组实现了对后缀进行排序。 明确一些约定：   saisa_isai​ 表示从小到大第 iii 个后缀。   rkirk_irki​ 表示 S[i…n]S[i\dots n]S[i…n] 的排名。   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-3-16-recall-1/" title="回忆录（一） / 莫听穿林打叶声">回忆录（一） / 莫听穿林打叶声</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-16T22:47:28.000Z" title="发表于 2026-03-17 06:47:28">2026-03-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/">回忆录</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-3-16-recall-1/#post-comment"><span class="waline-comment-count" data-path="/2026-3-16-recall-1/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">这不是退役记。 考完 2026 省选以后，感觉自己的心态发生了变化。在此之前对自己的认识似乎没有那么的全面，一方面对自己的知识掌握过于自信，另一方面也对一直考不好感到自卑和自责。 终于，当 Day1 保龄，Day2 挂分之后，我开始对自己有了个清晰的认识。回望过来的三年，心生感慨。  远古  小学  少年不识愁滋味。  广义上我学习 OI 的历史可以追溯到非常古早的时候……从学 Python 开始。  初三以前  初一  众里寻他千百度，蓦然回首，那人却在灯火阑珊处。  2023年，暑假。 第一次以竞赛生的身份走进三号楼 204 的机房的时候，我不免有些紧张。进来以后 zzc 立刻就招呼我坐到了从左往右第二列中间的位置。 那是梦的开始。虽然在初一的上学期文化课实在太差，但是好在下学期有了起色，也终于见到了 OI 的大门。  CSP-J 2023  别哭了，没有人会心碎。   赛前 国庆节，集训。 这是国庆集训的最后一场模拟赛了。前几场我都得到了 200+，而这次却比较可惜，得了 196 分。不管怎么样，拿到省一还是比较稳当的。 但是一路下滑的成绩却使得我嗅到了一些不祥的气息。  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-2-25-zroi2026-string/" title="ZROI2026二轮 动态规划">ZROI2026二轮 动态规划</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-02-25T17:30:25.000Z" title="发表于 2026-02-26 01:30:25">2026-02-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ZROI2026%E7%9C%81%E9%80%89%E4%BA%8C%E8%BD%AE%E8%AF%BE%E7%A8%8B/">ZROI2026省选二轮课程</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-2-25-zroi2026-string/#post-comment"><span class="waline-comment-count" data-path="/2026-2-25-zroi2026-string/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> Cyclic Shift 把每个点向他后面第一个（包括循环位移的）大于他的点连边，这样形成了一棵树。 显然对于某一个点开始的序列，一定是从他到根的一条链。每个节点维护一个二元组 (val,len)(val, len)(val,len)，valvalval 表示这个节点的大小，lenlenlen 表示到下一个节点的距离。把这玩意压到一个哈希里面，找第一个不同的位置比较即可。   </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026-2-23-zroi2026-dp-2/" title="ZROI2026二轮 动态规划">ZROI2026二轮 动态规划</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-02-23T11:17:45.000Z" title="发表于 2026-02-23 19:17:45">2026-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ZROI2026%E7%9C%81%E9%80%89%E4%BA%8C%E8%BD%AE%E8%AF%BE%E7%A8%8B/">ZROI2026省选二轮课程</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2026-2-23-zroi2026-dp-2/#post-comment"><span class="waline-comment-count" data-path="/2026-2-23-zroi2026-dp-2/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 决策单调性  定义 考虑函数 f(i)=min⁡1≤i&lt;i{w(j,i)}f(i) = \min\limits_{1 \le i &lt; i}\{w(j, i)\}f(i)=1≤i&lt;imin​{w(j,i)}，这个函数对应 g(i)=arg min⁡1≤i&lt;i{w(j,i)}g(i) = \argmin\limits_{1 \le i &lt; i}\{w(j, i)\}g(i)=1≤i&lt;iargmin​{w(j,i)}，若 g(i)g(i)g(i) 单调递增，则称 www 满足决策单调性。 一个更强的条件是四边形不等式。若 ∀l1&lt;l2&lt;r1&lt;r2,w(l1,r1)+w(l2,r2)≤w(l1,r2)+w(l2,r1)\forall l_1 &lt; l_2 &lt; r_1 &lt; r_2,w(l_1, r_1) + w(l_2, r_2) \le w(l_1, r_2) + w(l_2, r_1)∀l1​&lt;l2​&lt;r1​&lt;r2​,w(l1​,r1​)+w(l2​,r2​)≤w(l1​,r2​)+w(l2​,r...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Li Yuanzhuo</div><div class="author-info-description">一个菜鸡/蒟蒻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liyuanzhuo6811"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论的QQ功能暂时无法使用。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-4-27-sdoi2026r2-contests/" title="SDOI2026 二轮省集模拟赛题目">SDOI2026 二轮省集模拟赛题目</a><time datetime="2026-04-27T03:04:19.000Z" title="发表于 2026-04-27 11:04:19">2026-04-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-4-21-binomial-heap/" title="可并堆：二项堆">可并堆：二项堆</a><time datetime="2026-04-21T02:37:18.000Z" title="发表于 2026-04-21 10:37:18">2026-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-4-3-sdoi2026-r1-contests/" title="SDOI2026 一轮省集模拟赛题目">SDOI2026 一轮省集模拟赛题目</a><time datetime="2026-04-03T02:58:14.000Z" title="发表于 2026-04-03 10:58:14">2026-04-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-4-2-ioi2026-china-team-homework/" title="IOI 2026 国家集训队作业选做">IOI 2026 国家集训队作业选做</a><time datetime="2026-04-02T22:11:51.000Z" title="发表于 2026-04-03 06:11:51">2026-04-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-4-2-day3-counting/" title="2026 一轮省集Day3 组合数学">2026 一轮省集Day3 组合数学</a><time datetime="2026-04-02T02:44:35.000Z" title="发表于 2026-04-02 10:44:35">2026-04-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2025%E5%B9%B4%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD/"><span class="card-category-list-name">2025年国庆集训</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2026%E4%B8%80%E8%BD%AE%E7%9C%81%E9%9B%86/"><span class="card-category-list-name">2026一轮省集</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2026%E4%BA%8C%E8%BD%AE%E7%9C%81%E9%9B%86/"><span class="card-category-list-name">2026二轮省集</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/SDSC2025-%E5%90%88%E9%9B%86/"><span class="card-category-list-name">SDSC2025 合集</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/USACO2026%E9%83%A8%E5%88%86%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93/"><span class="card-category-list-name">USACO2026部分题目总结</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ZROI2026%E7%9C%81%E9%80%89%E4%B8%80%E8%BD%AE%E8%AF%BE%E7%A8%8B/"><span class="card-category-list-name">ZROI2026省选一轮课程</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ZROI2026%E7%9C%81%E9%80%89%E4%BA%8C%E8%BD%AE%E8%AF%BE%E7%A8%8B/"><span class="card-category-list-name">ZROI2026省选二轮课程</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/kdw-2025-%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E5%86%85%E5%AE%B9/"><span class="card-category-list-name">kdw 2025 暑假集训内容</span><span class="card-category-list-count">5</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%B8%B8%E5%AF%84/" style="font-size: 1.1em; color: #999">游寄</a> <a href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/" style="font-size: 1.5em; color: #99a9bf">练习题</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" style="font-size: 1.15em; color: #999b9e">模拟赛</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.4em; color: #99a5b6">数据结构</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.25em; color: #999fa7">数学</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 1.15em; color: #999b9e">游记</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E6%B5%8B%E8%AF%95/" style="font-size: 1.25em; color: #999fa7">模拟测试</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 1.1em; color: #999">自动机</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 1.1em; color: #999">题解</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E9%A2%98%E7%9B%AE/" style="font-size: 1.1em; color: #999">思维题目</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E9%A2%98/" style="font-size: 1.1em; color: #999">思维题</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.45em; color: #99a7ba">学习笔记</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.3em; color: #99a1ac">图论</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.2em; color: #999da3">字符串</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 1.2em; color: #999da3">数论</a> <a href="/tags/%E6%A0%91%E4%B8%8A%E9%97%AE%E9%A2%98/" style="font-size: 1.1em; color: #999">树上问题</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" style="font-size: 1.1em; color: #999">组合数学</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 1.35em; color: #99a3b1">动态规划</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              四月 2026
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">49</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-27T12:51:23.277Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 - 2026 By Li Yuanzhuo</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  async function loadWaline () {
+    try {
+      const eleGroup = document.querySelectorAll('#recent-posts .waline-comment-count')
+      const keyArray = Array.from(eleGroup).map(i => i.getAttribute('data-path'))
+
+      const res = await fetch(`https://waline.snowflavour.cn/.netlify/functions/comment/api/comment?type=count&url=${keyArray}`, { method: 'GET' })
+      const result = await res.json()
+      
+      result.data.forEach((count, index) => {
+        eleGroup[index].textContent = count
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  window.pjax ? loadWaline() : window.addEventListener('load', loadWaline)
+})()</script><script src="https://unpkg.com/typed.js/dist/typed.umd.js"></script><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://unpkg.com/typed.js/dist/typed.umd.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = [].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.from)
+      const from = '出自 ' + data.from
+      typedJSFn.processSubtitle(data.hitokoto, [from])
+    })
+    .catch(err => {
+      console.error('Failed to get the Hitokoto API:', err)
+      typedJSFn.processSubtitle([])
+    })
+}
+typedJSFn.run(subtitleType)
+</script></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script><link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/editor/editor.main.min.css"><script src="/js/funeditor.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
