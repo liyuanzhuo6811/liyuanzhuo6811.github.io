@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2026 三轮省集Day1 组合数学 | SnowFlavour's Blog</title><meta name="author" content="Li Yuanzhuo"><meta name="copyright" content="Li Yuanzhuo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Grid Completion 简化版：填一个白板，方案数为 Dn⋅n!D_n \cdot n!Dn​⋅n!（DnD_nDn​ 为错排列），也就是先固定一个 AAA，然后再确定 BBB。 然后考虑一个雷霆容斥。 先转化一下题意，用一个排列 ppp 表示 Ai&#x3D;(i,pi)A_i &#x3D; (i, p_i)Ai​&#x3D;(i,pi​)。qqq 同理。 把初始已经确定的位置记为 FA,FBF_A,F_BFA​,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026 三轮省集Day1 组合数学">
+<meta property="og:url" content="http://snowflavour.cn/2026-6-17-counting/index.html">
+<meta property="og:site_name" content="SnowFlavour&#39;s Blog">
+<meta property="og:description" content="Grid Completion 简化版：填一个白板，方案数为 Dn⋅n!D_n \cdot n!Dn​⋅n!（DnD_nDn​ 为错排列），也就是先固定一个 AAA，然后再确定 BBB。 然后考虑一个雷霆容斥。 先转化一下题意，用一个排列 ppp 表示 Ai&#x3D;(i,pi)A_i &#x3D; (i, p_i)Ai​&#x3D;(i,pi​)。qqq 同理。 把初始已经确定的位置记为 FA,FBF_A,F_BFA​,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png">
+<meta property="article:published_time" content="2026-06-17T08:10:00.000Z">
+<meta property="article:modified_time" content="2026-06-19T08:30:52.976Z">
+<meta property="article:author" content="Li Yuanzhuo">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="练习题">
+<meta property="article:tag" content="组合数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2026 三轮省集Day1 组合数学",
+  "url": "http://snowflavour.cn/2026-6-17-counting/",
+  "image": "https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png",
+  "datePublished": "2026-06-17T08:10:00.000Z",
+  "dateModified": "2026-06-19T08:30:52.976Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Li Yuanzhuo",
+      "url": "http://snowflavour.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://snowflavour.cn/2026-6-17-counting/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2026 三轮省集Day1 组合数学',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://s21.ax1x.com/2024/08/04/pkvFMkQ.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">SnowFlavour's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">2026 三轮省集Day1 组合数学</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2026 三轮省集Day1 组合数学</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-17T08:10:00.000Z" title="发表于 2026-06-17 16:10:00">2026-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-19T08:30:52.976Z" title="更新于 2026-06-19 16:30:52">2026-06-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2026%E4%B8%89%E8%BD%AE%E7%9C%81%E9%9B%86/">2026三轮省集</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2026-6-17-counting/#post-comment"><span class="waline-comment-count" data-path="/2026-6-17-counting/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="grid-completion"><a class="markdownIt-Anchor" href="#grid-completion"></a> <a target="_blank" rel="noopener" href="https://cses.fi/problemset/task/2429">Grid Completion</a></h2>
+<p>简化版：填一个白板，方案数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>n</mi></msub><mo>⋅</mo><mi>n</mi><mo stretchy="false">!</mo></mrow><annotation encoding="application/x-tex">D_n \cdot n!</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">n</span><span class="mclose">!</span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">D_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为错排列），也就是先固定一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>，然后再确定 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>。</p>
+<p>然后考虑一个雷霆容斥。</p>
+<p>先转化一下题意，用一个排列 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> 表示 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false">(</mo><mi>i</mi><mo separator="true">,</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A_i = (i, p_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> 同理。</p>
+<p>把初始已经确定的位置记为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>A</mi></msub><mo separator="true">,</mo><msub><mi>F</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">F_A,F_B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，在容斥的时候枚举一个重叠点的集合 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>，则有：</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi><mo>=</mo><munder><mo>∑</mo><mi>K</mi></munder><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mrow><mi mathvariant="normal">∣</mi><mi>K</mi><mi mathvariant="normal">∣</mi></mrow></msup><mo>×</mo><mo stretchy="false">(</mo><msub><mi>F</mi><mi>A</mi></msub><mo>∪</mo><mi>K</mi><mtext>扩展出来一个完整 A 的方案数</mtext><mo stretchy="false">)</mo><mo>×</mo><msub><mi>F</mi><mi>B</mi></msub><mo>∪</mo><mi>K</mi><mtext>扩展出来一个完整 B 的方案数</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+ans = \sum_K(-1)^{|K|}\times(F_A \cup K \text{扩展出来一个完整 A 的方案数}) \times F_B \cup K \text{扩展出来一个完整 B 的方案数})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">an</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3443em;vertical-align:-1.2943em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8557em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2943em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∣</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span><span class="mord mtight">∣</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord text"><span class="mord cjk_fallback">扩展出来一个完整</span><span class="mord"> A </span><span class="mord cjk_fallback">的方案数</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord text"><span class="mord cjk_fallback">扩展出来一个完整</span><span class="mord"> B </span><span class="mord cjk_fallback">的方案数</span></span><span class="mclose">)</span></span></span></span></span>
+<p>这咋做？考察一下哪些 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 是合法的。不难发现只有以下三种情况是可能合法的：</p>
+<ol>
+<li>第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 行既没有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>，也没有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>。</li>
+<li>第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 行的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> 恰好在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> 位置，没有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>。</li>
+<li>第 2 种反过来。</li>
+</ol>
+<p>把这三种 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> 分开，分别记为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>K</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>K</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">K_1,K_2,K_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。这样就容易得到两个东西各还需要填几个，那么方案数就有了，就是他的阶乘。</p>
+<p>这样，实际上可以直接枚举三个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>，然后乘以一个组合数就可以下播了。推一推式子可以优化到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，应该不难。</p>
+<h2 id="randompaintingonaboard"><a class="markdownIt-Anchor" href="#randompaintingonaboard"></a> <a target="_blank" rel="noopener" href="https://archive.topcoder.com/ProblemStatement/pm/12607">RandomPaintingOnABoard</a></h2>
+<h1 id="day-3"><a class="markdownIt-Anchor" href="#day-3"></a> Day 3</h1>
+<h2 id="yanqval-的生成树"><a class="markdownIt-Anchor" href="#yanqval-的生成树"></a> <a target="_blank" rel="noopener" href="https://loj.ac/p/566">yanQval 的生成树</a></h2>
+<p>场上想了个正解的超集.jpg</p>
+<p>考虑相当于是找一半小的、一半大的。</p>
+<p>然后这个东西似乎不好直接算（因为大小没法同时贪心），于是考虑把小的取负数，然后相当于就是找一半的白边，直接 wqs 二分。</p>
+<p>所以我场上想了个啥。</p>
+<h2 id="未完成t2"><a class="markdownIt-Anchor" href="#未完成t2"></a> 【未完成】T2</h2>
+<h2 id="未完成t3"><a class="markdownIt-Anchor" href="#未完成t3"></a> 【未完成】T3</h2>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://snowflavour.cn">Li Yuanzhuo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://snowflavour.cn/2026-6-17-counting/">http://snowflavour.cn/2026-6-17-counting/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://snowflavour.cn" target="_blank">SnowFlavour's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a><a class="post-meta__tags" href="/tags/%E7%BB%83%E4%B9%A0%E9%A2%98/">练习题</a><a class="post-meta__tags" href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">组合数学</a></div><div class="post-share"><div class="social-share" data-image="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026-6-19-ds/" title="2026 三轮省集Day1 高级数据结构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">2026 三轮省集Day1 高级数据结构</div></div><div class="info-2"><div class="info-item-1"> 大海的深度 经典思路，可以利用等式 x=∑i=0∞[x&gt;i]x = \sum\limits_{i=0}^\infty[x &gt; i]x=i=0∑∞​[x&gt;i] 来把求和转化为一大堆判定。 扫描值域，把时间当作下标，算当前序列有多少个大于 xxx 的区间。 但是直接扫描依然不好做，考虑分治，每次只处理跨过中点的区间。找出每个时刻对应的最左边和最右边，记为 aaa 和 bbb，那么他的答案就是 a×ba \times ba×b。 然后就是扫描的过程。每次扫描相当于将 aaa 和 bbb 向两侧扩展，这相当于区间取 min⁡\minmin，可以 SegTree Beat 做。然后再累加一个 a×ba \times ba×b 的历史和就做完了。  【未完成】呼吸之野  【未完成】鸽子收费站  Optimal Ordered Problem Solver 不难发现操作过的点一定会形成一个阶梯状的东西。然后剩下一堆散点，分别维护。 一个很关键的观察是，在折线上的所有节点的相对顺序不会发生改变。因此对于他们可以用平衡树来维护。 而对于散点，直接暴力插入即可，不难发现每个散点只...</div></div></div></a><a class="pagination-related" href="/2026-6-17-sdoi2026r3-contest/" title="SDOI2026 三轮省集模拟赛题目"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">SDOI2026 三轮省集模拟赛题目</div></div><div class="info-2"><div class="info-item-1">还是不按难度排序了吧，好像这样会导致人变懒（）  Day 1  【未完成】Binary Partitions  sol1 设 f(x)f(x)f(x) 表示一个  sol2  You Are Given a Tree 啊啊啊啊啊我到底什么时候才能会dp+greedy啊。 考虑贪心的话，一个子树内显然是尽可能多的完整的链，因为不完整的链一定不如完整链有用。 那么考虑对于每个 kkk 分别处理，记录 c(u)c(u)c(u) 表示以 uuu 为根的子树的最多能拼出来的完整的链，l(u)l(u)l(u) 表示在满足 c(u)c(u)c(u) 的条件下，根节点位置能弄出来的最大的不完整链长。 然后这个转移是容易的，可以找出所有儿子里面 lll 最大的两个（只有一个就找一个），尝试拼起来，能行的话就算一条，否则就把最大的往上连。 然后可以根号分治，但是加强了过不了。 于是考虑优化转移。当合并的时候先放一个发现可以把 kkk 分成大于 sizusiz_usizu​，小于 sizvsiz_vsizv​，中间三类。 前两种暴力，复杂度正确。第三种容易用线段树维护。可以分成两种，一种直接懒标记，另...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026-4-30-number-theory/" title="SDOI2026二轮省集 数论"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-30</div><div class="info-item-2">SDOI2026二轮省集 数论</div></div><div class="info-2"><div class="info-item-1"> 密码学第三次小作业 考虑一定可以找到一组 s,ts, ts,t，满足 se1+te2=1s e_1 + t e_2 = 1se1​+te2​=1。 那么只需要找到一组 s,ts, ts,t，可以得到 c1sc2t≡m(modN)c_1^sc_2^t \equiv m \pmod Nc1s​c2t​≡m(modN)。  So Mean 把除了 kkk 以外的所有数都放进去问一遍，那么发现只有 111 和 nnn 的结果是 111。由于他是对称的，随便钦定一个 111 和 nnn 就可以。 同样，去掉这两个数可以同样的方式知道 222 和 n−2n - 2n−2，这样就可以 O(n2)O(n^2)O(n2) 问出来了。 考虑优化。如果能够得到每个位置的数对几个小质数的余数，就可以通过 CRT 得到最终的答案。也就是说，考虑把 aia_iai​ 分别和 {1,2}\{1, 2\}{1,2},{1,3}\{1,3\}{1,3},{2,3}\{2,3\}{2,3} 放在一块，就可以得到对 333 的余数。 取模数集合为 {3,5,7,8}\{3, 5, 7, 8\}{3,5,7,8} 就...</div></div></div></a><a class="pagination-related" href="/2026-6-14-inversion/" title="雷霆反演"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-14</div><div class="info-item-2">雷霆反演</div></div><div class="info-2"><div class="info-item-1">所谓反演，就是对函数变换的逆变换。  容斥原理 为了完整性还是写上吧。 假设 g(x)=∑i≥xf(i)g(x) = \sum\limits_{i \ge x}f(i)g(x)=i≥x∑​f(i)，则 f(x)=∑i≥x(−1)ig(i)f(x) = \sum\limits_{i \ge x}(-1)^ig(i)f(x)=i≥x∑​(−1)ig(i)。 相关的题目好像很多来着。  二项式反演 其实就是推广的容斥原理。其形式如下：g(x)=∑i≥x(ai)f(i)g(x) = \sum\limits_{i \ge x}\binom{a}{i}f(i)g(x)=i≥x∑​(ia​)f(i)，则 f(i)=∑i≥x(ai)(−1)ig(i)f(i) = \sum\limits_{i \ge x}\binom{a}{i}(-1)^ig(i)f(i)=i≥x∑​(ia​)(−1)ig(i)。  已经没有什么好害怕的了 </div></div></div></a><a class="pagination-related" href="/2026-4-2-day3-counting/" title="2026 一轮省集Day3 组合数学"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-02</div><div class="info-item-2">2026 一轮省集Day3 组合数学</div></div><div class="info-2"><div class="info-item-1">策队好帅 今天好像本来要讲串串的来着，结果不知道为啥改成组合数学了。 实际上没听懂几个题，就写几个会的吧。  Counting Is Fun 什么情况下不合法？考虑最多情况下，左右两边都以 aia_iai​ 为删除的端点，那么如果这样把左右两边都干没了当前元素还有的话就炸了。 反之则可以通过向后扩展的方式删掉每一个。 那么现在就变成了数所有不存在 ai&gt;ai−1+ai+1a_i &gt; a_{i - 1} + a_{i + 1}ai​&gt;ai−1​+ai+1​ 的序列个数。当然左右两边可以塞个 000。 于是可以有个 DP 记录当前和上一个位置填了什么，可以 O(n3)O(n^3)O(n3)。但是这个看起来很没前途，因为如果直接 DP 的话好像没有办法避免掉记这两个东西。 那么考虑这种东西能不能容斥。也就是说不记录 i−1i - 1i−1 位置选了什么，记录 fi,jf_{i, j}fi,j​ 表示确定前 iii 个数，其中 [1,i−1][1, i - 1][1,i−1] 的位置都成立的情况数量，然后转移的时候考虑错了什么。 因此考虑搞一个 fi,jf_{i, j}...</div></div></div></a><a class="pagination-related" href="/2026-5-2-dp/" title="SDOI2026二轮省集 DP（其实全是数数）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-02</div><div class="info-item-2">SDOI2026二轮省集 DP（其实全是数数）</div></div><div class="info-2"><div class="info-item-1"> Tree Cutting 考虑对有根树做，把每个点作为根的方案数都算出来。显然会算重，但是考虑对于一个连通块，重复的数量就相当于是以每个节点作为根都数了一遍，那么最后直接除以 sks_ksk​ 就可以了。 那么现在就相当于是以一个点为根，要求所有有祖孙关系的边都是先删掉深度大的，统计方案。问题在于多个子树可以合并，因此需要记录一个目前已经达成的 kkk 的集合，那么转移的时候就每次子集枚举然后合并一个儿子进来即可。同时，考虑当前集合的 kkk 的 highbit⁡\operatorname{highbit}highbit 可能是根节点的父边，此时需要满足剩下的部分正好是 shs_hsh​。 由于是树上合并，不难用前后缀合并的方式实现换根。（recollator还在追我）  Prediction 考虑钦定前缀最大值序列 qqq，那么与 qiq_iqi​ 不合法的数一定是被扔到 qi+1q_{i + 1}qi+1​ 后面去了，因此从大到小填前缀最大值，设 lil_ili​ 表示最左边与 aia_iai​ 不合法的位置，那么从 lqil_{q_i}lqi​​ 到 lqi+1l_{q_...</div></div></div></a><a class="pagination-related" href="/2024-10-18-Gauss%E2%80%93Jordan-elimination/" title="高斯消元法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-18</div><div class="info-item-2">高斯消元法</div></div><div class="info-2"><div class="info-item-1"> Part 0. 引子 小学，我们学习了一元一次方程。其标准形式如下： ax=bax=bax=b  当 a≠0a \ne 0a=0 时方程有唯一解。 当 a=0,b≠0a=0,b \ne 0a=0,b=0 时方程无解。 当 a=0,b=0a=0,b=0a=0,b=0 时方程有无穷解。  到了初中，我们又学习了二元一次方程组。其标准形式如下： {a1x+b1y=c1a2x+b2y=c2 \left\{\begin{matrix}    a_1x+b_1y=c_1 \\     a_2x+b_2y=c_2 \end{matrix}\right.  {a1​x+b1​y=c1​a2​x+b2​y=c2​​ 将两个式子化作两个一次函数，则方程解情况如下：  当两直线相交的时候，方程有唯一解。 当两直线平行的时候，方程无解。 当两直线重合的时候，方程有无数解。  我们是怎么解这个方程的？ 加减消元，带入消元。 说白了，高斯消元就是这样解 nnn 元一次方程。  Part 1. 高斯-约当消元法 首先，我们假设有一个方程组长这个样子： {a11x1+a12x2+...+a1nxn=c1a...</div></div></div></a><a class="pagination-related" href="/2025-2-16-shu-lun-fen-kuai/" title="数论分块"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-16</div><div class="info-item-2">数论分块</div></div><div class="info-2"><div class="info-item-1"> 一类问题 有一类问题，要求你求： ∑i=1n⌊ni⌋\sum_{i=1}^n\lfloor \frac{n}{i} \rfloori=1∑n​⌊in​⌋ 这样的东西。nnn 的范围往往很大（109∼101510^9 \sim 10^{15}109∼1015），要用低于线性的复杂度。  思路 一般而言，这种东西的性质就是：虽然 nnn 很大，但是很多的数都是相同的：    iii 1 2 3 4 5 6 7 8 9 10     ⌊10i⌋\lfloor \frac{10}{i} \rfloor⌊i10​⌋ 10 5 3 2 2 1 1 1 1 1    所以我们没必要把每个 ⌊ni⌋\lfloor \frac{n}{i} \rfloor⌊in​⌋ 都求出来。 考虑会有多少种可能的 ⌊ni⌋\lfloor \frac{n}{i} \rfloor⌊in​⌋ 的取值：  在 n\sqrt{n}n​ 以后，f(x)=nxf(x)=\frac{n}{x}f(x)=xn​ 的导数小于 111，因此 f(x)f(x)f(x) 的变化速度要低于 xxx，因此 ∀y∈[1,n]∩N\forall...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s21.ax1x.com/2024/08/01/pkXdhVS.md.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Li Yuanzhuo</div><div class="author-info-description">一个菜鸡/蒟蒻</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">58</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liyuanzhuo6811"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论的QQ功能暂时无法使用。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#grid-completion"><span class="toc-number">1.</span> <span class="toc-text"> Grid Completion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#randompaintingonaboard"><span class="toc-number">2.</span> <span class="toc-text"> RandomPaintingOnABoard</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#day-3"><span class="toc-number"></span> <span class="toc-text"> Day 3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#yanqval-%E7%9A%84%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text"> yanQval 的生成树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E5%AE%8C%E6%88%90t2"><span class="toc-number">2.</span> <span class="toc-text"> 【未完成】T2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E5%AE%8C%E6%88%90t3"><span class="toc-number">3.</span> <span class="toc-text"> 【未完成】T3</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-6-19-ds/" title="2026 三轮省集Day1 高级数据结构">2026 三轮省集Day1 高级数据结构</a><time datetime="2026-06-19T08:31:07.000Z" title="发表于 2026-06-19 16:31:07">2026-06-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-6-17-counting/" title="2026 三轮省集Day1 组合数学">2026 三轮省集Day1 组合数学</a><time datetime="2026-06-17T08:10:00.000Z" title="发表于 2026-06-17 16:10:00">2026-06-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-6-17-sdoi2026r3-contest/" title="SDOI2026 三轮省集模拟赛题目">SDOI2026 三轮省集模拟赛题目</a><time datetime="2026-06-17T06:46:52.000Z" title="发表于 2026-06-17 14:46:52">2026-06-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-6-14-inversion/" title="雷霆反演">雷霆反演</a><time datetime="2026-06-14T08:24:42.000Z" title="发表于 2026-06-14 16:24:42">2026-06-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026-5-8-tricks/" title="Tricks">Tricks</a><time datetime="2026-05-08T04:42:13.000Z" title="发表于 2026-05-08 12:42:13">2026-05-08</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 - 2026 By Li Yuanzhuo</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://unpkg.com/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://unpkg.com/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.snowflavour.cn/.netlify/functions/comment',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script><link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/editor/editor.main.min.css"><script src="/js/funeditor.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
